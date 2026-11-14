@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#060f18">
+<title>Cây Tri Thức 3D · Bản thử nghiệm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --card:#10262a; --ink:#edf3e9; --sub:#9db2a7; --line:#22403c;
+  --jade:#64b79c; --jade-d:#2a6b59; --gold:#e3c179; --gold-l:#f3dca4;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#060f18;
+  font-family:"Be Vietnam Pro",system-ui,Arial,sans-serif;color:var(--ink);
+  -webkit-font-smoothing:antialiased}
+#app{position:fixed;inset:0}
+canvas{display:block;touch-action:none}
+button,a{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+
+/* ---- thanh tren ---- */
+.hud{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;padding:14px clamp(12px,3vw,26px);
+  pointer-events:none}
+.hud > *{pointer-events:auto}
+.brand{font-size:10.5px;letter-spacing:.14em;color:var(--sub);line-height:1.5}
+.brand strong{display:block;font-size:12.5px;letter-spacing:.06em;color:var(--jade)}
+.hud-right{display:flex;gap:8px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 14px;
+  border-radius:99px;background:rgba(16,38,42,.82);border:1px solid var(--line);
+  color:var(--jade);font-size:12px;font-weight:600;text-decoration:none;
+  backdrop-filter:blur(6px)}
+.pill:hover{border-color:var(--gold)}
+
+/* ---- nhan ten la dang nhin ---- */
+.reticle{position:fixed;left:50%;top:50%;z-index:4;translate:-50% -50%;
+  width:7px;height:7px;border-radius:50%;background:rgba(243,220,164,.5);
+  pointer-events:none;transition:scale .2s}
+.reticle.hot{scale:1.9;background:var(--gold-l)}
+.look{position:fixed;left:50%;top:calc(50% + 26px);z-index:4;translate:-50% 0;
+  padding:7px 14px;border-radius:99px;background:rgba(10,26,30,.85);
+  border:1px solid var(--line);font-size:12px;font-weight:600;white-space:nowrap;
+  opacity:0;transition:opacity .18s;pointer-events:none}
+.look.on{opacity:1}
+.look i{font-style:normal;color:var(--gold);font-size:10.5px;display:block;
+  letter-spacing:.08em;font-weight:400}
+
+/* ---- huong dan va nut di ---- */
+.help{position:fixed;left:50%;bottom:16px;z-index:5;translate:-50% 0;
+  display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:center;
+  font-size:11.5px;color:var(--sub);background:rgba(10,26,30,.7);
+  border:1px solid var(--line);border-radius:99px;padding:8px 16px;
+  backdrop-filter:blur(6px);max-width:calc(100vw - 24px);text-align:center}
+.kbd{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;
+  border-radius:5px;background:rgba(255,255,255,.07);border:1px solid var(--line);
+  font-size:10px;font-weight:600;color:var(--ink)}
+.pad{position:fixed;right:18px;bottom:88px;z-index:5;display:none;flex-direction:column;gap:12px}
+.pad button{width:62px;height:62px;border-radius:50%;background:rgba(16,38,42,.85);
+  border:1px solid var(--line);color:var(--gold);font-size:22px;
+  display:grid;place-items:center;backdrop-filter:blur(6px)}
+.pad button:active{background:var(--jade-d)}
+@media(pointer:coarse){.pad{display:flex}.help{font-size:10.5px}}
+
+/* ---- the QR ---- */
+.card{position:fixed;left:50%;bottom:22px;z-index:9;translate:-50% 0;width:300px;
+  max-width:calc(100vw - 24px);background:var(--card);border:1px solid var(--line);
+  border-radius:20px;padding:15px 15px 10px;text-align:center;
+  box-shadow:0 22px 54px rgba(0,0,0,.6);
+  animation:pop .3s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes pop{from{opacity:0;translate:-50% 26px;scale:.9}to{opacity:1;translate:-50% 0;scale:1}}
+.card[hidden]{display:none}
+.card .x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.07);color:var(--sub);display:grid;place-items:center;font-size:17px}
+.card .x:hover{background:var(--gold);color:#102a24}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:4px 13px 4px 6px;
+  border-radius:99px;font-size:11px;font-weight:600;background:rgba(255,255,255,.06);
+  color:var(--jade);border:1px solid var(--line)}
+.card h2{margin:7px 20px 0;font:600 18px/1.25 "Playfair Display",Georgia,serif;color:var(--ink)}
+.qrbox{display:inline-block;background:#fff;padding:8px;border-radius:11px;margin:9px auto 8px}
+.qrbox img{display:block;width:152px;height:152px;image-rendering:pixelated}
+.acts{display:flex;gap:6px;justify-content:center;flex-wrap:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;
+  padding:0 9px;border-radius:9px;font-size:11.5px;font-weight:600;
+  text-decoration:none;white-space:nowrap}
+.b1{background:var(--jade-d);color:var(--ink)}
+.b2{background:rgba(255,255,255,.07);color:var(--jade);border:1px solid var(--line)}
+.btn:hover{filter:brightness(1.12)}
+.url{margin-top:8px;font-size:9.5px;color:var(--sub);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+
+/* ---- man cho ---- */
+.boot{position:fixed;inset:0;z-index:20;display:grid;place-items:center;
+  background:#060f18;text-align:center;padding:20px;transition:opacity .6s}
+.boot.gone{opacity:0;pointer-events:none}
+.boot h1{font:600 clamp(26px,5vw,44px)/1.1 "Playfair Display",Georgia,serif;margin:0 0 10px}
+.boot h1 em{font-style:italic;color:var(--gold)}
+.boot p{font-size:13px;color:var(--sub);font-weight:300;margin:0 0 4px}
+.boot .err{color:#e8a764;font-size:12px;margin-top:14px;display:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<div class="hud">
+  <div class="brand"><strong>THPT KHƯƠNG ĐÌNH</strong>CHI ĐOÀN 11A · BẢN THỬ NGHIỆM 3D</div>
+  <div class="hud-right">
+    <span class="pill" id="count">0 / 15</span>
+    <a class="pill" href="../index.html">← Bản 2D</a>
+  </div>
+</div>
+
+<div class="reticle" id="reticle"></div>
+<div class="look" id="look"></div>
+
+<div class="help">
+  <span><span class="kbd">W</span><span class="kbd">S</span> đi tới / lùi</span>
+  <span>· kéo chuột để nhìn quanh ·</span>
+  <span>bấm vào lá để xem QR</span>
+</div>
+
+<div class="pad">
+  <button id="fwd" aria-label="Đi tới">▲</button>
+  <button id="bwd" aria-label="Lùi lại">▼</button>
+</div>
+
+<div class="card" id="card" hidden>
+  <button class="x" id="cx" aria-label="Đóng">&times;</button>
+  <span class="chip" id="cChip"></span>
+  <h2 id="cTitle"></h2>
+  <div class="qrbox"><img id="cQr" alt=""></div>
+  <div class="acts">
+    <a class="btn b1" id="cGo" target="_blank" rel="noopener noreferrer">Mở tư liệu ↗</a>
+    <button class="btn b2" id="cCopy">Chép link</button>
+    <a class="btn b2" id="cDl" download>Tải QR</a>
+  </div>
+  <div class="url" id="cUrl"></div>
+</div>
+
+<div class="boot" id="boot">
+  <div>
+    <h1>Cây <em>Tri Thức</em></h1>
+    <p>Đang dựng khu vườn ba chiều…</p>
+    <p class="err" id="bootErr">Không tải được thư viện 3D — bản này cần kết nối mạng.<br>
+      Bạn vẫn dùng được <a href="../index.html" style="color:var(--gold)">bản 2D</a> bình thường.</p>
+  </div>
+</div>
+
+<script src="du-lieu-qr.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="canh-rung.js"></script>
+</body>
+</html>
