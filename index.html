@@ -195,10 +195,10 @@ html[data-theme="night"] .heading h1{color:var(--ink)}
 .sway{transform-box:fill-box;transform-origin:bottom center;
   animation:sway var(--dur,5s) ease-in-out var(--del,0s) infinite}
 @keyframes sway{
-  0%,100%{rotate:-3.2deg;translate:0 0}
-  28%{rotate:.8deg;translate:.7px -1.1px}
-  52%{rotate:3.2deg;translate:0 .4px}
-  76%{rotate:-.9deg;translate:-.7px -.6px}
+  0%,100%{rotate:-6deg;translate:0 0}
+  28%{rotate:1.4deg;translate:1.4px -2px}
+  52%{rotate:6deg;translate:0 .8px}
+  76%{rotate:-1.8deg;translate:-1.4px -1.2px}
 }
 
 .leaf{cursor:pointer;transform-box:fill-box;transform-origin:bottom center;
@@ -238,7 +238,12 @@ html[data-theme="night"] .sp{filter:drop-shadow(0 0 3px var(--spark))}
 
 /* 15 la tu lieu rung rinh nhe de noi hon la phu */
 .leaf{animation:shimmy var(--sm,3.6s) ease-in-out var(--del,0s) infinite}
-@keyframes shimmy{0%,100%{rotate:-1.7deg}50%{rotate:1.7deg}}
+@keyframes shimmy{
+  0%,100%{rotate:-4.2deg;translate:0 0}
+  25%{rotate:1.5deg;translate:.8px -.6px}
+  50%{rotate:4.2deg;translate:0 .5px}
+  75%{rotate:-1.5deg;translate:-.8px -.4px}
+}
 
 /* sao troi, chi hien ve dem */
 .stars{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .9s ease}
@@ -250,8 +255,8 @@ html[data-theme="night"] .stars{opacity:1}
   pointer-events:none;letter-spacing:.03em}
 
 .leaf:hover,.leaf:focus-visible{scale:1.17;filter:drop-shadow(0 0 11px var(--gold-l));
-  animation:flutter 1.05s ease-in-out infinite}
-@keyframes flutter{0%,100%{rotate:-4.5deg}50%{rotate:4.5deg}}
+  animation:flutter .5s ease-in-out infinite}
+@keyframes flutter{0%,100%{rotate:-7.5deg}50%{rotate:7.5deg}}
 .leaf:active{scale:1.03}
 .leaf .mark{opacity:0;transition:opacity .3s;fill:var(--gold);stroke:var(--leaf-halo);stroke-width:1.4}
 .leaf.seen .mark{opacity:1}
@@ -259,14 +264,74 @@ html[data-theme="night"] .stars{opacity:1}
 html[data-theme="night"] .leaf{filter:drop-shadow(0 0 5px rgba(140,210,180,.2))}
 
 /* --- hoạt cảnh cây mọc lúc mở trang --- */
-.anim .branch,.anim .twig{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1s ease forwards}
-.anim .twig{animation-duration:.6s}
-@keyframes draw{to{stroke-dashoffset:0}}
+/* MOC 0.2s - hat mam roi xuong, dat gon song */
+.seed{fill:var(--gold-l);opacity:0}
+.anim .seed{animation:seedDrop 1.1s cubic-bezier(.5,0,.6,1.4) .15s both}
+@keyframes seedDrop{
+  0%{opacity:0;translate:0 -180px;scale:.4}
+  55%{opacity:1;translate:0 0;scale:1}
+  78%{scale:1.25 .72}
+  100%{opacity:0;scale:.3}
+}
+.ripple{fill:none;stroke:var(--gold-l);stroke-width:2;opacity:0}
+.anim .ripple{transform-box:fill-box;transform-origin:center;
+  animation:ripple 1.2s ease-out .85s both}
+@keyframes ripple{0%{opacity:.85;scale:.2}100%{opacity:0;scale:3.4}}
+
+/* MOC 0.7s - re dam xuong dat */
+.root{fill:none;stroke:var(--bark-3);stroke-width:4.4;stroke-linecap:round;opacity:.85}
+.anim .root{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .95s ease both}
+.anim #roots path:nth-child(1){animation-delay:.70s}
+.anim #roots path:nth-child(2){animation-delay:.80s}
+.anim #roots path:nth-child(3){animation-delay:.90s}
+.anim #roots path:nth-child(4){animation-delay:1.00s}
+.anim #roots path:nth-child(5){animation-delay:.62s}
+
+/* MOC 1.1s - than cay vuon len */
 .anim .trunk{transform-box:fill-box;transform-origin:bottom center;
-  animation:grow .85s cubic-bezier(.3,.9,.3,1) backwards}
-@keyframes grow{from{scale:1 .04;opacity:.2}to{scale:1;opacity:1}}
-.anim .leaf{animation:pop .62s cubic-bezier(.2,.9,.3,1.5) backwards}
-@keyframes pop{from{scale:0;rotate:-30deg;opacity:0}to{scale:1;rotate:0deg;opacity:1}}
+  animation:grow 1s cubic-bezier(.3,.9,.3,1) 1.05s backwards}
+@keyframes grow{from{scale:1 .03;opacity:.25}to{scale:1;opacity:1}}
+.anim .bark{animation:fadeUp .7s ease 1.9s backwards}
+@keyframes fadeUp{from{opacity:0}to{opacity:.45}}
+
+/* MOC 1.9s - canh lon ve dan ra */
+.anim .branch,.anim .twig{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .8s ease both}
+@keyframes draw{to{stroke-dashoffset:0}}
+.anim #branches path:nth-child(1){animation-delay:1.88s}
+.anim #branches path:nth-child(2){animation-delay:2.02s}
+.anim #branches path:nth-child(3){animation-delay:2.18s}
+.anim #branches path:nth-child(4){animation-delay:2.32s}
+.anim #branches path:nth-child(5){animation-delay:2.46s}
+.anim #branches path:nth-child(6){animation-delay:2.60s}
+.anim .twig{animation-duration:.5s}
+
+/* MOC 3.1s - la tu bon phia bay vun vao dung cho */
+.anim .lanchor{animation:flyIn .85s cubic-bezier(.22,.78,.3,1.06) both}
+@keyframes flyIn{
+  0%{translate:var(--fx,0) var(--fy,0);opacity:0}
+  35%{opacity:1}
+  100%{translate:0 0;opacity:1}
+}
+.anim .leaf,.anim .dleaf{animation:pop .6s cubic-bezier(.2,.9,.3,1.5) backwards}
+@keyframes pop{from{scale:.2;rotate:-38deg;opacity:0}to{scale:1;rotate:0deg;opacity:1}}
+.anim .decor,.anim .fallen{animation:fadeIn .9s ease 4.5s backwards}
+
+/* MOC 4.4s - man dem mo ra, giao dien hien len */
+.curtain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;
+  background:radial-gradient(ellipse 58% 48% at 50% 44%, rgba(0,0,0,.55) 0%, var(--sky-2) 78%)}
+body.intro .curtain{animation:curtainOut 1.5s ease 4.35s both}
+@keyframes curtainOut{0%{opacity:.94}100%{opacity:0}}
+body.intro .mast,body.intro .heading,body.intro .side,body.intro .foot{
+  animation:uiIn 1s cubic-bezier(.2,.8,.3,1) 4.85s both}
+@keyframes uiIn{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+
+.skip{position:fixed;right:18px;bottom:18px;z-index:30;display:none;
+  align-items:center;gap:7px;min-height:38px;padding:0 16px;border-radius:99px;
+  background:var(--card);border:1px solid var(--line);color:var(--jade);
+  font-size:12.5px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.35);
+  animation:uiIn .5s ease 1.2s both}
+body.intro .skip{display:inline-flex}
+.skip:hover{border-color:var(--gold)}
 
 /* ---------- 8. Hai thẻ hai bên ---------- */
 .side{position:absolute;top:50%;translate:0 -50%;width:212px;z-index:3;pointer-events:none}
@@ -411,13 +476,16 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
   .heading p{font-size:11px}
   .tree-wrap{width:min(100%,790px)}
 }
+/* May dang bat "giam chuyen dong" (Windows: Cai dat > Tro nang > Hieu ung hinh anh).
+   Chi bo cac hieu ung bay ngang, troi va xoay manh; van giu la dung dua, rung rinh
+   va lap lanh de cay khong bi dung im. */
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation:none!important;transition:none!important}
+  .rayspin,.birds{animation:none!important}
   .mote,.petal{display:none}
 }
 </style>
 </head>
-<body>
+<body class="intro">
 
 <!-- ================= PHONG CẢNH NỀN ================= -->
 <div class="scenery" id="scenery" aria-hidden="true">
@@ -470,6 +538,7 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
       <button class="btn-ghost" id="btnList" title="Xem toàn bộ 15 tư liệu"><span aria-hidden="true">&#9638;</span><span class="lbl">Danh sách</span></button>
       <button class="btn-ghost" id="btnRandom" title="Mở ngẫu nhiên một tư liệu"><span aria-hidden="true">&#10022;</span><span class="lbl">Bất ngờ</span></button>
       <button class="btn-ghost icon" id="btnTheme" title="Đổi sang cảnh đêm" aria-label="Đổi sáng tối">&#9790;</button>
+      <button class="btn-ghost icon" id="btnReplay" title="Xem lại hiệu ứng mở màn" aria-label="Xem lại mở màn">&#8635;</button>
       <button class="btn-ghost icon" id="btnFull" title="Toàn màn hình" aria-label="Toàn màn hình">&#9974;</button>
     </div>
   </header>
@@ -519,6 +588,16 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
         </defs>
 
         <ellipse cx="450" cy="664" rx="190" ry="17" fill="var(--shadow)"></ellipse>
+
+        <g id="roots" aria-hidden="true">
+          <path class="root" d="M450 666 C420 676 378 684 328 688" pathLength="1"></path>
+          <path class="root" d="M450 666 C480 676 522 684 572 688" pathLength="1"></path>
+          <path class="root" d="M450 666 C434 682 418 692 396 698" pathLength="1"></path>
+          <path class="root" d="M450 666 C466 682 482 692 504 698" pathLength="1"></path>
+          <path class="root" d="M450 666 C450 680 450 690 450 699" pathLength="1"></path>
+        </g>
+        <circle class="ripple" cx="450" cy="667" r="12" aria-hidden="true"></circle>
+        <circle class="seed" cx="450" cy="661" r="7.5" aria-hidden="true"></circle>
 
         <path class="trunk" d="M402 666 C410 600 418 540 428 492 C436 452 439 400 434 336 L466 336 C461 400 464 452 472 492 C482 540 490 600 498 666 C478 658 422 658 402 666 Z"></path>
         <path class="bark" d="M438 620 Q430 566 442 516 M456 596 Q464 546 454 500 M444 470 Q436 420 446 372"></path>
@@ -604,6 +683,8 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
   </div>
 </div>
 
+<div class="curtain" aria-hidden="true"></div>
+<button class="skip" id="skip">Bỏ qua mở màn &#8631;</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -678,13 +759,21 @@ var NS="http://www.w3.org/2000/svg";
 function mk(t,a){var n=document.createElementNS(NS,t);for(var k in a)n.setAttribute(k,a[k]);return n}
 function $(id){return document.getElementById(id)}
 
+/* Moi chiec la bay vao tu phia ngoai man hinh, theo huong toa ra tu goc cay */
+function flyFrom(el,x,y){
+  var dx=x-450,dy=y-320,m=Math.sqrt(dx*dx+dy*dy)||1;
+  var d=430+Math.random()*300;
+  el.style.setProperty("--fx",(dx/m*d).toFixed(0)+"px");
+  el.style.setProperty("--fy",(dy/m*d*.75-150).toFixed(0)+"px");
+}
+
 /* ---- nhánh nhỏ nối cành mẹ tới từng chiếc lá ---- */
 var twigs=$("twigs");
 POS.forEach(function(p,i){
   var b=NODES[p[4]],bx=b[0],by=b[1],lx=p[0],ly=p[1];
   var mx=(bx+lx)/2+(ly-by)*.14, my=(by+ly)/2-Math.abs(lx-bx)*.12;
   var t=mk("path",{"class":"twig",d:"M"+bx+" "+by+" Q"+mx+" "+my+" "+lx+" "+ly,pathLength:1});
-  t.style.animationDelay=(.55+i*.028)+"s";
+  t.style.animationDelay=(2.88+i*.032)+"s";
   twigs.appendChild(t);
 });
 
@@ -692,17 +781,20 @@ POS.forEach(function(p,i){
 var leavesG=$("leaves"),leafEls=[];
 POS.forEach(function(p,i){
   var it=DATA[i];
-  var anchor=mk("g",{transform:"translate("+p[0]+" "+p[1]+") rotate("+p[2]+") scale("+(p[3]*1.12).toFixed(3)+")"});
+  var anchor=mk("g",{"class":"lanchor",
+    transform:"translate("+p[0]+" "+p[1]+") rotate("+p[2]+") scale("+(p[3]*1.12).toFixed(3)+")"});
+  anchor.style.animationDelay=(3.55+i*.085).toFixed(2)+"s";
+  flyFrom(anchor,p[0],p[1]);
   var sway=mk("g",{"class":"sway"});
-  sway.style.setProperty("--dur",(4.1+(i%5)*.6).toFixed(2)+"s");
+  sway.style.setProperty("--dur",(3.0+(i%5)*.5).toFixed(2)+"s");
   sway.style.setProperty("--del",(-(i*.41)).toFixed(2)+"s");
 
   var leaf=mk("g",{"class":"leaf",role:"button",tabindex:"0","data-i":i,
     "aria-label":"Mở mã QR tư liệu "+it.id+": "+it.title+", "+LABELS[it.category]});
-  leaf.style.animationDelay=(.75+i*.055)+"s";
+  leaf.style.animationDelay=(3.62+i*.085).toFixed(2)+"s";
   leaf.style.setProperty("--sh",(5.5+(i%4)*1.4).toFixed(1)+"s");
   leaf.style.setProperty("--del",(-(i*.63)).toFixed(2)+"s");
-  leaf.style.setProperty("--sm",(3.1+(i%6)*.42).toFixed(2)+"s");
+  leaf.style.setProperty("--sm",(1.5+(i%6)*.23).toFixed(2)+"s");
   leaf.style.setProperty("--ap",(4.4+(i%5)*.7).toFixed(2)+"s");
 
   /* hao quang toa phia sau chiec la */
@@ -729,8 +821,8 @@ POS.forEach(function(p,i){
   SPARKS.forEach(function(s,k){
     var hold=mk("g",{transform:"translate("+s[0]+" "+s[1]+") scale("+s[2]+")"});
     var st=mk("path",{"class":"sp",d:STAR_PATH});
-    st.style.setProperty("--sd",(k*.85+i*.23).toFixed(2)+"s");
-    st.style.setProperty("--td",(2.3+k*.55).toFixed(2)+"s");
+    st.style.setProperty("--sd",(k*.55+i*.17).toFixed(2)+"s");
+    st.style.setProperty("--td",(1.5+k*.38).toFixed(2)+"s");
     hold.appendChild(st);spg.appendChild(hold);
   });
   leaf.appendChild(spg);
@@ -861,6 +953,7 @@ document.addEventListener("keydown",function(e){
   if(e.key==="Escape"){
     if(overlay.classList.contains("show"))closeItem();
     else if(listOverlay.classList.contains("show"))listOverlay.classList.remove("show");
+    else if(document.body.classList.contains("intro"))endIntro();
   }
   if(overlay.classList.contains("show")){
     if(e.key==="ArrowRight"){e.preventDefault();step(1)}
@@ -980,7 +1073,30 @@ if(!reduce){
 }
 
 /* bỏ lớp hoạt cảnh sau khi cây mọc xong để tương tác mượt */
-setTimeout(function(){$("tree").classList.remove("anim")},2700);
+/* ==========================================================
+   10. MO MAN: hat mam -> re -> than -> canh -> la bay vao
+   ========================================================== */
+var INTRO_MS = 6100;
+var introT = null;
+
+function endIntro(){
+  clearTimeout(introT); introT = null;
+  document.body.classList.remove("intro");
+  $("tree").classList.remove("anim");
+}
+function playIntro(){
+  var tree = $("tree");
+  clearTimeout(introT);
+  document.body.classList.add("intro");
+  tree.classList.remove("anim");
+  void tree.getBoundingClientRect();   /* buoc trinh duyet ve lai de chay lai tu dau */
+  tree.classList.add("anim");
+  introT = setTimeout(endIntro, INTRO_MS);
+}
+
+$("skip").addEventListener("click", endIntro);
+$("btnReplay").addEventListener("click", playIntro);
+introT = setTimeout(endIntro, INTRO_MS);
 
 /* ==========================================================
    9. LÁ PHỤ LÀM DÀY TÁN CÂY
@@ -999,12 +1115,15 @@ var DGREENS=["url(#lf-jade)","url(#lf-moss)","url(#lf-olive)","url(#lf-jade)",
              "url(#lf-moss)","url(#lf-gold)","url(#lf-jade)","url(#lf-moss)"];
 var fillerG=$("filler");
 FILLERS.forEach(function(f,i){
-  var a=mk("g",{transform:"translate("+f[0]+" "+f[1]+") rotate("+f[2]+") scale("+f[3]+")"});
+  var a=mk("g",{"class":"lanchor",
+    transform:"translate("+f[0]+" "+f[1]+") rotate("+f[2]+") scale("+f[3]+")"});
+  a.style.animationDelay=(3.10+i*.042).toFixed(2)+"s";
+  flyFrom(a,f[0],f[1]);
   var s=mk("g",{"class":"sway"});
-  s.style.setProperty("--dur",(3.8+(i%7)*.55).toFixed(2)+"s");
+  s.style.setProperty("--dur",(2.9+(i%7)*.48).toFixed(2)+"s");
   s.style.setProperty("--del",(-(i*.29)).toFixed(2)+"s");
   var d=mk("g",{"class":"dleaf","aria-hidden":"true"});
-  d.style.animationDelay=(.6+i*.03)+"s";
+  d.style.animationDelay=(3.16+i*.042).toFixed(2)+"s";
   d.appendChild(mk("path",{d:LEAF_PATH,fill:DGREENS[i%DGREENS.length]}));
   d.appendChild(mk("path",{"class":"vein",d:"M 0 -8 L 0 -70"}));
   s.appendChild(d);a.appendChild(s);fillerG.appendChild(a);
