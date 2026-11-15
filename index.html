@@ -504,6 +504,7 @@ html[data-theme="night"] .bubble h2{color:var(--ink)}
 .bubble .qr-frame{margin:9px auto 8px;padding:8px;border-radius:11px}
 .bubble .qr-frame img{width:152px;height:152px}
 .bubble .actions{gap:6px;flex-wrap:nowrap}
+.bubble .back{width:100%;margin-top:7px;justify-content:center}
 .bubble .btn{min-height:34px;padding:0 9px;font-size:11.5px;border-radius:9px;white-space:nowrap}
 .bubble .url{margin-top:8px;font-size:9.5px;line-height:1.4;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -547,6 +548,60 @@ html[data-theme="night"] .sheet h3{color:var(--ink)}
 .card .t span{font-size:10.5px;color:var(--faint);letter-spacing:.06em}
 .card .n{font-size:9.5px;font-weight:700;color:var(--gold);letter-spacing:.12em}
 
+/* ---------- 11b. Thu vien so hoa ---------- */
+.tvstat{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:15px 0 4px}
+.tvstat>div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.tvstat b{display:block;font:600 20px/1.15 "Playfair Display",Georgia,serif;color:var(--jade-d)}
+html[data-theme="night"] .tvstat b{color:var(--gold-l)}
+.tvstat span{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.tvtree{margin-top:14px}
+.tvkhoa{border:1px solid var(--line);border-radius:15px;margin-bottom:9px;background:var(--paper)}
+.tvkhoa.open{border-color:var(--gold-l)}
+.tvhead{display:flex;align-items:center;gap:10px;width:100%;padding:13px 15px;text-align:left;
+  background:none;border:0;cursor:pointer;border-radius:15px}
+.tvhead .cv{color:var(--gold);font-size:10px;transition:rotate .22s}
+.tvkhoa.open .tvhead .cv{rotate:90deg}
+.tvhead b{font-size:13.5px;font-weight:600;color:var(--ink)}
+.tvhead i{font-style:normal;font-size:11px;color:var(--faint);margin-left:auto;text-align:right}
+.tvbody{display:none;padding:0 11px 11px}
+.tvkhoa.open .tvbody{display:block}
+.tvlop{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:12px;
+  border:1px solid transparent;flex-wrap:wrap}
+.tvlop+.tvlop,.tvpanel+.tvlop{margin-top:4px}
+.tvlop.co{background:var(--card);border-color:var(--line);box-shadow:0 4px 16px var(--shadow)}
+.tvicon{width:28px;height:32px;flex:none}
+.tvlop .ten{font-size:13.5px;font-weight:700;color:var(--ink);min-width:46px;letter-spacing:.04em}
+.tvlop.cho .ten{color:var(--faint);font-weight:500}
+.tvmeter{display:flex;gap:2.5px;flex:1;min-width:92px;flex-wrap:wrap}
+.tvmeter i{width:7px;height:9px;background:var(--jade);
+  border-radius:50% 50% 50% 50%/62% 62% 38% 38%}
+.tvmeter i.o{background:none;box-shadow:inset 0 0 0 1px var(--line)}
+.tvinfo{font-size:11px;color:var(--faint);white-space:nowrap}
+.tvlop.co .tvinfo{color:var(--gold)}
+.tvacts{display:flex;gap:6px;margin-left:auto}
+.tvbtn{display:inline-flex;align-items:center;gap:5px;min-height:31px;padding:0 11px;border-radius:9px;
+  font-size:11.5px;font-weight:600;border:1px solid var(--line);background:var(--paper);
+  color:var(--ink);cursor:pointer;white-space:nowrap;transition:border-color .2s,background .2s}
+.tvbtn:hover{border-color:var(--gold)}
+.tvbtn.main{background:var(--jade-d);color:#f3efe1;border-color:var(--jade-d)}
+html[data-theme="night"] .tvbtn.main{background:var(--gold-l);color:#102a24;border-color:var(--gold-l)}
+.tvbtn .cv{font-size:9px;transition:rotate .22s}
+.tvbtn.open .cv{rotate:90deg}
+.tvpanel{display:none;padding:6px 0 10px 15px;margin:3px 0 4px 14px;border-left:1px dashed var(--line)}
+.tvpanel .group-t{margin:14px 0 9px}
+.tvpanel .group-t:first-child{margin-top:6px}
+.tvpanel.open{display:block}
+.tvnote{margin:9px 2px 0;font-size:11px;line-height:1.55;color:var(--faint);font-weight:300}
+@media(max-width:620px){
+  .tvstat{grid-template-columns:repeat(2,1fr)}
+  .tvhead i{width:100%;text-align:left;margin-left:0;order:3}
+  .tvhead{flex-wrap:wrap}
+  .tvmeter{order:4;width:100%;flex:1 0 100%;margin-top:2px}
+  .tvacts{width:100%;margin-left:0;order:5;margin-top:6px}
+  .tvbtn{flex:1;justify-content:center;min-height:38px;font-size:12px}
+  .tvhead{padding:14px 13px}
+}
+
 /* ---------- 12. Thông báo ---------- */
 .toast{position:fixed;left:50%;bottom:28px;z-index:40;translate:-50% 16px;opacity:0;
   padding:11px 20px;border-radius:99px;background:var(--jade-d);color:#f3efe1;
@@ -559,12 +614,18 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
 @media(max-width:1300px){.side{width:170px}.side h2{font-size:18px}.side p{font-size:11.5px}}
 @media(max-width:1040px){.side{display:none}.tree-wrap{width:min(100%,830px)}}
 @media(max-width:620px){
-  .mast{padding-top:10px;gap:10px}
+  /* man hinh hep: ten truong mot hang, day nut xuong hang duoi cho khoi de nhau */
+  .mast{padding-top:10px;gap:8px;flex-wrap:wrap;justify-content:center}
+  .identity{flex:1 1 100%;justify-content:center}
+  .school{text-align:center}
+  .tools{width:100%;justify-content:center;flex-wrap:wrap}
   .seal{width:34px;height:34px;font-size:20px}
   .school{font-size:9px}.school strong{font-size:10.5px}
-  .progress b span{display:none}.progress{padding:5px 10px 5px 5px}
-  .btn-ghost{min-height:34px;padding:0 11px;font-size:11.5px}
-  .btn-ghost.icon{width:34px}
+  .progress b span{display:none}.progress{padding:4px 9px 4px 4px;gap:6px}
+  .ring{width:26px;height:26px}
+  .tools{gap:6px}
+  .btn-ghost{min-height:32px;padding:0 9px;font-size:11.5px}
+  .btn-ghost.icon{width:32px}
   .btn-ghost .lbl{display:none}
   .heading h1{font-size:clamp(32px,9vw,46px)}
   .heading p{max-width:300px;margin:0 auto;line-height:1.45}
@@ -589,6 +650,108 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
   .rayspin,.birds{animation:none!important}
   .mote,.petal{display:none}
 }
+
+/* ---------- 14. Khu vườn 3D (lớp phủ, chỉ dựng khi bấm vào) ---------- */
+#scene3d{position:fixed;inset:0;z-index:40;background:#07121d;color:#edf3e9;
+  --card:#10262a;  --ink:#edf3e9;  --sub:#9db2a7;  --line:#22403c;
+  --jade:#64b79c;  --jade-d:#2a6b59; --gold:#e3c179; --gold-l:#f3dca4}
+#scene3d[hidden]{display:none}
+#scene3d .boot[hidden]{display:none}
+body.ba-chieu .screen,body.ba-chieu .scenery,
+body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
+#scene3d *{box-sizing:border-box}
+#scene3d #app{position:fixed;inset:0}
+#scene3d canvas{display:block;touch-action:none}
+#scene3d button,#scene3d a{font:inherit;color:inherit}
+#scene3d button{cursor:pointer;border:0;background:none}
+#scene3d /* ---- thanh tren ---- */
+.hud{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;padding:14px clamp(12px,3vw,26px);
+  pointer-events:none}
+#scene3d .hud > *{pointer-events:auto}
+#scene3d .brand{font-size:10.5px;letter-spacing:.14em;color:var(--sub);line-height:1.5}
+#scene3d .brand strong{display:block;font-size:12.5px;letter-spacing:.06em;color:var(--jade)}
+#scene3d .hud-right{display:flex;gap:8px;align-items:center}
+#scene3d .pill{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 14px;
+  border-radius:99px;background:rgba(16,38,42,.82);border:1px solid var(--line);
+  color:var(--jade);font-size:12px;font-weight:600;text-decoration:none;
+  backdrop-filter:blur(6px)}
+#scene3d .pill:hover{border-color:var(--gold)}
+#scene3d /* ---- nhan ten la dang nhin ---- */
+.reticle{position:fixed;left:50%;top:50%;z-index:4;translate:-50% -50%;
+  width:7px;height:7px;border-radius:50%;background:rgba(243,220,164,.5);
+  pointer-events:none;transition:scale .2s}
+#scene3d .reticle.hot{scale:1.9;background:var(--gold-l)}
+#scene3d .look{position:fixed;left:50%;top:calc(50% + 26px);z-index:4;translate:-50% 0;
+  padding:7px 14px;border-radius:99px;background:rgba(10,26,30,.85);
+  border:1px solid var(--line);font-size:12px;font-weight:600;white-space:nowrap;
+  opacity:0;transition:opacity .18s;pointer-events:none}
+#scene3d .look.on{opacity:1}
+#scene3d .look i{font-style:normal;color:var(--gold);font-size:10.5px;display:block;
+  letter-spacing:.08em;font-weight:400}
+#scene3d /* ---- huong dan va nut di ---- */
+.help{position:fixed;left:50%;bottom:16px;z-index:5;translate:-50% 0;
+  display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:center;
+  font-size:11.5px;color:var(--sub);background:rgba(10,26,30,.7);
+  border:1px solid var(--line);border-radius:99px;padding:8px 16px;
+  backdrop-filter:blur(6px);max-width:calc(100vw - 24px);text-align:center}
+#scene3d .kbd{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;
+  border-radius:5px;background:rgba(255,255,255,.07);border:1px solid var(--line);
+  font-size:10px;font-weight:600;color:var(--ink)}
+#scene3d .pad{position:fixed;right:12px;bottom:70px;z-index:5;display:none;
+  grid-template-columns:repeat(3,54px);grid-template-rows:repeat(3,54px);gap:5px}
+#scene3d .pad .up{grid-area:1/2/2/3}
+#scene3d .pad .lf{grid-area:2/1/3/2}
+#scene3d .pad .rt{grid-area:2/3/3/4}
+#scene3d .pad .dn{grid-area:3/2/4/3}
+#scene3d .pad button{width:54px;height:54px;border-radius:50%;background:rgba(16,38,42,.85);
+  border:1px solid var(--line);color:var(--gold);font-size:22px;
+  display:grid;place-items:center;backdrop-filter:blur(6px)}
+#scene3d .pad button:active{background:var(--jade-d)}
+#scene3d .help .cham{display:none}
+#scene3d.co-the .pad{display:none}
+@media(pointer:coarse){
+#scene3d .pad{display:grid}
+#scene3d .help .chuot{display:none}
+#scene3d .help .cham{display:inline}
+#scene3d .help{font-size:10.5px}}
+#scene3d /* ---- the QR ---- */
+.card{position:fixed;left:50%;bottom:22px;z-index:9;translate:-50% 0;width:300px;
+  max-width:calc(100vw - 24px);background:var(--card);border:1px solid var(--line);
+  border-radius:20px;padding:15px 15px 10px;text-align:center;
+  box-shadow:0 22px 54px rgba(0,0,0,.6);
+  animation:t3pop .3s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes t3pop{from{opacity:0;translate:-50% 26px;scale:.9}to{opacity:1;translate:-50% 0;scale:1}}
+#scene3d .card[hidden]{display:none}
+#scene3d .card .x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.07);color:var(--sub);display:grid;place-items:center;font-size:17px}
+#scene3d .card .x:hover{background:var(--gold);color:#102a24}
+#scene3d .chip{display:inline-flex;align-items:center;gap:7px;padding:4px 13px 4px 6px;
+  border-radius:99px;font-size:11px;font-weight:600;background:rgba(255,255,255,.06);
+  color:var(--jade);border:1px solid var(--line)}
+#scene3d .card h2{margin:7px 20px 0;font:600 18px/1.25 "Playfair Display",Georgia,serif;color:var(--ink)}
+#scene3d .qrbox{display:inline-block;background:#fff;padding:8px;border-radius:11px;margin:9px auto 8px}
+#scene3d .qrbox img{display:block;width:152px;height:152px;image-rendering:pixelated}
+#scene3d .acts{display:flex;gap:6px;justify-content:center;flex-wrap:nowrap}
+#scene3d .btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;
+  padding:0 9px;border-radius:9px;font-size:11.5px;font-weight:600;
+  text-decoration:none;white-space:nowrap}
+#scene3d .b1{background:var(--jade-d);color:var(--ink)}
+#scene3d .b2{background:rgba(255,255,255,.07);color:var(--jade);border:1px solid var(--line)}
+#scene3d .btn:hover{filter:brightness(1.12)}
+#scene3d .url{margin-top:8px;font-size:9.5px;color:var(--sub);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+#scene3d /* ---- man cho ---- */
+.boot{position:fixed;inset:0;z-index:20;display:grid;place-items:center;
+  background:#060f18;text-align:center;padding:20px;transition:opacity .6s}
+#scene3d .boot.gone{opacity:0;pointer-events:none}
+#scene3d .boot h1{font:600 clamp(26px,5vw,44px)/1.1 "Playfair Display",Georgia,serif;margin:0 0 10px}
+#scene3d .boot h1 em{font-style:italic;color:var(--gold)}
+#scene3d .boot p{font-size:13px;color:var(--sub);font-weight:300;margin:0 0 4px}
+#scene3d .boot .err{color:#e8a764;font-size:12px;margin-top:14px;display:none}
+/* chan vai thuoc tinh cua lop .card ben bang danh sach 2D ro sang the QR 3D */
+#scene3d .card{display:block;align-items:normal;gap:0;transition:none}
+#scene3d .btn{gap:0}
 </style>
 </head>
 <body class="intro">
@@ -644,9 +807,10 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
         </svg>
         <b><span>ĐÃ KHÁM PHÁ</span><em id="countTxt" style="font-style:normal">0 / 15</em></b>
       </div>
-      <button class="btn-ghost" id="btnList" title="Xem toàn bộ 15 tư liệu"><span aria-hidden="true">&#9638;</span><span class="lbl">Danh sách</span></button>
+      <button class="btn-ghost" id="btnList" title="Thư viện số hóa theo niên khóa và lớp"><span aria-hidden="true">&#9638;</span><span class="lbl">Thư viện số</span></button>
       <button class="btn-ghost" id="btnRandom" title="Mở ngẫu nhiên một tư liệu"><span aria-hidden="true">&#10022;</span><span class="lbl">Bất ngờ</span></button>
       <button class="btn-ghost icon" id="btnTheme" title="Đổi sang cảnh đêm" aria-label="Đổi sáng tối">&#9790;</button>
+      <button class="btn-ghost" id="btn3D" title="Bước vào khu vườn ba chiều"><span aria-hidden="true">&#9968;</span><span class="lbl">Vườn 3D</span></button>
       <button class="btn-ghost icon" id="btnReplay" title="Xem lại hiệu ứng mở màn" aria-label="Xem lại mở màn">&#8635;</button>
       <button class="btn-ghost icon" id="btnFull" title="Toàn màn hình" aria-label="Toàn màn hình">&#9974;</button>
     </div>
@@ -790,6 +954,7 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
     <button class="btn btn-alt" id="mCopy">Chép link</button>
     <a class="btn btn-alt" id="mDl" download>Tải QR</a>
   </div>
+  <button class="btn btn-alt back" id="mBack" hidden>&#8249; Về thư viện số</button>
   <div class="url" id="mUrl"></div>
   <div class="nav">
     <button id="mPrev">&#8249; Lá trước</button>
@@ -802,8 +967,16 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
 <div class="overlay" id="listOverlay" role="dialog" aria-modal="true" aria-labelledby="lTitle">
   <div class="sheet">
     <button class="x" id="lClose" aria-label="Đóng">&times;</button>
-    <h3 id="lTitle">Toàn bộ kho tư liệu</h3>
-    <p class="lead">15 học liệu số, xếp theo bốn nhóm — chọn một thẻ để xem mã QR và mở trực tiếp.</p>
+    <h3 id="lTitle">Thư viện số hóa</h3>
+    <p class="lead">THPT Khương Đình — kho tư liệu số xếp theo niên khóa và lớp. Mở một lớp để xem ngay nội dung, hoặc bước vào cây tri thức của lớp đó.</p>
+    <div class="tvstat">
+      <div><b>15</b><span>tư liệu số</span></div>
+      <div><b>4</b><span>dạng học liệu</span></div>
+      <div><b>15</b><span>mã QR</span></div>
+      <div><b>1</b><span>lớp tiên phong</span></div>
+    </div>
+    <div class="tvtree" id="tvtree"></div>
+    <p class="tvnote">Mỗi lớp là một cái cây: cây xanh là lớp đã có kho tư liệu số, cây non là lớp đang triển khai, mầm là lớp chờ khởi động. Chi đoàn 11A là lớp đầu tiên hoàn thiện — cấu trúc này sẵn sàng nhân rộng cho các lớp còn lại.</p>
     <div id="groups"></div>
   </div>
 </div>
@@ -811,6 +984,54 @@ html[data-theme="night"] .toast{background:var(--gold-l);color:#102a24}
 <div class="curtain" aria-hidden="true"></div>
 <button class="skip" id="skip">Bỏ qua mở màn &#8631;</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ KHU VUON 3D ============ -->
+<div id="scene3d" hidden>
+<div id="app"></div>
+
+<div class="hud">
+  <div class="brand"><strong>THPT KHƯƠNG ĐÌNH</strong>CHI ĐOÀN 11A · KHU VƯỜN 3D</div>
+  <div class="hud-right">
+    <span class="pill" id="count">0 / 15</span>
+    <button class="pill" id="btnThoat3D">← Về cây 2D</button>
+  </div>
+</div>
+
+<div class="reticle" id="reticle"></div>
+<div class="look" id="look"></div>
+
+<div class="help">
+  <span class="chuot"><span class="kbd">W</span><span class="kbd">S</span> đi tới / lùi · <span class="kbd">A</span><span class="kbd">D</span> sang ngang</span>
+  <span class="chuot">· kéo chuột để nhìn quanh ·</span>
+  <span class="cham">vuốt màn hình để nhìn quanh · mũi tên để đi ·</span>
+  <span>bấm vào lá để xem QR</span>
+</div>
+
+<div class="pad">
+  <button id="fwd" class="up" aria-label="Đi tới">▲</button>
+  <button id="lft" class="lf" aria-label="Sang trái">◀</button>
+  <button id="rgt" class="rt" aria-label="Sang phải">▶</button>
+  <button id="bwd" class="dn" aria-label="Lùi lại">▼</button>
+</div>
+
+<div class="card" id="card" hidden>
+  <button class="x" id="cx" aria-label="Đóng">&times;</button>
+  <span class="chip" id="cChip"></span>
+  <h2 id="cTitle"></h2>
+  <div class="qrbox"><img id="cQr" alt=""></div>
+  <div class="acts">
+    <a class="btn b1" id="cGo" target="_blank" rel="noopener noreferrer">Mở tư liệu ↗</a>
+    <button class="btn b2" id="cCopy">Chép link</button>
+    <a class="btn b2" id="cDl" download>Tải QR</a>
+  </div>
+  <div class="url" id="cUrl"></div>
+</div>
+
+<div class="boot" id="boot" hidden>
+  <div><p class="err" id="bootErr">Không tải được thư viện đồ hoạ 3D — phần này cần kết nối mạng.<br>
+    Cây hai chiều vẫn dùng bình thường.</p></div>
+</div>
+</div>
 
 <script>
 "use strict";
@@ -823,17 +1044,17 @@ const DATA=[
 {"id":2,"title":"Podcast 1","category":"podcast","url":"https://drive.google.com/file/d/1dLINH1jucwx6t_iB4voqUboGXYpnK0fA/view?usp=drivesdk","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjoAAAI6AQAAAAAGM99tAAAFI0lEQVR42u2dva3kOBCEq08CxqSADWBCkTK4kB5eSJuBFMoEsIBkDkChzmDzR3POGc+gDiVDmLej+Qyil2hWV7eM+JFr+ws/dAkkkEACCSSQQAIJJND/BWR+jQBwps/AMQKbmWGzEX6bTrMFgC1H/tGixRaoW9BMktwBbJN/YzadBgTSlvA2f+71IHCYARhIktRiC9Qz6Cib7zGCayAx7wMx72eKYg/vEIHtGXPwp11eiy3QDUCBtOUw4/czwpZjBNdjBPl6ENt0pt2bqxZboJ5B48ffNr/GCITd/94mwIB0M877CcwrqMUW6B6RHQjgALhNMG5/nyMQzpHbMkTg+AXi+BUNYSc2G1I6Qi22QL2C0J4CMZTs+j/c8o9mkly12AJ1GNn1AkK+pYjFQHIfknLCFQMxM37+TJEtUL/aSL6NSFH8XeXtpP9FAOFtKbw3G+FqihZboG5BScUOJMm3mU2ALSmUI7iGiPRvX3sRuut/CC22QL3n2UDOPHImnTKPfbgmJ0jbei3XKBsRqFNQiCAZYQtq5kGmIo1Np/HbzGwpu7cnIqeq6wL1fIJcr9t1jfY1lKMlrt9ioNcqtWcL1G82EqJnHmuI8ECn7+Ncg5fTPdD3i2VEkS1Qx6rfDmDekaM4hXeRrXNe4ofMffCMew1Z/1NkC9SnNvIk0w3HI9+Kww84jdyLIhLellSSr32g8myButZGPH/+kEXyp2uyTd/WvWqpPVugjkFFESnHw2978OJYde06bdKpxM6oxRboBnt22ZAbbcQPlFnP/lc+rj1boK5PkKXkkk3ajeBXtmY3j9SQV2QL1LsjKm/NyQy1I2fSWf2oe3ZbklRkC9R3NjLvA5vcIul6HwpfqaSz1tnl9ROo/z27za5rpWa/PLxmMaQ5aSqyBep3KsNyjGm7Tt3pM90egm1yC1SN++Tw8/CWb0SgvkGB9AEjE4DNHuR6jG5bXeDnRvt6+UCG9HCRwbXYAvVcXc8OEjc+hbanpuolKG6RtvdGiy1QlyfI6m/a3Q+SzX1tOp31v0F5tkA3Uv2uZtV0Wiwb9+V86UKKHFEC3SEbqYpIzjJiY2Wt+XjWsyPaAo8WW6AutZG8DSeb3/zKEyv9oOiCH9dj9Dbf5Cqp3TVabIHQ3ySdND9nfo0wYAC3JwEcKZOO2BbAEP4YgdMwr0MS/DDvkzp8Ber9BFn7Z1L6kVys10ax6mwFLlVLZSMCdTtJpwnW6vqrUslcUvFabC+mKUW2QP12+F58I6WfvfQgNN/yIososgW6w1y/0rGe56C1/TNpk16bmo20EYE6n8X6ZyRwGoEThpAHrc6/HwRwAvPvyQCMEcA5EocB/gsttkB9u1iLm6+ZpBPchn3prmk/6QQpUNfzRkqJPVcZswM7thl37eutuYoiW6COT5ChNDk2xfbYzNTO/TPZvd1O3FFkC9T39LPcTtN6+HLzWHVENa4SZSMC3aB3PY8aaR1+zYNNFH9+ocgWqNfqetMwg/SavJjL5uk9NTEF+mZDxMzTMK+ANc9psQVC5+/wHcgVp9XKo08eTlPgTzOzR+6pCZqkI9ANfCM1EfmoxeQTZL5VIUU1SIE617NzO811Kmt+oenQmqY+RmwrsgW6AcjfToM8Y7WZdHb4K5fMnm/zuX6vUf5sgW6xZ9f3ejTvfmyHwqOZIC/fiED3ybM/azaf+t+19q7IFugmXr/GRtK83OPqGwEuA4alZwvUIcj4M5xNiy2QQAIJJJBAAgkkkEDl+gdeqstwYPRREwAAAABJRU5ErkJggg=="},
 {"id":3,"title":"Podcast 2","category":"podcast","url":"https://drive.google.com/file/d/1OoZqNsNXpOYWXV6BFK5Y19-_SFhsnT5P/view?usp=drivesdk","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjoAAAI6AQAAAAAGM99tAAAE1ElEQVR42u2dQW7kOAxFP0cGslQBc4A6in2zIEeaG9hHyQ3spQEV2AuJEl3di1lkQTe+F0FV7LyFwBBf5Kcsih+5tn/wQxdBBBFEEEEEEUQQQQT9LSBp1wRZDvskIgIcU33Q3VjcVxFZuNgEhQXNqqq6A/r1SIpZC3RF0hrFIiK6ZlXM+0v0S0QAJFVVVS42QRFBqNE57wDmPVmc5tKifbVHdEVS1T2pqpb+cNL2HBeboNCgloaPDx/j2wOQz/0lQD5F5AHoysUm6E4gWfASXfMp+vUAMH9PkOWYWowDqWZvLjZBsUGTpWYFcAC6CSDIdn9bUgGOf91Xmb+nUhM8F5ug4Dq7XUmrfv5fP+yPqLMJCpuzL+LiJQoUS9KPBMXxEt2eBdiep+j2PKVleS42QaFztq9+uBQOqO7XZF7LIlZIab9jziYorBrJpe4RW80jF1gBG7ZvHHdtB9keYWQTFDZnr7gU8mYtLrzdI7WU/aevXGyCYqqRAiBfPznR0fJzFSzt3yApwJxN0B0i26Xh0osmo4CdetwX6Jq74mZkExRXjWStGdg+maae37TKeM5CvgG42ATF3EGaI6r+cLvKpjdqtOue1FwlpVVOmLMJipyzi6t0+FKJ9dRHKDdb1G4yhZFNUHA10tuKb33JGs/d6+d2lT3BM7IJitypsQof0DX13IPaCfDchchOnU1QeH+2BWv/XS9Way2VXMsi1rWkGiEocmSPAklvMOoQJxbyYzih3R19HC42QVFrI2YPGffSe6F7fKXOJugmOdv082rx3JqOvS85dwHevSRjGJKRTVBU38h1BLIX99ZhgcrFO/xGjFNnExR88mDu7XS17rrV+n7zjfjuDSOboMCR7QdmhpXVae9Ze02wZ283487FJiggSFVPaXPqz1Pk09wio54NHBNEHi8xm59tLVcuNkHxvX4WysBbX9J3KIfOVrpYCYod2X3sq5+V48S29mhvirtcdpqMbIJC+0Zc82U1N9+wrTpzH94HcBjZBMXtrif1HUV0t8hQKN0O6IcmWc8m6A46uwsREyfj7MpLDWWYoVgbISh8p2Y4ndyEbzdk23CCxfisqt4bxcUmKOYOEj1T90GxPTmJPVx/rUqS1V+MbIIie/0KxqyMlUCscoLLXSe2GdkERZ8We2u2715d+3O2xwgkfSME3aeefT0t/s243UvZY9CdkU1QcN8I3rx+2vO4jfSajxt+loxqhKDYasR1Zfr20Pn/VgC+fNL9f4xsgoL3INdxHlRWd9Dq72866CNjrGcTFBx0iIwqNnCItDx+THXLKEs+xUZ6z/puMWwycbEJiq6zx7EifmL9cn62M0NdyyfM2QQhqD+76Wz51FN0PUREHkmxPZJZpfCSobirTNmehYtN0C3eU+MGfp2DZMyz9wPS5otJmzmbIMR+h299Q94mHypLHaIZB58BuuIl+iX9JXqZOZuge7zDdxxROUYN3Hkj6/WP2YMk6D6gY6pRLEu+KOlNPlz9r15f1NkE3QaUC6ya9xL5/P7o3ZtTZBkTkYcI5m9W/QjCLd7hW0fU5/0hmFcogFMw/zcVAEkFeQeQT9FtAQRZIVxsgu5QG3Gnn9nZwuPVBu6VS+7YbepsguKBRH+Gs3GxCSKIIIIIIogggggiqF+/AM4nV03deNsdAAAAAElFTkSuQmCC"},
 {"id":4,"title":"Kỷ yếu điện tử","category":"flipbook","url":"https://heyzine.com/flip-book/6210ad034f.html","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeoAAAHqAQAAAADjFjCXAAAD7ElEQVR42u2dzW0jOxCEq98Q0JEDOACHQmWwMW1Im8EwFAewAHkUwEG9A/9GPnp4WtQcBEnWdyEK3ezqJm3EjSf+h1uPcOHChQsXLly48LW4tcfBngDMdsCeOA3IDohmBuA0e+b+06eWTvhNPJAkE4C4AwipCa7rDzDbNwLYSJLU0gm/j+cWvnjgNP62B3lUOb6MhyfrH44aGJ2WTviNx337bPAbrdoiz60g2kYDDAQAC3+0dMKXqw7hOB3jrwQDTgN8ApH3Kkcga+mEL1OdJ5qk8gcNcOUiQvji2jsA1NIJX4JHMzPbR8BLAELaCOQH7Zkf/R3OWsJq6YTfjXUzfBEo4EikjPsGwBcwfhbwPdJp5YX/7GF7CsjUbZGQtmqkNJfEFyCwgGRB/0jy0MoL/7nqjra5Y3VJyFIzLA/fRAh4Nr/umJhWXviPVTfVVBUWElBjXVXY/G78WKoTfjvDpo1vObTn1faTMjIxL6lXqhN+pw/79AW95+pAfjkgfD1aXo3WmrH2zA6In0VLJ/x+DRv3VAtUg//rDIAxfr6MyK5Ya1o055jID/VhhS+rYdFK1WM0+WupWsuMMnZ4G1XDCr+Nx31jT7MPAv5Vp5r4u041nQZgY5tv8sqwwpfEulElpO6NVA8ltXfVVyELeMivE77Kr2s5tPvFtZAYCbd97JaKVCd8iXPSwpwf+7raqphGCocSqX2d8AWxroc5BPZNWxjZ9DJu3J07qU74Ipe4B7eWcDG2dLNfNjipTvjtjtjInJftG1vR8K0P2+agpDrhS7r/GLFuKGy+BI7K1Rd1xISviHVzv9Yy7KVeHRFuxj+pTviCfd2UWRut+1ZDXIcB1P0XviLWhRHwWiHRTZMwR5tSt/SUYYUvmq+7BrdZzdafTJd4OMeqJoSvmiXuhcTltE7/rknvvYcm1Qm/hW/kkR3qBF3dw/mXkWnceOJHbwyn7jkRvqqauJyWeGuLHb1VMbd+yrDCcXuWGFsfGf58WTsAC1znhuM+iluv23WEL5p0uubQsblDP8HTRzvnzJNinfD7zkkVXKthcc2mQ3oXEUp1wtdMdXIEstRNu/cIN3097euE4+ZpnX5tyVYYn64YPMfxnHaJGJFdAfJH3edRSyccy+7qrIHsy6ybdu1l2if1Ek85J8Jv3ySWdyD8ARDS6folOqcDfHEzElo0APB/nWKd8HV4vX447s1N4ZFd3+GN3tgsbrV0wlfc1UlkA4HTEXkH46/iLKQP1JPZgQDinmjh0MoLX+CccE6w+zlu8taqHWcp5JwIXzVzsvHtwrox5Omvo+3zdiepTviPHiP03+uECxcuXLhw4cL/Afx/wMA31UjdFTgAAAAASUVORK5CYII="},
-{"id":5,"title":"Tư liệu 01","category":"padlet","url":"https://www.thunho.site/t/dxhpfwbpqbsv","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADVUlEQVR42u2cy43cMBBEq00Be6SADcChUBk4JMMhOQMxFAdggLxTKB+a5Gi80nrhkwEXD8KMZt6l0Sj2jzTi71b+hL9dIkWKFClSpEiR/x5pfS0wWw8DqhnyepiZPwCgjn9tsq3It2QiSRYAqQBma6B9LYEAApHKYbYhkCQp24q8JOvQl7wC3GMD8noY92rGHYFDrxbZVuT7JPf6QqAu/sm22IBsC7jLQiIv1/L21WH+SDyMACjbivyID0UCqIClsk6vCTQgNHOX+v7sTrKtyCcym430C4G21QW21cVDbCSPrg9Py2RbkRc6xKsNLa9wf2H+3IZUybYi3yzP13mSmy5G/g6xgRw/9P+R5C7bijz7kG9ZiM3T+pP77JH0d/v8SvmQyCsdCuQ+qoguPKngJEEPN5MOibzKy/IWYIg/jQBgAIyooRliA1FXEDU0AKDJtiIv+mVfy2Hkjxf2emJssA2Hce/RtRewbavKy0Te14cMsbkYAXgh8ue2GKKH2M0QC5hXFyPZVuTv8dCMpEkOJ0nskXRvgiCQeyQVD4m8ysswHcSTeU6XKoHdm4Dxg3xI5LUOzV1tfI096e8SNJMz6ZDIKx9Cl5vuIJ7lT/WZYsQSVB8SebOX9Tr18JLhPrsXhGa1EdIhkdf9svzl5zLaYg3Im48wNkvl3EyzRNlW5H2/zB8983oKohUPifyjDpk/4iwI1VfOAjZdfRKPhUBbKNuKvIqH4oik91EL8ja+D+tPMSLVLxN5U6euhjn82p0rrwHMFprLUuJhzF+KznWIvK8PpRJmpWgeC+JcBTi9kw6JvKhTPzaqk9OMQmOvNkbVqUXez6D10tDwnD46NAOlWWiUDom8PhvUZ4V8bDpvBqS9gahLs1Re0SeJZFuRdzp0KgjNNG1I0AiPMAatpUMiL2qMYz3tb08DsWn6mnxI5F2/zAdAMPurjy5ZHC6leWqR93vZHMx/HO5gO58Nkg6J/Ni9H7YhEOnHgn7NEAL9TqJsZkCdP8i2Im/IedcQ8rgn5jHWOFJ92VbkO+Q8wzHaZ4eZmY/og99WSIdEvn/vB1EXwC/6KKsBWEC/TyYC5gcVZVuR7937kdfniLsAyPbC8Unny0T+tozQHeciRYoUKVKkyP+a/AV0wCclh+6DaAAAAABJRU5ErkJggg=="},
-{"id":6,"title":"Tư liệu 02","category":"padlet","url":"https://www.thunho.site/t/7jdpz3gq9mqr","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADjUlEQVR42u2czY3bMBCF30QEfKSALcCl0B2kJMMlbQdSKSpgAekogMLLYUjKG0sOkFOAPB209srfZTCYefNDGfF31/gDf3uJFClSpEiRIkX+e6SVK8Bu2MxuAMz6zYDFzG7tZmb+VLYVWa/gf9IAAMsHCABFZy8BGH/mwLEHAHTZHU62FXlELi2+LAEY+804xAy7TwFIM8DB41WQbUUexqF2GdBlQ+yINIMYr4SlzxKCZFuRfyZJrsbBv2xm9ymAj+tao5QsJPIsDkUCWFwU0YCQMd4AjtfVmKbyM8q2Is/I0czMesDDTZoBu88d7T5daDd09LBkZibbijyIQ3t8IZYSfYC4Wv2Ua6iSbUWe1mUBpT8Um/ZZLvQyDdiMjx7A2EKVbCvyux4af67mraGxn2nlU/f8yzSFDGALsq3Il0KMJOfOb0jlH2wZjEAkybl5E0kOsq3IZx9Cau4zACDncis+BIBDzOVG+ZDIEx8CuhJzvD8UM8oDd6SOHGJWHBJ5mMuGSCKxOoinNu5pzNvWPvCQD4k8I/mwUCZnds0+NEOazDD6145293gl24p8ndtPIRviV4DPy7AFpunC0ruuLSQCWbYVedyn7t2R4DHHW0MAPCLtLeqx39SnFvlGU1cRzQFdFdZoYhtdKfClh0SeaGqv6EsJ/70Qa8XZLrvlQyJ/00PzFohIWJrL9IwAYGnegPG6GrGYbCvyHdnRbktAHZDVncWxryuMNwA+NJNtRb7GoRJhYi4LQ1hCJtD0s09fu4w0g9qnFnk8L6v6ObHInif9XHqMtTUkPSTyrLZHzL6NVgKPC+vNl9P46NHEtmwr8iCXdRlYDEifH9laGiOWDwJLb0hzb0yzdj9EvstlrXpHHa2WkX1ZufbGkXKZyLMeozvI0WJRaRJB+0Miz/epxx4GxC8jsIWS0OJXILAZsVzoB8/8PKxsK/IgDrFp5TbcSPuDmJ9DkHbQRL6SZXvxaQN2NT68Qqt9x+Zm2skX+fa9H2XLbAoo6nrX1EvZLpJtRR6RqRZnZeARM/xkoq+CoPu2oi/bijyqy4B9MX/fzv+2T42nol96SOTZez+8Lhuty5YIGOJq5e1EcYalYZNtRb4nay5bzaceo4U6/8Bm+4KjbCvyd7KeCHpeYWxHOjyDTRd6wTbItiJf9VBrDZGsC7HtYGs9EZRRnkoPiXzOXXrHuUiRIkWKFCnyPyd/AUoFj9XdsIEjAAAAAElFTkSuQmCC"},
-{"id":7,"title":"Tư liệu 03","category":"padlet","url":"https://www.thunho.site/t/ypvrqhxhczf8","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADVElEQVR42u2cQW7jMAxFP8cCspSBHiBHUW7QIxVzpLmBdZQcoIC0LCDjz0KSI6dOWnQ1wHwtjMT22xAExU9SNuJnK/7CT5dIkSJFihQpUuS/R1pbDmbzakA2Q5wBu2A1uwAAcn/rItuKHBdJEoEkmab6C/AkAgu4eLasO6SJw8uLbCtyT+YeX2KNQw4tDmWz6jktXjnZVuRzkkt2IBPAJZ+IkABEc+AiC4k8XO7zrakA/sMQuBoByrYiv+VDngAyYCG9AMBEABMNPsGA1RD+7P1JthW5I6OZmc3tpl2yqxeEq6vpNIC1yjLZVuRBHNrtV6vVvSzOMMZ5AuO59FAl24o81vZkwhZuNh2f+jvbg/aetL3Ig/pQmsjFF5As3a96fag+qL/QikTyIZH3cYgFZK8itmpjQr03BiNfFIdEHuqy+Jpo8B9G5JdiAAzwhMEXEHkGkVcjAJpsK/Kw11FaFrRgYutwDDsYNr2vfEjko3yoFolG6dXuFXDBVHtoyodEPiL5e54IZLObGmuZNFppiEt21aXUtxd5FIew38FqpPGldc6qQgNG1aY4JHKvyxZf2uYVhr9dnC1ol/EV2VbkpzjUQlBX9K15jy7ww17+y4dEHuTU4d59tmL1XqEpDok86JfFc3GMZ8LCUoD4yt0oCNb62wJlW5HH89RvVweEa5uibo3X7RLtVFXbMO8o24q8i0MzYPDFMb6uDuF6IoCpGDCVNlPk3904kibbitzn1L2AiK0Sfas73vVhlQ+JPNT2t1z57l5Nsbc82+tch8jDvcwCVwfklwL4d9cnYKdi8KXqsr61uULZVuSDnuuwUW2loXbSbFP+i1edWuSTM4qtoToEnl2ntZettZeJPD6j6FAHQKKdyCWfWjDi1cHeEmB2vjmXbCvyeC+79TWwH34dBJt6HSIfzsKSR5nRMBAbhqfyIZEHPVdgGAAJPSnq8yBtbF/z1CK//u5HP83ROviD+ygOifxO335qUyBNfjVvwt18rOKQSDz7ZkNYVmOcp2JxTjT4nk4jz7vDrrKtyEdxyPf0ukmyFpGG9EhxSOSz734Q2RULy+oQ0mwMaa7nywAAFpJsK/JLXYZpN16d+oNawNYco8j7ZYS+cS5SpEiRIkWK/K/JvyiaZ8BG2xPKAAAAAElFTkSuQmCC"},
-{"id":8,"title":"Tư liệu 04","category":"padlet","url":"https://www.thunho.site/t/acs78y799gnw","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADdklEQVR42u2cTW7bMBCF35QEvJSAHMBHoW7QIxU9Um8gHsUHCCAuDVB4XXAoyYmVBFkV6OPCtix9m8GAbzg/MuJ7K//Ad5dIkSJFihQpUuS/R5qvCKBEmI0AspmZjWu7BZT+1CTbinxPJpLkAphd74a0rGa/SHJGINISaBMCSZKyrciHFf27jED6AzBPFyJbYPsPiBUAQBTAgFBlW5GfkMPdmr5NA0myAvla4QomC4k824e2lW4XGoYFANYIIFQCaySKbCvyI3IgOQMwG1dDuplx7s/YhECbALRtSbYV+YT0MxiAtAQCCLSpXIi0oJ3VAGwnNNlW5DstOxY8hgrm690I+AfytYKPT8m2IrfFbfnlst1YgsfUGCqQFtey9vQs24o8+lDbfeaBRKL/8sule5NfepJIPiTyzbkszSBQYmUeX2HpZmBa1kigRuQJRtlW5Ff2oepqNffc9VHfhnpUP+1DIt/70EPVww9nSKxHb9qcSz4k8nQfci+pW0zNx8Ba8ZDIT/Yhj58RWgm21VwPCiYtE3lytp93b2oKth3J+mF+35ukZSKf5ocWb/HYt6AWCh3dLFDxkMjzmutwNxe04dWIoUaivLAVNvLP14hE9X6I/IgsEfxtsUXNZiNgU4uRAr1eVmILu2Vbkc9rHdXFK3VV27WsFV79hrRM5HMtyz8XoonXcDfmMYDZQtMyogD+3yjbijw5lw1kayJi76zuQXTw7NGeR9LZXuQZmW5myONqNnXPsQmrIS2A96Ddomwr8pmWGWBgvta4NxFZq7mWES5yZQTzFKqlWbYV+aSfOlRLtwhLy9rGPJjNbyCPsNZPnZZRfYwiT2odPRJqrUPwmqtXX3vrUM9dKx4S+Zb07o4SgXSLLeXIeajeoo8SgXy9m6eLZFuRz2eDzPPUdwNwoWEA+ljQC4gScRwQkm1Fvpm3j+3QZTYGIi2rD0xP5UJguJvnrmVbkR/05B/K83PvN2tF1hYPKT8k8ovv/djaYNPy+Ggrml0UD4n8+L0fbTxx061jZrEPCOndMSKfne33qioQ6OX5Piq091MfHE5aJvLEh/bhDp/BH3r5bBsyUzwk8hOyRBxG7VMfC2qVMxTN24s82Yd6Q+z+Zo8maOnQSg0oTy3yvNYBD6fdkba6xoyHKXuqB03k22V6x7lIkSJFihQp8j8n/wJXmBjf2AGgSwAAAABJRU5ErkJggg=="},
-{"id":9,"title":"Tư liệu 05","category":"padlet","url":"https://www.thunho.site/t/aqs9yjb34tzp","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADLklEQVR42u2cQW6kMBBFfw1IvTTSHCBHgRvMkaLcDI7CDWAZyejPwi7bnQYiZTXSfBaoW/A2pS/K9atsI352Lb/w00ukSJEiRYoUKfLfIy1fPbAMh9m0m2EZAJtwmE0AgN3fmhRbke1FksRIktw6cg4RnNOzjkD62xHj1rF5eVZsRT5raAOySpJUspA4h+jvbR2TrqQhkbfkMgBY7OF62QDOgVSERF5c/Zf/Nm6DcSRgwGFcJsAQjp6Krch7MpApeX28xbSSTvkNgSTXBz3xRcVW5Cm5mJnZANj7+iCw51xm72sPm+AVmpmZYivyJJexXQ91IBABhE8j8GlYBhgQqNiKvKzLyA0gNyAXXU3R73XZXEoyqi4T+Vrbw+v4dCP9lkqy8mAO0pDIK3/IzR+E2HyMAHR0IZGc0UlDIm88xpKosp/ovmNOYxHVrJaGRJ5oyC1qsslqrb3YtVqThkQ+kTlvhWL+oGNqrWaTKPovxVbkTc/V+2WlNxY8q42lGUvlMpFXdVmIyZPOWY35w+P1vrdgc8EmDYk80dCTfOoCKNdqLL18fYdEnpPjasY5kGb28JKM2azGuJrl/keI0AyayKs1dZpeTMMeAPhhZs2aenmLAHb1y0Ree4x1ZVR96uwKPU05qrYXed7r6BqTKNvWxRoqUyCuMGlI5EvPdUZVSfnmeJPVv1JRdZnIe5JcLa2fbQqf6YZlOKwMhdBsUGxFfrceGuvEhzdZvUwrlqO+QyIvPMY6f587rWUW1keMtK9D5M0MWteUZNVtrAug1sqWhkSerKmrT70VXfmwh3frY/tUGhJ51nOtg66Azyw2pX71jKQhka+5rHbJQmmLbXWPYmwRaUjkqYbIOlldm6yoM0VjeSoNibw992P0sUazwXdzJPNx75/G1BRbkZfnfuTWR+NJl1WQ6jKR1+RezhWqo7H7g6mXj/1BLGmL62H5qWIrEldnNgA2br9hCBEECCx/Ioh9AMa57IlVbEWeawjA0XMZYASOHkAXMa59bJ4qtiK/PQet6XDMdaOij8bKYxR5tVfapVI3A7lFXZbYqu1Fvl6mM85FihQpUqRIkf85+Re3z5nnIB2wMwAAAABJRU5ErkJggg=="},
-{"id":10,"title":"Tư liệu 06","category":"padlet","url":"https://www.thunho.site/t/z9tz8eyr58mf","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADZklEQVR42u2cTarjOhCFTz0ZMpShF5ClyDt4S7r0knoH1lKygAvyMGBzelAlx/fFyYUePeijgXGsfJOiKJ36sY34s1X/wZ8ukSJFihQpUqTI/x9psQagjgCwmKGOmwHYzCbEM1+TbCvymSwkyRYPzUbApuVC1BHgDMAmJJIkZVuRp+TS40u5DQDy6p4DLAPMxs3ckcwG2VbkN2QdAfJ28XBjHw3gvFwoC4l8sYb//LbSRmP9d4UBAIF1MORPo2wr8r0PZQJYANYrYcjbgPJrNJQ5EehxiLKtyFdkNTNX0h+3ASh+liW6HppcU2+elsm2Ik/iEI96KIHACiDfjXWEoY6wCFWyrcg3eZlfCu9xByTa1DM0/rSISLKtyK/LSz6FJOe8gmS/zPnLJZ4x1izbinzOy8rtQkP+hJUZsHIbYPGP1DduwyrbinwZh3y15Bcgr0Dx2nXyv6C0pDgk8oUeGoC6F6HrdVdBfrdZ393ULxN5npctgBUCqFPCwa9KAw35c0D59UO2FfmdpkaiRx82oJ9q/c6Ftc4ykS98CHtTvvS8LO4a4s6dy3flQyKffSiT0ajfW/alJY9N/sxzeygOiTwlyZuZZ17e4ejLpny3mAdZLu5N0tQiT+JQDzw9+rABD3kUsWkPVUVxSOSZDyW6CkImUdqufQ5+FcJaPiTyzIfYkhcQ/YIcGili0+5coYzkQyJP8jLg4TmH2DTnXp0+dtPkQyKfNPX8ENa3GKB2OR0d/DjQzMakmXyR7+pDvSo05/UQlh4+FCVHxSGRZ/Wh6K8+VHN0WvfCtPdhVR8S+fIsS+TP63rcKrwb53y3eOfsejfVh0S+79v7pcujqDEuF9q0mEWUWsxiV7YViUPf3t8IQm7wE6xOALH8ILAAANJqdWzewbcyy7Yin+tDe4JfelusD51FnfrLISc9JPJ0FpYA/M1EQ25gHT8H1Os6xCTRHLuyrcj33/2IbAw9TdsLja6WHhFJthV5Mk/9GKXuLdheM4q/RP9DZ5nIEx9qx4GhaMG2vT60+5X6ZSK/Je2De0Fo3LwghHq928PNZFuRb7/7cUz1sQ3HF898bQNlW5Hvv/sxNhqQ1p6rbYOfYHVMq1VTHBL5bvajSyEfGAp51Dd8Qk31IZFPx5a+cS5SpEiRIkWK/MvJ3xN+6IRQSK/3AAAAAElFTkSuQmCC"},
-{"id":11,"title":"Tư liệu 07","category":"padlet","url":"https://www.thunho.site/t/2cwqaf62ddce","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADW0lEQVR42u2cTYrcMBCFX0WCWcqQA/RR7Bv0keZMuYF1lDlAwFoOyLwsSrLdPXYTZhXI08K43f42RfFUf7IR31v5B767RIoUKVKkSJEi/z3S2oowswigmCFbBPKwmk2AP/M1ybYij4skiZEkuQS/AxCOzwAA4xJ4eHmWbUU+kqXrSx5W45xqkyC7fdruSE2lZFuRL0jO5Y02lQjOJQIoEcgDwFkWEnm64tdHqxFlMIxcI5AW2VbkX/lQIoAC2LgMABCqB0X5DhiwGsZfAGVbkVdkNjOzAQAQaBMAm0qEvX9ED6cBrJ6WybYiT3SIT3tZHmDIA4woAPOtdqmSbUWe5/bkgk1uAv1u7NnYnpe195Tbi7yoD82pgmRtfjWnCs7p4Y85NZ+TD4l81iFWcEagX7hs/25p2bjfyYdEnsXUb8TIT2ulxCEQSKTZjcS4oHkYvYot24r80i97XwCgvLWwxzevZTXOWA15AMyG1leTbUWexkNLIOdEAql6gr8Vjnx/2+8UD4k8i4ea8OwtjeDe5J0z9GfuZoqHRJ7o0DFDq8c4m8smPP7KlrXJtiKPJOdUW7CTh0APgKYeHiH3KMhr15NsK/JkL+ubV0/hw1Z37DXG8UmWZFuRX/ayXp0G3F88Mkq1/0xtQ1M8JBIn/bJ8/x2ZbxUECMu25WXljUDxbixspGwr8iq339pi6VhU7Ip03NqkQyKvZtAMWx6fbwTg5cWFrj75XiOBGinbirzsue6lIfTIyKPrXYw0ky/y5ewHHyvRvoP1y+w1APXtRV70XG+1nSqDV4qi72WtFuRJf6BNRefLRL6sU9fWIDt0PXqI3cJu1alFvoiH2inEpQlPc670sKvNXi6SD4m87tv3QbTtYOs+FduHGeVDIq/PlxXz6XxDWoA8BCBPAcxD8NOKdhgKkW1FPs3Ckg99+/rQ+uhZ26GrLx0SedIvw2MFaBvC74H11paVD4l88d2PlpL10xwtCto+CCIdEvmqX9aVhsdzHa5DeDjcIR0S+ZIcP8z2cx17Vai1PrYBENlW5LUO1eMk/mGcqB9ZlA6JfPndD6JEMN/XiHH52dwMZYAhATYusq3Icx/KPi8dgDwB1p6vBqQarX1KZt3ek21F7sv0jXORIkWKFClS5H9O/gH6wUxmdXeGSgAAAABJRU5ErkJggg=="},
-{"id":12,"title":"Tư liệu 08","category":"padlet","url":"https://www.thunho.site/t/jxjvshsdsxnu","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADUUlEQVR42u2cTY6jMBCFX42RsjRSDpCjwM2iPtLcAB8lN8DLlozeLOwCkiZMq1cjzfMCgeHblEr1j4342Uq/8NMlUqRIkSJFihT575HWVgezfjEbsxmSmdVH6wEg+1ejZCtyv0iSGEiSc/C7uleAgSQQCzDMgbuPJ8lW5DOZ3b6kfrGWefUAP8ysKlezV51kK/Kc5JQ72Jg7cMoXNr2yDpwkIZHfJQORbp9mdxZwQqAkJPJsuWuKBJABG+YrmMYLASwdEGcYsBiG3wAlW5HvyJaDtU27z4CN+UIMj66G0wCWmpZJtiIP7NCLu2K6fRpSH4DUBzDdipsqyVbkcW5PzljNTbu0PZb1BeB7yu1FHtaHgFjAKRaQtRZUwCmSda++WJd0SOSrHQqsVcQp+iOqNqGl9YPvyQ6JPNKhzdJMkc2X1bvYPN3mxqRDIo/6ZffHhXZ/XFrYM8UCuz/MqglKPYDUBwJZeZnIN/UhLMZ0KzDAAMBAZMAQAQNCMcQZTH0okq3IQ1+GNfNiwWaM2gWoFevq3+TLRB7kZWusjGFuiuQZ2vroGqa8TOQB2SxNNgMiadYH2rjrubZAycbcQfNDIg/tEILnYJ7qN5tTU7JQx4n8heyQyK81xlqnbpd9ALQNhUS2R8VDIg/6ZelWunoBSmfD2hprd0v9bvdCshX5OsfYofboUx/ow4x+qfFQNtvNO0q2Ip/sUCsJxdK5zamN1wLkK22Yr8DApeOuxS/Zinzul7EFO14pau0zH9FvE421eqR4SOTbmNqrjZtKeb8suIZF1YdEvuu5enlxinXe7GmSaG3tVwMlHRJ5ND9UsHNUq+Fxr7Ym/bJDIs98GbaCUDVLXnes/m3eZhulQyIPyebGEMgpd65hj66N6NutwMZYJFuRJ75s7WvsI+mw6+pvP0zLDok8yu3XDr63yoK38T3L97hJOiTyoOfq8dCmL9hGY3fhkepDIv9y7kcbwve/OXbqIzsk8jt9+61EDVSbgy2Ixtralw6JPCOHebGt4bHvcMxetp4kW5FnZPsvusATfD8HLd0K+NFDc4wicXruB5EvtGaRrrBhXkB4uchaLVKyFXly7kfq8RoFmfVeok4690Pk6zKdcS5SpEiRIkWK/M/JP3oASKqPt50fAAAAAElFTkSuQmCC"},
-{"id":13,"title":"Tư liệu 09","category":"padlet","url":"https://www.thunho.site/t/k4v2mqda8yz9","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADT0lEQVR42u2cTY6cQAyFnwNSLwspB5ijwA1ypFytOEofIBIsWyr0snCZn26YHs0qih4ruuHbWJZ/nl0Y8b1r/IHvXiJFihQpUqRIkf8eafVqAcxmZh2AsVvMrFv8UX1gZjbItiJfyZ4kOQFmHyR5N7PfEwCgIXqSNqAhSVK2FXlKzjW+MM9mQCKZ5xbkVF9g9njVyrYi35GpAJhb2JAKPG+NHeqdLCTy5Wqf/+jvN1ZHcveZQGBpiVm2FfkZmciarToAwGLMaFgjEhp6piOLbCvylBwturF+AmyYb7Rhbv0nMLfuV7VDk21FvuQyPtdD6WEEHgakh2H8KODxLdlW5AlpZma1L0ONPt6cZSxmgz9YFIdEPl0u+fQTwJxI9Cz1DikecGrInEroSCSZZVuRT31ZU6y/t4WjAdbf24I+L61nsHGAEWhomH8W2VbkWRyCB5kC5lRcT6x9GRCFdaoSteKQyHMfqr293zEyGHrWDLaJ1Z7Q5EMin3zIh2GlKkD96lfbfx6qpkb1kMjP4xAzmohITwmN8Yp8SOSrD21pzENQHzVS7doiGEV+kw+JfPGhLaFlr4ea6PKxJq81QMmHRJ7pQ1HxePLqtyoIwCYNRd0kHxJ5sj9UNemIPnXZo6qN2ytJM1eR7/QhTltlFD+9wZ8al62Vy0Se1tShCoXnrM1ZinJa9ZBIvNtBM6RIW+OvhzEG+rTa2wOGNMm2Ik/PdQy+wmiGsWu8dAZSgU/rexZfpSbv2qcWeaVTI0Zl6SADeX7btfrSGEVeaYz7gnknDeVVwObUrCWTfEjk1byMPLjUeqDMN4maWCeSD4k806mPA9XEKIoQBxVXBVI+JPLUh3buEypidamyprF9bJIPiTzRGLdK2vPWuuxRJyERkeRDIq9mrvsODYdGbDcvi1m+fEgkDhqjrUvVWPVEjt0fhPi4rlLPN32zQeTF3D42PnxtOpX95xq4Nf3aHxL57rsfdTzvh6Nr7WNDIjGaGcZO58tEXp8v86YrRx9/6NrWp0nny0R+hSTvt9qhjfHBIWYs/jE0WUjkp/XQ4dhrweGwaz1ppjgk8mrmWsWfnZ64OU05ZDX5kMgvfPdj+9AHsZ96rCtGsq1IkSJFihQp8j8h/wKFDIUN2qe+8AAAAABJRU5ErkJggg=="},
-{"id":14,"title":"Tư liệu 10","category":"padlet","url":"https://www.thunho.site/t/jknzkanbd5u6","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADmUlEQVR42u2cS4rsOBBFT7QFNbShFlBLsXfQS+o11Q7speQCHljDApvbA0l2ZqXzFbxR01wNEtL2mQQiFJ8bCvFna/mLP10mTZo0adKkSZP/PTLqSkBOLeIZANgjphwBuX012bYmn8lRkrRCxMdGTOwR/6wQU34T9FJMdJIk2bYmH1ZzOnmA8RO0TIGWYRXkAcFWPhAZArrNtjX5A9lvMK4QU78RMQBLJOoJZguZfOWHjjXeEpDfN6AT5LQJ9hDZtjX5O7KXNAMRQ6eY+q/QzF7i55joFBMgabNtTV6SS0SUc2tcAfKbajhdoqVUM7SICNvW5OPS42JsmZekDc39Vr3UtzXbtiafyIiI0JwjSmBNfhPkRD3VcgSw2w+ZvPJDQCfNvQT9vfdhXEFaO5Vno/2QyRd52fg5hMhp0zIlYrwlBHsSbCmAEICWYbVtTV77oeJ4NjQDmk+3RFcK2OWt1hZB2Q+Z/L6H6rnVuh5dja5HtRNshrKH6l/b1uRFjbHfkmBPjPNX1A4HnQL2BP2vFOOnex0mX8fUNX4+fM7xc1cDmPFZZvK6PnTsjfME09xvtTB9PjsOOe8hk9/zMlG6ZFqi2yC/K8ZbIkrTjD1piU4sE64Pmbw8y0a1ghBHkUjr+UlzRjQRkf2Qyad+WUJzTjV7n6naD810qorGnFrx0bY1+aI+VMKetVPZOYe2sSb4a3ef/tsPmXyIh7T83amqhvqvgH5FS4Bqgg9ahg5VjbVta/K6xljb8y0lm5vQ+tt3jodMXpB1v9xS0aDVln2/wTLswaiNqkG7JdvW5Ov6UPE+vWqrrEZB1FDobq/ZD5l8WaduXTJaSlZlHzQBiHuuJn9PPvTtz2cxlfmyOn1m25q8ioe07sESZwd2L2LGKqDOCZaPr9B8aqxtW5PPfftxhjKtCG+KcaUJ0fI7OoeobVuTV/P2JRtLRHw0JRE5Iqb8VkaFIgYeBhVtW5Ov5jpar+PserQ07WikOaY2+XSWtV58t0G/JUbtKei39ranzb46HjL5070fZTwxhtobu68snoP4tq3JC+3HXSmxaxL947KY8bwxxjVGkz+RVb3YBjlYBooopDb021y+bWvyNZlTvblqPEbJSmmIvVyGZtuavKwP9QLyoYplDy3DrySgjCyW6HpcB9vW5It+GS0AWo8oqLTPNqoc/06S5njI5JMGjcd70OqzrcyX1Tj79Fe2rUmTJk2aNGnyf0T+C7qy+bHXdTgFAAAAAElFTkSuQmCC"},
-{"id":15,"title":"Tư liệu 11","category":"padlet","url":"https://www.thunho.site/t/3vjfgjz2y398","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADRklEQVR42u2cTWrjQBCFX40avOyGHCBHad1gjhTmSLmB+yg+QEBaGiTeLPpPdtpOyGpgXkEcIufbFEX9l4z4maRf+KmIFClSpEiRIkX+e6QVcTALgFnYzWYASOZg8+pg81r/a5ZuRX4mI0lyAXhG+SjiNyC9bgAwkSQp3Yq8EVd+rwGI74DB7w7AiZbCh0NcdtdLNwOmTboV+ZQkl4mIy27AeiKSOSCF3aQhkd8kzcwsB6/IqyEuE3MYO0tDIseSU5ySDxVTyZlRzn08sw0hLjUfiiR5lm5F3pDJzHJJ9rZMtBkTbV4dEC8OiAsAYM9lmXQrcuCHuhx8E9DCmN9q6dZEfkjkgEzmcllvZg45sY68mr1dTgTW1imSbkV+qu0NAAj/kQMVa2vIAesLkcLUmkTtW+lW5G0sW0pZz7MvfyJyy9l1llg7kMqpRY5s6IyJxWhaUtSelZJsmUqZJhsSOYxluwFrgMF/OGJ92azkSBMN/mqI77tRuhX5rD+UP4rUpuLhma8tJNVlIkexzNeE+YzbBMhvbQ5bsiXFMpEjP5Q70dWaau6zNe9zNC75IZEDkmd/NWC1PCAze92AeDmRvDgghaNvUn9I5Lguq8X8GW1olkuyMj47fCs/JHIUy3w3kA29oi8f7Zlqe5EPanvmH7/A4D9yJ5opwJDCBAITkcJCU59a5Bd9aqBUXn0rtjuopeRD8kMiH+4PFfO53TerJlXKNNVlIh/mQxxYThuf1SGIdtBEftUfqrOx3lm8i3TaHxL5bOaah6yt29jL+v5F6UDKhkQ+9UNts5o1f+5V/sEZyYZEjnLq1h9q7aKaKE2HnSLlQyLH5G6A32AWpkPbGgBgb7wa0ivzQqx0K3Loh+5yH99PhXqiBPQDIfkhkQ/vOg7LjPm0rM/L6kxENiTy2Xs/+CfUY9d4KXHLZkw1jK0nam4v8umd693mWe0ZyQ+J/E4+1BvTx+FGnXD0/SHVZSIxenfMnfjNMc0nGtYTgTWAWAOYgt4dI/JrcjeUM+ndAH/Nh/jlRtFv2mMUOfZDngBWlKw5hQUWlwCm30A5FfKAwUu3Ih/NOoDD+xmOa43taMhTdx0iB2J6x7lIkSJFihQp8j8n/wLYS2CVUNzF7wAAAABJRU5ErkJggg=="}
+{"id":5,"title":"Tư liệu 05","category":"padlet","url":"https://www.thunho.site/t/dxhpfwbpqbsv","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADVUlEQVR42u2cy43cMBBEq00Be6SADcChUBk4JMMhOQMxFAdggLxTKB+a5Gi80nrhkwEXD8KMZt6l0Sj2jzTi71b+hL9dIkWKFClSpEiR/x5pfS0wWw8DqhnyepiZPwCgjn9tsq3It2QiSRYAqQBma6B9LYEAApHKYbYhkCQp24q8JOvQl7wC3GMD8noY92rGHYFDrxbZVuT7JPf6QqAu/sm22IBsC7jLQiIv1/L21WH+SDyMACjbivyID0UCqIClsk6vCTQgNHOX+v7sTrKtyCcym430C4G21QW21cVDbCSPrg9Py2RbkRc6xKsNLa9wf2H+3IZUybYi3yzP13mSmy5G/g6xgRw/9P+R5C7bijz7kG9ZiM3T+pP77JH0d/v8SvmQyCsdCuQ+qoguPKngJEEPN5MOibzKy/IWYIg/jQBgAIyooRliA1FXEDU0AKDJtiIv+mVfy2Hkjxf2emJssA2Hce/RtRewbavKy0Te14cMsbkYAXgh8ue2GKKH2M0QC5hXFyPZVuTv8dCMpEkOJ0nskXRvgiCQeyQVD4m8ysswHcSTeU6XKoHdm4Dxg3xI5LUOzV1tfI096e8SNJMz6ZDIKx9Cl5vuIJ7lT/WZYsQSVB8SebOX9Tr18JLhPrsXhGa1EdIhkdf9svzl5zLaYg3Im48wNkvl3EyzRNlW5H2/zB8983oKohUPifyjDpk/4iwI1VfOAjZdfRKPhUBbKNuKvIqH4oik91EL8ja+D+tPMSLVLxN5U6euhjn82p0rrwHMFprLUuJhzF+KznWIvK8PpRJmpWgeC+JcBTi9kw6JvKhTPzaqk9OMQmOvNkbVqUXez6D10tDwnD46NAOlWWiUDom8PhvUZ4V8bDpvBqS9gahLs1Re0SeJZFuRdzp0KgjNNG1I0AiPMAatpUMiL2qMYz3tb08DsWn6mnxI5F2/zAdAMPurjy5ZHC6leWqR93vZHMx/HO5gO58Nkg6J/Ni9H7YhEOnHgn7NEAL9TqJsZkCdP8i2Im/IedcQ8rgn5jHWOFJ92VbkO+Q8wzHaZ4eZmY/og99WSIdEvn/vB1EXwC/6KKsBWEC/TyYC5gcVZVuR7937kdfniLsAyPbC8Unny0T+tozQHeciRYoUKVKkyP+a/AV0wCclh+6DaAAAAABJRU5ErkJggg=="},
+{"id":6,"title":"Tư liệu 06","category":"padlet","url":"https://www.thunho.site/t/7jdpz3gq9mqr","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADjUlEQVR42u2czY3bMBCF30QEfKSALcCl0B2kJMMlbQdSKSpgAekogMLLYUjKG0sOkFOAPB209srfZTCYefNDGfF31/gDf3uJFClSpEiRIkX+e6SVK8Bu2MxuAMz6zYDFzG7tZmb+VLYVWa/gf9IAAMsHCABFZy8BGH/mwLEHAHTZHU62FXlELi2+LAEY+804xAy7TwFIM8DB41WQbUUexqF2GdBlQ+yINIMYr4SlzxKCZFuRfyZJrsbBv2xm9ymAj+tao5QsJPIsDkUCWFwU0YCQMd4AjtfVmKbyM8q2Is/I0czMesDDTZoBu88d7T5daDd09LBkZibbijyIQ3t8IZYSfYC4Wv2Ua6iSbUWe1mUBpT8Um/ZZLvQyDdiMjx7A2EKVbCvyux4af67mraGxn2nlU/f8yzSFDGALsq3Il0KMJOfOb0jlH2wZjEAkybl5E0kOsq3IZx9Cau4zACDncis+BIBDzOVG+ZDIEx8CuhJzvD8UM8oDd6SOHGJWHBJ5mMuGSCKxOoinNu5pzNvWPvCQD4k8I/mwUCZnds0+NEOazDD6145293gl24p8ndtPIRviV4DPy7AFpunC0ruuLSQCWbYVedyn7t2R4DHHW0MAPCLtLeqx39SnFvlGU1cRzQFdFdZoYhtdKfClh0SeaGqv6EsJ/70Qa8XZLrvlQyJ/00PzFohIWJrL9IwAYGnegPG6GrGYbCvyHdnRbktAHZDVncWxryuMNwA+NJNtRb7GoRJhYi4LQ1hCJtD0s09fu4w0g9qnFnk8L6v6ObHInif9XHqMtTUkPSTyrLZHzL6NVgKPC+vNl9P46NHEtmwr8iCXdRlYDEifH9laGiOWDwJLb0hzb0yzdj9EvstlrXpHHa2WkX1ZufbGkXKZyLMeozvI0WJRaRJB+0Miz/epxx4GxC8jsIWS0OJXILAZsVzoB8/8PKxsK/IgDrFp5TbcSPuDmJ9DkHbQRL6SZXvxaQN2NT68Qqt9x+Zm2skX+fa9H2XLbAoo6nrX1EvZLpJtRR6RqRZnZeARM/xkoq+CoPu2oi/bijyqy4B9MX/fzv+2T42nol96SOTZez+8Lhuty5YIGOJq5e1EcYalYZNtRb4nay5bzaceo4U6/8Bm+4KjbCvyd7KeCHpeYWxHOjyDTRd6wTbItiJf9VBrDZGsC7HtYGs9EZRRnkoPiXzOXXrHuUiRIkWKFCnyPyd/AUoFj9XdsIEjAAAAAElFTkSuQmCC"},
+{"id":7,"title":"Tư liệu 07","category":"padlet","url":"https://www.thunho.site/t/ypvrqhxhczf8","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADVElEQVR42u2cQW7jMAxFP8cCspSBHiBHUW7QIxVzpLmBdZQcoIC0LCDjz0KSI6dOWnQ1wHwtjMT22xAExU9SNuJnK/7CT5dIkSJFihQpUuS/R1pbDmbzakA2Q5wBu2A1uwAAcn/rItuKHBdJEoEkmab6C/AkAgu4eLasO6SJw8uLbCtyT+YeX2KNQw4tDmWz6jktXjnZVuRzkkt2IBPAJZ+IkABEc+AiC4k8XO7zrakA/sMQuBoByrYiv+VDngAyYCG9AMBEABMNPsGA1RD+7P1JthW5I6OZmc3tpl2yqxeEq6vpNIC1yjLZVuRBHNrtV6vVvSzOMMZ5AuO59FAl24o81vZkwhZuNh2f+jvbg/aetL3Ig/pQmsjFF5As3a96fag+qL/QikTyIZH3cYgFZK8itmpjQr03BiNfFIdEHuqy+Jpo8B9G5JdiAAzwhMEXEHkGkVcjAJpsK/Kw11FaFrRgYutwDDsYNr2vfEjko3yoFolG6dXuFXDBVHtoyodEPiL5e54IZLObGmuZNFppiEt21aXUtxd5FIew38FqpPGldc6qQgNG1aY4JHKvyxZf2uYVhr9dnC1ol/EV2VbkpzjUQlBX9K15jy7ww17+y4dEHuTU4d59tmL1XqEpDok86JfFc3GMZ8LCUoD4yt0oCNb62wJlW5HH89RvVweEa5uibo3X7RLtVFXbMO8o24q8i0MzYPDFMb6uDuF6IoCpGDCVNlPk3904kibbitzn1L2AiK0Sfas73vVhlQ+JPNT2t1z57l5Nsbc82+tch8jDvcwCVwfklwL4d9cnYKdi8KXqsr61uULZVuSDnuuwUW2loXbSbFP+i1edWuSTM4qtoToEnl2ntZettZeJPD6j6FAHQKKdyCWfWjDi1cHeEmB2vjmXbCvyeC+79TWwH34dBJt6HSIfzsKSR5nRMBAbhqfyIZEHPVdgGAAJPSnq8yBtbF/z1CK//u5HP83ROviD+ygOifxO335qUyBNfjVvwt18rOKQSDz7ZkNYVmOcp2JxTjT4nk4jz7vDrrKtyEdxyPf0ukmyFpGG9EhxSOSz734Q2RULy+oQ0mwMaa7nywAAFpJsK/JLXYZpN16d+oNawNYco8j7ZYS+cS5SpEiRIkWK/K/JvyiaZ8BG2xPKAAAAAElFTkSuQmCC"},
+{"id":8,"title":"Tư liệu 08","category":"padlet","url":"https://www.thunho.site/t/acs78y799gnw","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADdklEQVR42u2cTW7bMBCF35QEvJSAHMBHoW7QIxU9Um8gHsUHCCAuDVB4XXAoyYmVBFkV6OPCtix9m8GAbzg/MuJ7K//Ad5dIkSJFihQpUuS/R5qvCKBEmI0AspmZjWu7BZT+1CTbinxPJpLkAphd74a0rGa/SHJGINISaBMCSZKyrciHFf27jED6AzBPFyJbYPsPiBUAQBTAgFBlW5GfkMPdmr5NA0myAvla4QomC4k824e2lW4XGoYFANYIIFQCaySKbCvyI3IgOQMwG1dDuplx7s/YhECbALRtSbYV+YT0MxiAtAQCCLSpXIi0oJ3VAGwnNNlW5DstOxY8hgrm690I+AfytYKPT8m2IrfFbfnlst1YgsfUGCqQFtey9vQs24o8+lDbfeaBRKL/8sule5NfepJIPiTyzbkszSBQYmUeX2HpZmBa1kigRuQJRtlW5Ff2oepqNffc9VHfhnpUP+1DIt/70EPVww9nSKxHb9qcSz4k8nQfci+pW0zNx8Ba8ZDIT/Yhj58RWgm21VwPCiYtE3lytp93b2oKth3J+mF+35ukZSKf5ocWb/HYt6AWCh3dLFDxkMjzmutwNxe04dWIoUaivLAVNvLP14hE9X6I/IgsEfxtsUXNZiNgU4uRAr1eVmILu2Vbkc9rHdXFK3VV27WsFV79hrRM5HMtyz8XoonXcDfmMYDZQtMyogD+3yjbijw5lw1kayJi76zuQXTw7NGeR9LZXuQZmW5myONqNnXPsQmrIS2A96Ddomwr8pmWGWBgvta4NxFZq7mWES5yZQTzFKqlWbYV+aSfOlRLtwhLy9rGPJjNbyCPsNZPnZZRfYwiT2odPRJqrUPwmqtXX3vrUM9dKx4S+Zb07o4SgXSLLeXIeajeoo8SgXy9m6eLZFuRz2eDzPPUdwNwoWEA+ljQC4gScRwQkm1Fvpm3j+3QZTYGIi2rD0xP5UJguJvnrmVbkR/05B/K83PvN2tF1hYPKT8k8ovv/djaYNPy+Ggrml0UD4n8+L0fbTxx061jZrEPCOndMSKfne33qioQ6OX5Piq091MfHE5aJvLEh/bhDp/BH3r5bBsyUzwk8hOyRBxG7VMfC2qVMxTN24s82Yd6Q+z+Zo8maOnQSg0oTy3yvNYBD6fdkba6xoyHKXuqB03k22V6x7lIkSJFihQp8j8n/wJXmBjf2AGgSwAAAABJRU5ErkJggg=="},
+{"id":9,"title":"Tư liệu 09","category":"padlet","url":"https://www.thunho.site/t/aqs9yjb34tzp","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADLklEQVR42u2cQW6kMBBFfw1IvTTSHCBHgRvMkaLcDI7CDWAZyejPwi7bnQYiZTXSfBaoW/A2pS/K9atsI352Lb/w00ukSJEiRYoUKfLfIy1fPbAMh9m0m2EZAJtwmE0AgN3fmhRbke1FksRIktw6cg4RnNOzjkD62xHj1rF5eVZsRT5raAOySpJUspA4h+jvbR2TrqQhkbfkMgBY7OF62QDOgVSERF5c/Zf/Nm6DcSRgwGFcJsAQjp6Krch7MpApeX28xbSSTvkNgSTXBz3xRcVW5Cm5mJnZANj7+iCw51xm72sPm+AVmpmZYivyJJexXQ91IBABhE8j8GlYBhgQqNiKvKzLyA0gNyAXXU3R73XZXEoyqi4T+Vrbw+v4dCP9lkqy8mAO0pDIK3/IzR+E2HyMAHR0IZGc0UlDIm88xpKosp/ovmNOYxHVrJaGRJ5oyC1qsslqrb3YtVqThkQ+kTlvhWL+oGNqrWaTKPovxVbkTc/V+2WlNxY8q42lGUvlMpFXdVmIyZPOWY35w+P1vrdgc8EmDYk80dCTfOoCKNdqLL18fYdEnpPjasY5kGb28JKM2azGuJrl/keI0AyayKs1dZpeTMMeAPhhZs2aenmLAHb1y0Ree4x1ZVR96uwKPU05qrYXed7r6BqTKNvWxRoqUyCuMGlI5EvPdUZVSfnmeJPVv1JRdZnIe5JcLa2fbQqf6YZlOKwMhdBsUGxFfrceGuvEhzdZvUwrlqO+QyIvPMY6f587rWUW1keMtK9D5M0MWteUZNVtrAug1sqWhkSerKmrT70VXfmwh3frY/tUGhJ51nOtg66Azyw2pX71jKQhka+5rHbJQmmLbXWPYmwRaUjkqYbIOlldm6yoM0VjeSoNibw992P0sUazwXdzJPNx75/G1BRbkZfnfuTWR+NJl1WQ6jKR1+RezhWqo7H7g6mXj/1BLGmL62H5qWIrEldnNgA2br9hCBEECCx/Ioh9AMa57IlVbEWeawjA0XMZYASOHkAXMa59bJ4qtiK/PQet6XDMdaOij8bKYxR5tVfapVI3A7lFXZbYqu1Fvl6mM85FihQpUqRIkf85+Re3z5nnIB2wMwAAAABJRU5ErkJggg=="},
+{"id":10,"title":"Tư liệu 10","category":"padlet","url":"https://www.thunho.site/t/z9tz8eyr58mf","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADZklEQVR42u2cTarjOhCFTz0ZMpShF5ClyDt4S7r0knoH1lKygAvyMGBzelAlx/fFyYUePeijgXGsfJOiKJ36sY34s1X/wZ8ukSJFihQpUqTI/x9psQagjgCwmKGOmwHYzCbEM1+TbCvymSwkyRYPzUbApuVC1BHgDMAmJJIkZVuRp+TS40u5DQDy6p4DLAPMxs3ckcwG2VbkN2QdAfJ28XBjHw3gvFwoC4l8sYb//LbSRmP9d4UBAIF1MORPo2wr8r0PZQJYANYrYcjbgPJrNJQ5EehxiLKtyFdkNTNX0h+3ASh+liW6HppcU2+elsm2Ik/iEI96KIHACiDfjXWEoY6wCFWyrcg3eZlfCu9xByTa1DM0/rSISLKtyK/LSz6FJOe8gmS/zPnLJZ4x1izbinzOy8rtQkP+hJUZsHIbYPGP1DduwyrbinwZh3y15Bcgr0Dx2nXyv6C0pDgk8oUeGoC6F6HrdVdBfrdZ393ULxN5npctgBUCqFPCwa9KAw35c0D59UO2FfmdpkaiRx82oJ9q/c6Ftc4ykS98CHtTvvS8LO4a4s6dy3flQyKffSiT0ajfW/alJY9N/sxzeygOiTwlyZuZZ17e4ejLpny3mAdZLu5N0tQiT+JQDzw9+rABD3kUsWkPVUVxSOSZDyW6CkImUdqufQ5+FcJaPiTyzIfYkhcQ/YIcGili0+5coYzkQyJP8jLg4TmH2DTnXp0+dtPkQyKfNPX8ENa3GKB2OR0d/DjQzMakmXyR7+pDvSo05/UQlh4+FCVHxSGRZ/Wh6K8+VHN0WvfCtPdhVR8S+fIsS+TP63rcKrwb53y3eOfsejfVh0S+79v7pcujqDEuF9q0mEWUWsxiV7YViUPf3t8IQm7wE6xOALH8ILAAANJqdWzewbcyy7Yin+tDe4JfelusD51FnfrLISc9JPJ0FpYA/M1EQ25gHT8H1Os6xCTRHLuyrcj33/2IbAw9TdsLja6WHhFJthV5Mk/9GKXuLdheM4q/RP9DZ5nIEx9qx4GhaMG2vT60+5X6ZSK/Je2De0Fo3LwghHq928PNZFuRb7/7cUz1sQ3HF898bQNlW5Hvv/sxNhqQ1p6rbYOfYHVMq1VTHBL5bvajSyEfGAp51Dd8Qk31IZFPx5a+cS5SpEiRIkWK/MvJ3xN+6IRQSK/3AAAAAElFTkSuQmCC"},
+{"id":11,"title":"Tư liệu 11","category":"padlet","url":"https://www.thunho.site/t/2cwqaf62ddce","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADW0lEQVR42u2cTYrcMBCFX0WCWcqQA/RR7Bv0keZMuYF1lDlAwFoOyLwsSrLdPXYTZhXI08K43f42RfFUf7IR31v5B767RIoUKVKkSJEi/z3S2oowswigmCFbBPKwmk2AP/M1ybYij4skiZEkuQS/AxCOzwAA4xJ4eHmWbUU+kqXrSx5W45xqkyC7fdruSE2lZFuRL0jO5Y02lQjOJQIoEcgDwFkWEnm64tdHqxFlMIxcI5AW2VbkX/lQIoAC2LgMABCqB0X5DhiwGsZfAGVbkVdkNjOzAQAQaBMAm0qEvX9ED6cBrJ6WybYiT3SIT3tZHmDIA4woAPOtdqmSbUWe5/bkgk1uAv1u7NnYnpe195Tbi7yoD82pgmRtfjWnCs7p4Y85NZ+TD4l81iFWcEagX7hs/25p2bjfyYdEnsXUb8TIT2ulxCEQSKTZjcS4oHkYvYot24r80i97XwCgvLWwxzevZTXOWA15AMyG1leTbUWexkNLIOdEAql6gr8Vjnx/2+8UD4k8i4ea8OwtjeDe5J0z9GfuZoqHRJ7o0DFDq8c4m8smPP7KlrXJtiKPJOdUW7CTh0APgKYeHiH3KMhr15NsK/JkL+ubV0/hw1Z37DXG8UmWZFuRX/ayXp0G3F88Mkq1/0xtQ1M8JBIn/bJ8/x2ZbxUECMu25WXljUDxbixspGwr8iq339pi6VhU7Ip03NqkQyKvZtAMWx6fbwTg5cWFrj75XiOBGinbirzsue6lIfTIyKPrXYw0ky/y5ewHHyvRvoP1y+w1APXtRV70XG+1nSqDV4qi72WtFuRJf6BNRefLRL6sU9fWIDt0PXqI3cJu1alFvoiH2inEpQlPc670sKvNXi6SD4m87tv3QbTtYOs+FduHGeVDIq/PlxXz6XxDWoA8BCBPAcxD8NOKdhgKkW1FPs3Ckg99+/rQ+uhZ26GrLx0SedIvw2MFaBvC74H11paVD4l88d2PlpL10xwtCto+CCIdEvmqX9aVhsdzHa5DeDjcIR0S+ZIcP8z2cx17Vai1PrYBENlW5LUO1eMk/mGcqB9ZlA6JfPndD6JEMN/XiHH52dwMZYAhATYusq3Icx/KPi8dgDwB1p6vBqQarX1KZt3ek21F7sv0jXORIkWKFClS5H9O/gH6wUxmdXeGSgAAAABJRU5ErkJggg=="},
+{"id":12,"title":"Tư liệu 12","category":"padlet","url":"https://www.thunho.site/t/jxjvshsdsxnu","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADUUlEQVR42u2cTY6jMBCFX42RsjRSDpCjwM2iPtLcAB8lN8DLlozeLOwCkiZMq1cjzfMCgeHblEr1j4342Uq/8NMlUqRIkSJFihT575HWVgezfjEbsxmSmdVH6wEg+1ejZCtyv0iSGEiSc/C7uleAgSQQCzDMgbuPJ8lW5DOZ3b6kfrGWefUAP8ysKlezV51kK/Kc5JQ72Jg7cMoXNr2yDpwkIZHfJQORbp9mdxZwQqAkJPJsuWuKBJABG+YrmMYLASwdEGcYsBiG3wAlW5HvyJaDtU27z4CN+UIMj66G0wCWmpZJtiIP7NCLu2K6fRpSH4DUBzDdipsqyVbkcW5PzljNTbu0PZb1BeB7yu1FHtaHgFjAKRaQtRZUwCmSda++WJd0SOSrHQqsVcQp+iOqNqGl9YPvyQ6JPNKhzdJMkc2X1bvYPN3mxqRDIo/6ZffHhXZ/XFrYM8UCuz/MqglKPYDUBwJZeZnIN/UhLMZ0KzDAAMBAZMAQAQNCMcQZTH0okq3IQ1+GNfNiwWaM2gWoFevq3+TLRB7kZWusjGFuiuQZ2vroGqa8TOQB2SxNNgMiadYH2rjrubZAycbcQfNDIg/tEILnYJ7qN5tTU7JQx4n8heyQyK81xlqnbpd9ALQNhUS2R8VDIg/6ZelWunoBSmfD2hprd0v9bvdCshX5OsfYofboUx/ow4x+qfFQNtvNO0q2Ip/sUCsJxdK5zamN1wLkK22Yr8DApeOuxS/Zinzul7EFO14pau0zH9FvE421eqR4SOTbmNqrjZtKeb8suIZF1YdEvuu5enlxinXe7GmSaG3tVwMlHRJ5ND9UsHNUq+Fxr7Ym/bJDIs98GbaCUDVLXnes/m3eZhulQyIPyebGEMgpd65hj66N6NutwMZYJFuRJ75s7WvsI+mw6+pvP0zLDok8yu3XDr63yoK38T3L97hJOiTyoOfq8dCmL9hGY3fhkepDIv9y7kcbwve/OXbqIzsk8jt9+61EDVSbgy2Ixtralw6JPCOHebGt4bHvcMxetp4kW5FnZPsvusATfD8HLd0K+NFDc4wicXruB5EvtGaRrrBhXkB4uchaLVKyFXly7kfq8RoFmfVeok4690Pk6zKdcS5SpEiRIkWK/M/JP3oASKqPt50fAAAAAElFTkSuQmCC"},
+{"id":13,"title":"Tư liệu 13","category":"padlet","url":"https://www.thunho.site/t/k4v2mqda8yz9","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADT0lEQVR42u2cTY6cQAyFnwNSLwspB5ijwA1ypFytOEofIBIsWyr0snCZn26YHs0qih4ruuHbWJZ/nl0Y8b1r/IHvXiJFihQpUqRIkf8eafVqAcxmZh2AsVvMrFv8UX1gZjbItiJfyZ4kOQFmHyR5N7PfEwCgIXqSNqAhSVK2FXlKzjW+MM9mQCKZ5xbkVF9g9njVyrYi35GpAJhb2JAKPG+NHeqdLCTy5Wqf/+jvN1ZHcveZQGBpiVm2FfkZmciarToAwGLMaFgjEhp6piOLbCvylBwturF+AmyYb7Rhbv0nMLfuV7VDk21FvuQyPtdD6WEEHgakh2H8KODxLdlW5AlpZma1L0ONPt6cZSxmgz9YFIdEPl0u+fQTwJxI9Cz1DikecGrInEroSCSZZVuRT31ZU6y/t4WjAdbf24I+L61nsHGAEWhomH8W2VbkWRyCB5kC5lRcT6x9GRCFdaoSteKQyHMfqr293zEyGHrWDLaJ1Z7Q5EMin3zIh2GlKkD96lfbfx6qpkb1kMjP4xAzmohITwmN8Yp8SOSrD21pzENQHzVS7doiGEV+kw+JfPGhLaFlr4ea6PKxJq81QMmHRJ7pQ1HxePLqtyoIwCYNRd0kHxJ5sj9UNemIPnXZo6qN2ytJM1eR7/QhTltlFD+9wZ8al62Vy0Se1tShCoXnrM1ZinJa9ZBIvNtBM6RIW+OvhzEG+rTa2wOGNMm2Ik/PdQy+wmiGsWu8dAZSgU/rexZfpSbv2qcWeaVTI0Zl6SADeX7btfrSGEVeaYz7gnknDeVVwObUrCWTfEjk1byMPLjUeqDMN4maWCeSD4k806mPA9XEKIoQBxVXBVI+JPLUh3buEypidamyprF9bJIPiTzRGLdK2vPWuuxRJyERkeRDIq9mrvsODYdGbDcvi1m+fEgkDhqjrUvVWPVEjt0fhPi4rlLPN32zQeTF3D42PnxtOpX95xq4Nf3aHxL57rsfdTzvh6Nr7WNDIjGaGcZO58tEXp8v86YrRx9/6NrWp0nny0R+hSTvt9qhjfHBIWYs/jE0WUjkp/XQ4dhrweGwaz1ppjgk8mrmWsWfnZ64OU05ZDX5kMgvfPdj+9AHsZ96rCtGsq1IkSJFihQp8j8h/wKFDIUN2qe+8AAAAABJRU5ErkJggg=="},
+{"id":14,"title":"Tư liệu 14","category":"padlet","url":"https://www.thunho.site/t/jknzkanbd5u6","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADmUlEQVR42u2cS4rsOBBFT7QFNbShFlBLsXfQS+o11Q7speQCHljDApvbA0l2ZqXzFbxR01wNEtL2mQQiFJ8bCvFna/mLP10mTZo0adKkSZP/PTLqSkBOLeIZANgjphwBuX012bYmn8lRkrRCxMdGTOwR/6wQU34T9FJMdJIk2bYmH1ZzOnmA8RO0TIGWYRXkAcFWPhAZArrNtjX5A9lvMK4QU78RMQBLJOoJZguZfOWHjjXeEpDfN6AT5LQJ9hDZtjX5O7KXNAMRQ6eY+q/QzF7i55joFBMgabNtTV6SS0SUc2tcAfKbajhdoqVUM7SICNvW5OPS42JsmZekDc39Vr3UtzXbtiafyIiI0JwjSmBNfhPkRD3VcgSw2w+ZvPJDQCfNvQT9vfdhXEFaO5Vno/2QyRd52fg5hMhp0zIlYrwlBHsSbCmAEICWYbVtTV77oeJ4NjQDmk+3RFcK2OWt1hZB2Q+Z/L6H6rnVuh5dja5HtRNshrKH6l/b1uRFjbHfkmBPjPNX1A4HnQL2BP2vFOOnex0mX8fUNX4+fM7xc1cDmPFZZvK6PnTsjfME09xvtTB9PjsOOe8hk9/zMlG6ZFqi2yC/K8ZbIkrTjD1piU4sE64Pmbw8y0a1ghBHkUjr+UlzRjQRkf2Qyad+WUJzTjV7n6naD810qorGnFrx0bY1+aI+VMKetVPZOYe2sSb4a3ef/tsPmXyIh7T83amqhvqvgH5FS4Bqgg9ahg5VjbVta/K6xljb8y0lm5vQ+tt3jodMXpB1v9xS0aDVln2/wTLswaiNqkG7JdvW5Ov6UPE+vWqrrEZB1FDobq/ZD5l8WaduXTJaSlZlHzQBiHuuJn9PPvTtz2cxlfmyOn1m25q8ioe07sESZwd2L2LGKqDOCZaPr9B8aqxtW5PPfftxhjKtCG+KcaUJ0fI7OoeobVuTV/P2JRtLRHw0JRE5Iqb8VkaFIgYeBhVtW5Ov5jpar+PserQ07WikOaY2+XSWtV58t0G/JUbtKei39ranzb46HjL5070fZTwxhtobu68snoP4tq3JC+3HXSmxaxL947KY8bwxxjVGkz+RVb3YBjlYBooopDb021y+bWvyNZlTvblqPEbJSmmIvVyGZtuavKwP9QLyoYplDy3DrySgjCyW6HpcB9vW5It+GS0AWo8oqLTPNqoc/06S5njI5JMGjcd70OqzrcyX1Tj79Fe2rUmTJk2aNGnyf0T+C7qy+bHXdTgFAAAAAElFTkSuQmCC"},
+{"id":15,"title":"Tư liệu 15","category":"padlet","url":"https://www.thunho.site/t/3vjfgjz2y398","qr":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAADRklEQVR42u2cTWrjQBCFX40avOyGHCBHad1gjhTmSLmB+yg+QEBaGiTeLPpPdtpOyGpgXkEcIufbFEX9l4z4maRf+KmIFClSpEiRIkX+e6QVcTALgFnYzWYASOZg8+pg81r/a5ZuRX4mI0lyAXhG+SjiNyC9bgAwkSQp3Yq8EVd+rwGI74DB7w7AiZbCh0NcdtdLNwOmTboV+ZQkl4mIy27AeiKSOSCF3aQhkd8kzcwsB6/IqyEuE3MYO0tDIseSU5ySDxVTyZlRzn08sw0hLjUfiiR5lm5F3pDJzHJJ9rZMtBkTbV4dEC8OiAsAYM9lmXQrcuCHuhx8E9DCmN9q6dZEfkjkgEzmcllvZg45sY68mr1dTgTW1imSbkV+qu0NAAj/kQMVa2vIAesLkcLUmkTtW+lW5G0sW0pZz7MvfyJyy9l1llg7kMqpRY5s6IyJxWhaUtSelZJsmUqZJhsSOYxluwFrgMF/OGJ92azkSBMN/mqI77tRuhX5rD+UP4rUpuLhma8tJNVlIkexzNeE+YzbBMhvbQ5bsiXFMpEjP5Q70dWaau6zNe9zNC75IZEDkmd/NWC1PCAze92AeDmRvDgghaNvUn9I5Lguq8X8GW1olkuyMj47fCs/JHIUy3w3kA29oi8f7Zlqe5EPanvmH7/A4D9yJ5opwJDCBAITkcJCU59a5Bd9aqBUXn0rtjuopeRD8kMiH+4PFfO53TerJlXKNNVlIh/mQxxYThuf1SGIdtBEftUfqrOx3lm8i3TaHxL5bOaah6yt29jL+v5F6UDKhkQ+9UNts5o1f+5V/sEZyYZEjnLq1h9q7aKaKE2HnSLlQyLH5G6A32AWpkPbGgBgb7wa0ivzQqx0K3Loh+5yH99PhXqiBPQDIfkhkQ/vOg7LjPm0rM/L6kxENiTy2Xs/+CfUY9d4KXHLZkw1jK0nam4v8umd693mWe0ZyQ+J/E4+1BvTx+FGnXD0/SHVZSIxenfMnfjNMc0nGtYTgTWAWAOYgt4dI/JrcjeUM+ndAH/Nh/jlRtFv2mMUOfZDngBWlKw5hQUWlwCm30A5FfKAwUu3Ih/NOoDD+xmOa43taMhTdx0iB2J6x7lIkSJFihQp8j8n/wLYS2CVUNzF7wAAAABJRU5ErkJggg=="}
 ];
 
 /* ==========================================================
@@ -986,6 +1207,7 @@ Array.prototype.forEach.call(document.querySelectorAll(".lgi"),function(n){
    ========================================================== */
 var seen={},seenN=0,cur=-1,lastTrigger=null;
 var listOverlay=$("listOverlay"),tip=$("tip"),stage=$("stage");
+var tuThuVien=false,tvScroll=0;
 var bubble=$("bubble"),qcatch=$("qcatch"),qline=$("qline"),
     qpath=$("qlinePath"),qdot=$("qlineDot"),btail=$("btail");
 
@@ -1048,17 +1270,18 @@ function placeBubble(leaf){
   qline.classList.add("draw");
 }
 
-function openItem(i,trigger){
+function openItem(i,trigger,giuTV){
   var it=DATA[i];cur=i;lastTrigger=trigger||document.activeElement;
   $("mTitle").textContent=it.title;
   $("mChip").innerHTML=iconSvg(it.category,14,CATCOLOR[it.category])+
-                       "<span>"+LABELS[it.category]+"</span>";
+                       "<span>Lá "+(it.id<10?"0":"")+it.id+" · "+LABELS[it.category]+"</span>";
   var q=$("mQr");q.src=it.qr;q.alt="Mã QR của "+it.title;
   $("mGo").href=it.url;
   $("mDl").href=it.qr;$("mDl").download="QR-"+(it.id<10?"0":"")+it.id+"-"+it.category+".png";
   $("mUrl").textContent=it.url;
   $("mCopy").textContent="Chép link";
   $("mCount").textContent=(it.id<10?"0":"")+it.id+" / 15";
+  tuThuVien=!!giuTV;$("mBack").hidden=!tuThuVien;
 
   leafEls.forEach(function(l){ l.classList.remove("active") });
   leafEls[i].classList.add("active");
@@ -1077,7 +1300,7 @@ function closeItem(){
   leafEls.forEach(function(l){ l.classList.remove("active") });
   if(lastTrigger&&lastTrigger.focus)lastTrigger.focus();
 }
-function step(d){openItem((cur+d+15)%15,lastTrigger)}
+function step(d){openItem((cur+d+15)%15,lastTrigger,tuThuVien)}
 
 /* doi co cua so thi dat lai bong bong */
 var rePos;
@@ -1122,6 +1345,12 @@ leafEls.forEach(function(leaf,i){
    5. HỘP THOẠI · DANH SÁCH · PHÍM TẮT
    ========================================================== */
 $("mClose").addEventListener("click",closeItem);
+$("mBack").addEventListener("click",function(){
+  closeItem();listOverlay.classList.add("show");
+  try{$("lClose").focus({preventScroll:true})}catch(e){}
+  var sh=listOverlay.querySelector(".sheet");
+  if(sh){sh.scrollTop=tvScroll;requestAnimationFrame(function(){sh.scrollTop=tvScroll})}
+});
 $("mPrev").addEventListener("click",function(){step(-1)});
 $("mNext").addEventListener("click",function(){step(1)});
 qcatch.addEventListener("click",closeItem);
@@ -1155,11 +1384,111 @@ GROUPS.forEach(function(g){
     b.innerHTML='<img src="'+it.qr+'" alt=""><div class="ci" style="background:'+CATTINT[cat]+'">'+
       iconSvg(cat,15,CATCOLOR[cat])+'</div><div class="t"><span class="n">'+
       (it.id<10?"0":"")+it.id+'</span><b>'+it.title+'</b><span>'+LABELS[cat]+'</span></div>';
-    b.addEventListener("click",function(){listOverlay.classList.remove("show");openItem(i,b)});
+    b.addEventListener("click",function(){
+      var sh=listOverlay.querySelector(".sheet");tvScroll=sh?sh.scrollTop:0;
+      listOverlay.classList.remove("show");openItem(i,b,true);
+    });
     grid.appendChild(b);
   });
   groupsBox.appendChild(grid);
 });
+
+
+/* ============ THU VIEN SO HOA ============ */
+/* ===== SUA DANH SACH LOP O DAY =====
+   n  : so tu lieu cua lop (chi lop da co kho moi dien)
+   tt : "non" = dang trien khai; bo trong = cho khoi dong
+   mo : true = mo san khi vao thu vien                      */
+var KHOA=[
+  {ten:"Niên khóa 2024–2028",phu:"Khối 11 · đang học",mo:true,lop:[
+    {ten:"11A",n:15},{ten:"11A2"},{ten:"11B"},{ten:"11C"}
+  ]},
+  {ten:"Niên khóa 2023–2027",phu:"Khối 12 · chờ khởi động",lop:[
+    {ten:"12A"},{ten:"12A2"},{ten:"12B"},{ten:"12C"}
+  ]},
+  {ten:"Niên khóa 2025–2029",phu:"Khối 10 · chờ khởi động",lop:[
+    {ten:"10A"},{ten:"10A2"},{ten:"10B"},{ten:"10C"}
+  ]}
+];
+
+/* bieu tuong cai cay theo trang thai sinh truong */
+function cayIcon(tt){
+  if(tt==="xanh")return '<svg class="tvicon" viewBox="0 0 28 34" aria-hidden="true">'+
+    '<ellipse cx="14" cy="31.6" rx="8" ry="1.6" fill="rgba(0,0,0,.13)"/>'+
+    '<path d="M14 31V19" stroke="#8c7047" stroke-width="2.6" stroke-linecap="round"/>'+
+    '<circle cx="7.6" cy="16.2" r="5.4" fill="#3c8460"/>'+
+    '<circle cx="20.4" cy="16.2" r="5.4" fill="#3c8460"/>'+
+    '<circle cx="14" cy="12" r="8.4" fill="#2f6b4f"/>'+
+    '<circle cx="12.4" cy="9.2" r="3.2" fill="#5aa878" opacity=".8"/></svg>';
+  if(tt==="non")return '<svg class="tvicon" viewBox="0 0 28 34" aria-hidden="true">'+
+    '<ellipse cx="14" cy="31.6" rx="6" ry="1.4" fill="rgba(0,0,0,.1)"/>'+
+    '<path d="M14 31V17" stroke="#8c7047" stroke-width="2.1" stroke-linecap="round"/>'+
+    '<path d="M14 22c-5.2 0-7.4-3-7.4-6.2 4.2 0 7.4 2.2 7.4 6.2Z" fill="#3c8460"/>'+
+    '<path d="M14 18.4c5.2 0 7.4-3 7.4-6.2-4.2 0-7.4 2.2-7.4 6.2Z" fill="#4e9a6e"/></svg>';
+  return '<svg class="tvicon" viewBox="0 0 28 34" aria-hidden="true">'+
+    '<ellipse cx="14" cy="30.6" rx="7" ry="2.3" fill="rgba(140,112,71,.32)"/>'+
+    '<path d="M14 30v-5.6" stroke="#8c7047" stroke-width="1.8" stroke-linecap="round"/>'+
+    '<path d="M14 25.2c-3.6 0-5-2.1-5-4.2 3 0 5 1.5 5 4.2Z" fill="#6f8f73"/></svg>';
+}
+/* thanh la: 15 o, to bao nhieu la co bay nhieu tu lieu */
+function laMeter(n){
+  var h='<span class="tvmeter">',i;
+  for(i=0;i<15;i++)h+='<i'+(i<n?'':' class="o"')+'></i>';
+  return h+'</span>';
+}
+
+/* dung cay thu muc: nien khoa > lop */
+(function thuVien(){
+  var box=$("tvtree");if(!box)return;
+  KHOA.forEach(function(k){
+    var wrap=document.createElement("div");
+    wrap.className="tvkhoa"+(k.mo?" open":"");
+    var h=document.createElement("button");
+    h.type="button";h.className="tvhead";
+    h.setAttribute("aria-expanded",k.mo?"true":"false");
+    h.innerHTML='<span class="cv">&#9654;</span><b>'+k.ten+'</b><i>'+k.phu+'</i>';
+    h.addEventListener("click",function(){
+      var o=wrap.classList.toggle("open");
+      h.setAttribute("aria-expanded",o?"true":"false");
+    });
+    wrap.appendChild(h);
+    var body=document.createElement("div");body.className="tvbody";
+    k.lop.forEach(function(l){
+      var co=l.n>0;
+      var row=document.createElement("div");
+      row.className="tvlop"+(co?" co":" cho");
+      row.innerHTML=cayIcon(co?"xanh":(l.tt==="non"?"non":"mam"))+
+        '<span class="ten">'+l.ten+'</span>'+laMeter(co?l.n:0)+
+        '<span class="tvinfo">'+(co?(l.n+" tư liệu · 4 dạng"):
+          (l.tt==="non"?"đang triển khai":"chờ khởi động"))+'</span>';
+      body.appendChild(row);
+      if(!co)return;
+      var acts=document.createElement("div");acts.className="tvacts";
+      var bXem=document.createElement("button");
+      bXem.type="button";bXem.className="tvbtn open";
+      bXem.innerHTML='<span class="cv">&#9654;</span>Xem nội dung';
+      var bCay=document.createElement("button");
+      bCay.type="button";bCay.className="tvbtn main";
+      bCay.innerHTML='Vào cây &#8250;';
+      acts.appendChild(bXem);acts.appendChild(bCay);
+      row.appendChild(acts);
+      var panel=document.createElement("div");
+      panel.className="tvpanel open";
+      panel.appendChild(groupsBox);
+      body.appendChild(panel);
+      bXem.addEventListener("click",function(){
+        var o=panel.classList.toggle("open");
+        bXem.classList.toggle("open",o);
+        bXem.setAttribute("aria-expanded",o?"true":"false");
+      });
+      bCay.addEventListener("click",function(){
+        listOverlay.classList.remove("show");
+        toast("Cây tri thức "+l.ten+" — chạm một chiếc lá để mở tư liệu");
+      });
+    });
+    wrap.appendChild(body);box.appendChild(wrap);
+  });
+})();
 
 $("btnList").addEventListener("click",function(){listOverlay.classList.add("show");$("lClose").focus()});
 $("lClose").addEventListener("click",function(){listOverlay.classList.remove("show")});
@@ -1455,6 +1784,822 @@ FALLEN.forEach(function(f,i){
   }, { passive: true });
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(place);
 })();
+
+/* ==========================================================
+   12. KHU VUON 3D - chi dung len khi nguoi xem bam nut
+   ========================================================== */
+var dangMo3D = false, daDung3D = false, dangTai3D = false;
+
+function dungVuon3D(){
+  /* ==========================================================
+     CAY TRI THUC - BAN 3D, GOC NHIN THU NHAT
+     Ban la mot hoc tro dang di duoi san truong Khuong Dinh.
+     Bam vao chiec la dang sang de xem ma QR cua tu lieu.
+     ========================================================== */
+  "use strict";
+
+  var LABELS = { website:"Website tri ân", podcast:"Podcast lời thương",
+                 flipbook:"Flipbook kỷ yếu", padlet:"Padlet tư liệu" };
+  var TINT = { website:["#e6c173","#a87c2b"], podcast:["#e0a165","#a85c2c"],
+               flipbook:["#55a894","#1f5546"], padlet:["#7ba775","#3d6a52"] };
+  var ICONS = {
+    website:"M -9 0 A 9 9 0 1 0 9 0 A 9 9 0 1 0 -9 0 Z M -9 0 L 9 0 M 0 -9 C 4.8 -5 4.8 5 0 9 C -4.8 5 -4.8 -5 0 -9 Z M -7.7 -4.6 Q 0 -1.3 7.7 -4.6 M -7.7 4.6 Q 0 1.3 7.7 4.6",
+    podcast:"M -3.4 -6.1 A 3.4 3.4 0 0 1 3.4 -6.1 L 3.4 -1.9 A 3.4 3.4 0 0 1 -3.4 -1.9 Z M -6.3 -2.4 A 6.3 6.3 0 0 0 6.3 -2.4 M 0 4 L 0 8 M -3.7 8 L 3.7 8",
+    flipbook:"M 0 -5.2 C -2.6 -7.8 -6 -8.4 -9 -7.9 L -9 5.8 C -6 5.3 -2.6 5.9 0 8.5 C 2.6 5.9 6 5.3 9 5.8 L 9 -7.9 C 6 -8.4 2.6 -7.8 0 -5.2 Z M 0 -5.2 L 0 8.5",
+    padlet:"M -8.6 -8.4 L -1.2 -8.4 L -1.2 -1 L -8.6 -1 Z M 1.2 -8.4 L 8.6 -8.4 L 8.6 -1 L 1.2 -1 Z M -8.6 1.2 L -1.2 1.2 L -1.2 8.6 L -8.6 8.6 Z M 1.2 1.2 L 8.6 1.2 L 8.6 8.6 L 1.2 8.6 Z"
+  };
+  var LEAF_D = "M 0 0 C -27 -19 -35 -50 0 -80 C 35 -50 27 -19 0 0 Z";
+
+  /* ---------- khung canh ---------- */
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x07121d);
+  scene.fog = new THREE.FogExp2(0x0a1a2a, 0.0145);
+
+  var camera = new THREE.PerspectiveCamera(72, innerWidth / innerHeight, 0.08, 500);
+  camera.position.set(0, 1.62, 13);
+
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  document.getElementById("app").appendChild(renderer.domElement);
+
+  scene.add(new THREE.HemisphereLight(0x9ec4d8, 0x1b2f26, 0.55));
+  var moonLight = new THREE.DirectionalLight(0xd8e9ff, 1.05);
+  moonLight.position.set(-16, 26, -14);
+  moonLight.castShadow = true;
+  moonLight.shadow.mapSize.set(1024, 1024);
+  moonLight.shadow.camera.left = -22; moonLight.shadow.camera.right = 22;
+  moonLight.shadow.camera.top = 22;   moonLight.shadow.camera.bottom = -22;
+  moonLight.shadow.camera.far = 70;
+  scene.add(moonLight);
+  /* anh den vang hat len tan cay tu duoi goc */
+  var warm = new THREE.PointLight(0xffd79a, 2.1, 26, 2);
+  warm.position.set(0, 2.2, 0);
+  scene.add(warm);
+
+  /* ---------- hoa tiet ve bang canvas ---------- */
+  function cvs(w, h){ var c = document.createElement("canvas"); c.width = w; c.height = h; return c; }
+
+  function barkTexture(){
+    var c = cvs(256, 256), g = c.getContext("2d");
+    g.fillStyle = "#6b5437"; g.fillRect(0, 0, 256, 256);
+    for (var i = 0; i < 240; i++) {
+      g.strokeStyle = "rgba(0,0,0," + (0.04 + Math.random() * 0.16) + ")";
+      g.lineWidth = 1 + Math.random() * 3.4;
+      var x = Math.random() * 256;
+      g.beginPath(); g.moveTo(x, 0);
+      g.bezierCurveTo(x + 12 - Math.random() * 24, 85, x + 12 - Math.random() * 24, 170, x, 256);
+      g.stroke();
+    }
+    for (var j = 0; j < 90; j++) {
+      g.strokeStyle = "rgba(190,165,120," + (0.05 + Math.random() * 0.14) + ")";
+      g.lineWidth = 1 + Math.random() * 2;
+      var x2 = Math.random() * 256;
+      g.beginPath(); g.moveTo(x2, 0); g.lineTo(x2 + 8 - Math.random() * 16, 256); g.stroke();
+    }
+    var t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(3, 2);
+    return t;
+  }
+
+  function glowTexture(hex, soft){
+    var c = cvs(256, 256), g = c.getContext("2d");
+    var gr = g.createRadialGradient(128, 128, 0, 128, 128, 128);
+    gr.addColorStop(0, hex);
+    gr.addColorStop(soft || 0.5, hex.replace("rgb", "rgba").replace(")", ",0.33)"));
+    gr.addColorStop(1, "rgba(0,0,0,0)");
+    g.fillStyle = gr; g.fillRect(0, 0, 256, 256);
+    return new THREE.CanvasTexture(c);
+  }
+
+  /* la nho cho tan cay: khong vien den, co gan la va mang sang toi
+     nen nhin gan khong bi giong mieng dan giay */
+  function foliageTexture(c1, c2){
+    var c = cvs(128, 128), g = c.getContext("2d");
+    g.translate(64, 124); g.scale(1.45, 1.45);
+    var p = new Path2D(LEAF_D);
+
+    var gr = g.createLinearGradient(0, -82, 0, 0);
+    gr.addColorStop(0, c1);                 /* ngon la sang */
+    gr.addColorStop(.58, c1);
+    gr.addColorStop(1, c2);                 /* cuong la sam */
+    g.fillStyle = gr; g.fill(p);
+
+    g.save(); g.clip(p);
+    var sh = g.createLinearGradient(-34, -72, 34, -8);   /* mang sang toi cheo */
+    sh.addColorStop(0, "rgba(255,255,255,.17)");
+    sh.addColorStop(.48, "rgba(255,255,255,0)");
+    sh.addColorStop(1, "rgba(0,0,0,.20)");
+    g.fillStyle = sh; g.fillRect(-40, -86, 80, 92);
+
+    g.strokeStyle = "rgba(255,255,255,.22)"; g.lineWidth = 1.6;
+    g.beginPath(); g.moveTo(0, -4); g.lineTo(0, -75); g.stroke();
+    g.lineWidth = .85; g.strokeStyle = "rgba(255,255,255,.14)";
+    for (var y = -15; y > -68; y -= 10) {                /* gan phu toa hai ben */
+      g.beginPath(); g.moveTo(0, y); g.lineTo(-13, y - 9); g.stroke();
+      g.beginPath(); g.moveTo(0, y); g.lineTo(13, y - 9); g.stroke();
+    }
+    g.restore();
+
+    var t = new THREE.CanvasTexture(c);
+    t.anisotropy = 8;
+    return t;
+  }
+
+  /* chiec la tu lieu: co bieu tuong va so */
+  function docLeafTexture(it, mo){
+    var c = cvs(256, 256), g = c.getContext("2d");
+    g.translate(128, 244); g.scale(2.9, 2.9);
+    var tint = TINT[it.category];
+    var gr = g.createLinearGradient(-30, -80, 30, 0);
+    gr.addColorStop(0, mo ? "#5f7b5c" : tint[0]);
+    gr.addColorStop(1, mo ? "#2f4a38" : tint[1]);
+    var leaf = new Path2D(LEAF_D);
+    g.fillStyle = gr; g.fill(leaf);
+    g.strokeStyle = mo ? "rgba(210,205,180,.3)" : "rgba(246,238,206,.75)";
+    g.lineWidth = 2; g.stroke(leaf);
+    var ic = new Path2D(ICONS[it.category]);
+    g.save(); g.translate(0, -50); g.lineJoin = g.lineCap = "round";
+    g.strokeStyle = "rgba(6,22,16,.5)"; g.lineWidth = 4.2; g.stroke(ic);
+    g.strokeStyle = mo ? "rgba(225,232,215,.5)" : "#fdfaef"; g.lineWidth = 1.9; g.stroke(ic);
+    g.restore();
+    if (mo) { var tm = new THREE.CanvasTexture(c); tm.anisotropy = 4; return tm; }
+    g.fillStyle = "rgba(243,238,215,.96)";
+    g.beginPath(); g.arc(0, -18, 9.4, 0, 6.2832); g.fill();
+    g.fillStyle = "#11322a"; g.textAlign = "center"; g.textBaseline = "middle";
+    g.font = "700 11px 'Be Vietnam Pro', Arial, sans-serif";
+    g.fillText((it.id < 10 ? "0" : "") + it.id, 0, -17.5);
+    var t = new THREE.CanvasTexture(c); t.anisotropy = 4;
+    return t;
+  }
+
+  /* ---------- san truong ---------- */
+  (function groundTex(){
+    var c = cvs(512, 512), g = c.getContext("2d");
+    g.fillStyle = "#162c25"; g.fillRect(0, 0, 512, 512);
+    for (var i = 0; i < 2600; i++) {
+      g.fillStyle = "rgba(" + (24 + Math.random()*30) + "," + (52 + Math.random()*40) + "," +
+                    (40 + Math.random()*26) + ",.5)";
+      g.fillRect(Math.random()*512, Math.random()*512, 2.5, 2.5);
+    }
+    /* gach lat quanh goc cay */
+    g.strokeStyle = "rgba(120,150,120,.16)"; g.lineWidth = 1.6;
+    for (var k = 0; k < 420; k++) {        /* vet co lo xo */
+      var gx = Math.random()*512, gy = Math.random()*512;
+      g.beginPath(); g.moveTo(gx, gy);
+      g.lineTo(gx + (Math.random()-.5)*9, gy - 5 - Math.random()*9); g.stroke();
+    }
+    var t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(34, 34);
+    var m = new THREE.Mesh(new THREE.CircleGeometry(95, 64),
+      new THREE.MeshStandardMaterial({ map: t, roughness: 1 }));
+    m.rotation.x = -Math.PI / 2;
+    m.receiveShadow = true;
+    scene.add(m);
+  })();
+
+  /* ---------- troi sao va vang trang ---------- */
+  (function sky(){
+    var g = new THREE.BufferGeometry(), v = [];
+    for (var i = 0; i < 1100; i++) {
+      var th = Math.random() * Math.PI * 2, ph = Math.acos(Math.random() * 0.92 + 0.02), R = 200;
+      v.push(R*Math.sin(ph)*Math.cos(th), R*Math.cos(ph) + 8, R*Math.sin(ph)*Math.sin(th));
+    }
+    g.setAttribute("position", new THREE.Float32BufferAttribute(v, 3));
+    scene.add(new THREE.Points(g, new THREE.PointsMaterial({
+      color: 0xffffff, size: 1.15, sizeAttenuation: false, transparent: true, opacity: .85 })));
+
+    var moon = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: glowTexture("rgb(246,240,214)", .26), transparent: true,
+      blending: THREE.AdditiveBlending, depthWrite: false }));
+    moon.position.set(-26, 40, -86); moon.scale.set(52, 52, 1);
+    scene.add(moon);
+  })();
+
+  /* ==========================================================
+     DAY NHA THPT KHUONG DINH - dung khoi that, co ban cong va cot
+     ========================================================== */
+  (function campus(){
+    var G = new THREE.Group();
+    var wall  = new THREE.MeshStandardMaterial({ color: 0xcfd6d2, roughness: .9 });
+    var slab  = new THREE.MeshStandardMaterial({ color: 0xe3e8e4, roughness: .85 });
+    var deep  = new THREE.MeshStandardMaterial({ color: 0x1b2b33, roughness: 1 });
+    var rail  = new THREE.MeshStandardMaterial({ color: 0x33434a, roughness: .8 });
+    var litM  = new THREE.MeshBasicMaterial({ color: 0xffd48a });
+
+    function box(w, h, d, x, y, z, mat, shadow){
+      var m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      m.position.set(x, y, z);
+      if (shadow !== false) { m.castShadow = true; m.receiveShadow = true; }
+      G.add(m); return m;
+    }
+
+    /* x bat dau, chieu rong, so tang */
+    function wing(x0, w, floors, z){
+      var H = floors * 3.4 + 1.2;
+      box(w, H, 7, x0 + w/2, H/2, z - 1.6, wall);              /* khoi nha */
+      box(w + .5, .5, 8.4, x0 + w/2, H, z + .4, slab);          /* mai */
+      for (var f = 0; f < floors; f++) {
+        var y = 1.2 + f * 3.4;
+        box(w, 2.3, .35, x0 + w/2, y + 1.3, z + 1.9, deep, false);   /* hoc ban cong */
+        box(w + .4, .35, 3.4, x0 + w/2, y, z + .5, slab);            /* san ban cong */
+        box(w, .75, .18, x0 + w/2, y + .95, z + 2.08, rail);         /* lan can */
+        for (var wx = x0 + 1.1; wx < x0 + w - 1.1; wx += 2.3) {      /* cua sang den */
+          if (Math.random() > .42) continue;
+          var L = new THREE.Mesh(new THREE.PlaneGeometry(1.25, 1.5), litM);
+          L.material = new THREE.MeshBasicMaterial({ color: 0xffd48a,
+            transparent: true, opacity: .4 + Math.random() * .55 });
+          L.position.set(wx, y + 1.45, z + 1.93);
+          G.add(L);
+        }
+        for (var cx = x0; cx <= x0 + w; cx += 4.6)                   /* cot */
+          box(.5, 3.4, .5, cx, y + 1.7, z + 2.2, slab);
+      }
+      return H;
+    }
+
+    var H = wing(-30, 26, 5, 0);          /* khoi chinh o giua */
+    wing(-46, 15, 4, -5);                 /* canh trai lui ve sau */
+    wing(-3,  20, 5, 0);
+    wing(18,  14, 4, -5);                 /* canh phai lui ve sau */
+
+    /* bang ten tren noc khoi chinh */
+    var c = cvs(1024, 128), x = c.getContext("2d");
+    x.fillStyle = "#13262f"; x.fillRect(0, 0, 1024, 128);
+    x.fillStyle = "#e8864a"; x.textAlign = "center"; x.textBaseline = "middle";
+    x.font = "700 60px 'Be Vietnam Pro', Arial, sans-serif";
+    x.fillText("TRƯỜNG THPT KHƯƠNG ĐÌNH", 512, 70);
+    var signTex = new THREE.CanvasTexture(c);
+    box(27, 3.2, .6, -4, H + 2.4, 2.2, new THREE.MeshStandardMaterial({ color: 0x13262f }));
+    var face = new THREE.Mesh(new THREE.PlaneGeometry(27, 3.2),
+      new THREE.MeshBasicMaterial({ map: signTex, transparent: true }));
+    face.position.set(-4, H + 2.4, 2.52);
+    G.add(face);
+
+    /* cot co */
+    box(.22, 11, .22, 24, 5.5, 6, slab);
+    var flag = new THREE.Mesh(new THREE.PlaneGeometry(3, 2),
+      new THREE.MeshStandardMaterial({ color: 0xc4352b, side: THREE.DoubleSide, roughness: 1 }));
+    flag.position.set(25.6, 10, 6); G.add(flag);
+
+    G.position.set(2, 0, -46);
+    scene.add(G);
+  })();
+
+  /* ==========================================================
+     CAY: than chia nhanh nhieu cap, tan la dung hang nghin
+     chiec la that trong khong gian chu khong phai anh dan
+     ========================================================== */
+  var UP = new THREE.Vector3(0, 1, 0);
+  var barkMap  = barkTexture();
+  var woodMine = new THREE.MeshStandardMaterial({ map: barkMap, color: 0xc9b393, roughness: .96 });
+  var woodElse = new THREE.MeshStandardMaterial({ map: barkMap, color: 0x5f5947, roughness: 1 });
+
+  /* ---------- bien hieu gan tren than cay ---------- */
+  function signTexture(label){
+    var c = cvs(256, 128), g = c.getContext("2d");
+    g.fillStyle = label ? "#7a532e" : "#53463a";
+    g.fillRect(0, 0, 256, 128);
+    g.strokeStyle = "rgba(0,0,0,.3)"; g.lineWidth = 7; g.strokeRect(4, 4, 248, 120);
+    g.strokeStyle = "rgba(255,255,255,.1)"; g.lineWidth = 2; g.strokeRect(13, 13, 230, 102);
+    if (label) {
+      g.fillStyle = "#d9b77a"; g.textAlign = "center"; g.textBaseline = "middle";
+      g.font = "600 19px 'Be Vietnam Pro', Arial, sans-serif";
+      g.fillText("CHI ĐOÀN", 128, 33);
+      g.fillStyle = "#fdf3d8";
+      g.font = "700 58px 'Be Vietnam Pro', Arial, sans-serif";
+      g.fillText(label, 128, 80);
+    } else {                      /* bien mau, de trong */
+      g.strokeStyle = "rgba(255,255,255,.14)"; g.lineWidth = 5;
+      g.beginPath(); g.moveTo(80, 64); g.lineTo(176, 64); g.stroke();
+    }
+    return new THREE.CanvasTexture(c);
+  }
+
+  /* ---------- dung mot cay ---------- */
+  var swayers = [];
+
+  function makeTree(ox, oz, s, mine, label){
+    var G = new THREE.Group();
+    G.position.set(ox, 0, oz);
+    G.rotation.y = Math.random() * 6.28;          /* moi cay xoay mot huong */
+    var wood = mine ? woodMine : woodElse;
+    var tips = [];
+
+    function grow(from, dir, len, rad, depth, collect){
+      var geo = new THREE.CylinderGeometry(rad * .64, rad, len, depth > 2 ? 11 : 7, 1);
+      geo.translate(0, len / 2, 0);
+      var m = new THREE.Mesh(geo, wood);
+      m.position.copy(from);
+      m.quaternion.setFromUnitVectors(UP, dir.clone().normalize());
+      if (mine) m.castShadow = true;
+      G.add(m);
+      var to = from.clone().addScaledVector(dir, len);
+      if (depth <= 0) { if (collect) tips.push(to); return; }
+      var n = depth > 2 ? 3 : 2;
+      for (var i = 0; i < n; i++) {
+        var d2 = dir.clone();
+        var ax = new THREE.Vector3(Math.random() - .5, (Math.random() - .5) * .3, Math.random() - .5).normalize();
+        d2.applyAxisAngle(ax, .40 + Math.random() * .38);
+        if (d2.y < .14) d2.y = .14;
+        grow(to, d2.normalize(), len * (.60 + Math.random() * .17), rad * .60, depth - 1, collect);
+      }
+    }
+    /* cay lop khac: than manh hon, cao hon, van chia 4 cap cho tan day */
+    var baseR = mine ? .82 : .55, baseL = mine ? 3.9 : 4.6;
+    grow(new THREE.Vector3(0, 0, 0), new THREE.Vector3(.03, 1, .02), baseL * s, baseR * s, 4, true);
+    var nflare = mine ? 7 : 5;
+    for (var r = 0; r < nflare; r++) {
+      var a2 = (r / nflare) * Math.PI * 2;
+      grow(new THREE.Vector3(Math.cos(a2) * .5 * baseR * s, .04, Math.sin(a2) * .5 * baseR * s),
+           new THREE.Vector3(Math.cos(a2), 1.7, Math.sin(a2)).normalize(),
+           (mine ? 1.5 : .95) * s, .3 * baseR * s, 0, false);
+    }
+
+    /* tan la: ba lop mau khac nhau cho do sau */
+    var BO = mine
+      ? [["#a8c686", "#43734f"], ["#8fb074", "#35603f"], ["#c0cf7f", "#5c7b43"]]
+      : [["#7e9c70", "#2f4e36"], ["#6b8a62", "#27442f"], ["#92a86f", "#3a5538"]];
+    var per = mine ? 9 : 6;
+    BO.forEach(function(cc){
+      var geo = new THREE.PlaneGeometry(.72 * s, 1.0 * s);
+      geo.translate(0, .5 * s, 0);
+      var mat = new THREE.MeshStandardMaterial({
+        map: foliageTexture(cc[0], cc[1]), transparent: true, alphaTest: .4,
+        side: THREE.DoubleSide, roughness: .93 });
+      var inst = new THREE.InstancedMesh(geo, mat, tips.length * per);
+      var dum = new THREE.Object3D(), col = new THREE.Color(), n2 = 0;
+      tips.forEach(function(t){
+        for (var k = 0; k < per; k++) {
+          dum.position.set(t.x + (Math.random() - .5) * 1.9 * s,
+                           t.y + (Math.random() - .5) * 1.7 * s,
+                           t.z + (Math.random() - .5) * 1.9 * s);
+          dum.rotation.set(Math.random() * 3.14, Math.random() * 6.28, Math.random() * 3.14);
+          var sc = (.8 + Math.random() * .6) * s; dum.scale.set(sc, sc, sc);
+          dum.updateMatrix(); inst.setMatrixAt(n2, dum.matrix);
+          var l = mine ? (.86 + Math.random() * .3) : (.52 + Math.random() * .26);
+          col.setRGB(l, l, l);
+          inst.setColorAt(n2, col); n2++;
+        }
+      });
+      inst.instanceMatrix.needsUpdate = true;
+      if (inst.instanceColor) inst.instanceColor.needsUpdate = true;
+      G.add(inst);
+    });
+
+    /* bien hieu */
+    var plank = new THREE.Mesh(new THREE.BoxGeometry(1.3 * s, .66 * s, .09),
+      new THREE.MeshStandardMaterial({ map: signTexture(label), roughness: .9,
+        emissive: mine ? 0x3a2a12 : 0x000000 }));
+    plank.position.set(0, 1.8 * s, .9 * baseR * s + .12);
+    G.add(plank);
+    var post = new THREE.Mesh(new THREE.BoxGeometry(.07, .5 * s, .07),
+      new THREE.MeshStandardMaterial({ color: 0x4a3a28 }));
+    post.position.set(0, 1.42 * s, .88 * baseR * s + .1); G.add(post);
+
+    /* bong duoi tan */
+    var sc2 = cvs(256, 256), gg = sc2.getContext("2d");
+    var gr2 = gg.createRadialGradient(128, 128, 10, 128, 128, 128);
+    gr2.addColorStop(0, "rgba(0,0,0,.5)"); gr2.addColorStop(1, "rgba(0,0,0,0)");
+    gg.fillStyle = gr2; gg.fillRect(0, 0, 256, 256);
+    var sh2 = new THREE.Mesh(new THREE.CircleGeometry(8 * s, 32),
+      new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(sc2),
+        transparent: true, depthWrite: false }));
+    sh2.rotation.x = -Math.PI / 2; sh2.position.y = .02;
+    G.add(sh2);
+
+    if (mine) {
+      var halo = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: glowTexture("rgb(255,214,140)", .3), transparent: true,
+        blending: THREE.AdditiveBlending, depthWrite: false, opacity: .44 }));
+      halo.position.set(0, 5.6 * s, 0); halo.scale.set(18 * s, 18 * s, 1);
+      G.add(halo);
+    } else {
+      /* lop khac cung co la tu lieu, nhung mo va khong bam duoc */
+      for (var q2 = 0; q2 < 4; q2++) {
+        var t2 = tips[Math.floor(Math.random() * tips.length)];
+        var it2 = DATA[Math.floor(Math.random() * DATA.length)];
+        var hl = new THREE.Sprite(new THREE.SpriteMaterial({
+          map: glowTexture("rgb(150,190,160)", .3), transparent: true,
+          blending: THREE.AdditiveBlending, depthWrite: false, opacity: .16 }));
+        hl.scale.set(2.1 * s, 2.1 * s, 1);
+        hl.position.copy(t2);
+        G.add(hl);
+        var sp2 = new THREE.Sprite(new THREE.SpriteMaterial({
+          map: docLeafTexture(it2, true), transparent: true,
+          depthWrite: false, opacity: .72 }));
+        sp2.scale.set(1.15 * s, 1.15 * s, 1);
+        sp2.position.copy(t2);
+        G.add(sp2);
+      }
+      swayers.push({ obj: G, ph: Math.random() * 6.28 });
+    }
+
+    scene.add(G);
+    return tips.map(function(t){ return t.clone().applyAxisAngle(UP, G.rotation.y).add(G.position) });
+  }
+
+  /* cay cua lop minh o giua san */
+  var tips = makeTree(0, 0, 1, true, "11A");
+
+  /* cay cua cac lop khac quanh san: co la, co la tu lieu mo, khong bam duoc */
+  (function grove(){
+    var spots = [[-19,-6],[18,-9],[-26,9],[24,8],[-11,18],[13,20],[-32,-14],
+                 [31,-16],[0,26],[-7,-24],[9,-27],[-36,4],[35,2]];
+    spots.forEach(function(p, i){
+      makeTree(p[0], p[1], .46 + (i % 5) * .07, false, null);
+    });
+  })();
+
+  /* ==========================================================
+     15 CHIEC LA TU LIEU - treo o ngon canh, sang len trong tan
+     ========================================================== */
+  var leaves = [];
+
+  /* the go nho treo duoi la, ghi so va bieu tuong loai tu lieu */
+  function boTron(g, x, y, w, hh, r){
+    g.beginPath();
+    g.moveTo(x + r, y);
+    g.lineTo(x + w - r, y); g.quadraticCurveTo(x + w, y, x + w, y + r);
+    g.lineTo(x + w, y + hh - r); g.quadraticCurveTo(x + w, y + hh, x + w - r, y + hh);
+    g.lineTo(x + r, y + hh); g.quadraticCurveTo(x, y + hh, x, y + hh - r);
+    g.lineTo(x, y + r); g.quadraticCurveTo(x, y, x + r, y);
+    g.closePath();
+  }
+  function tagTexture(it){
+    var c = cvs(256, 168), g = c.getContext("2d");
+    g.clearRect(0, 0, 256, 168);
+    boTron(g, 12, 14, 232, 140, 20);
+    g.fillStyle = "#ecdfc0"; g.fill();
+    g.strokeStyle = "#9c7f4e"; g.lineWidth = 6; g.stroke();
+    boTron(g, 24, 26, 208, 116, 14);
+    g.strokeStyle = "rgba(120,96,56,.35)"; g.lineWidth = 2; g.stroke();
+    g.fillStyle = "#9c7f4e";                       /* lo xo day */
+    g.beginPath(); g.arc(128, 34, 9, 0, 6.2832); g.fill();
+    g.globalCompositeOperation = "destination-out";
+    g.beginPath(); g.arc(128, 34, 5, 0, 6.2832); g.fill();
+    g.globalCompositeOperation = "source-over";
+    var ic = new Path2D(ICONS[it.category]);       /* bieu tuong */
+    g.save(); g.translate(88, 104); g.scale(1.55, 1.55);
+    g.lineJoin = g.lineCap = "round";
+    g.strokeStyle = "#5d4a26"; g.lineWidth = 1.9; g.stroke(ic);
+    g.restore();
+    g.fillStyle = "#3b2e15"; g.textAlign = "center"; g.textBaseline = "middle";
+    g.font = "700 52px 'Be Vietnam Pro', Arial, sans-serif";
+    g.fillText((it.id < 10 ? "0" : "") + it.id, 176, 106);
+    var t = new THREE.CanvasTexture(c); t.anisotropy = 8;
+    return t;
+  }
+
+  (function docLeaves(){
+    var dayMat = new THREE.MeshStandardMaterial({ color: 0x8c7047, roughness: 1 });
+
+    /* 15 chiec la xep thanh 3 tang vong quanh cay.
+       Moi tang lech goc va lech do cao, nen dung tu bat cu dau nhin vao
+       cung thay 15 la tach bach, khong chiec nao che chiec nao.        */
+    var TANG = [
+      { y: 2.75, r: 5.6, lech: 0.00 },
+      { y: 3.85, r: 4.9, lech: 0.42 },
+      { y: 4.95, r: 5.3, lech: 0.84 }
+    ];
+    var MOI_TANG = Math.ceil(DATA.length / TANG.length);
+
+    DATA.forEach(function(it, i){
+      var tg = TANG[i % TANG.length];
+      var thuTu = Math.floor(i / TANG.length);
+      /* xe dich rat nho cho bot deu nhu may, van du cach de khong che nhau */
+      var goc = tg.lech + thuTu * (Math.PI * 2 / MOI_TANG) + (Math.random() - .5) * .10;
+      var bk  = tg.r + (Math.random() - .5) * .45;
+      var t = new THREE.Vector3(Math.cos(goc) * bk,
+                                tg.y + (Math.random() - .5) * .22,
+                                Math.sin(goc) * bk);
+      var grp = new THREE.Group();
+      grp.position.copy(t);
+
+      /* chiec la that: mat phang co huong rieng, bi canh che duoc */
+      var tex = docLeafTexture(it);
+      var geo = new THREE.PlaneGeometry(1.28, 1.75);
+      geo.translate(0, .88, 0);
+      var mat = new THREE.MeshStandardMaterial({
+        map: tex, emissiveMap: tex, emissive: 0xffffff, emissiveIntensity: .46,
+        transparent: true, alphaTest: .4, side: THREE.DoubleSide, roughness: .9 });
+      var la = new THREE.Mesh(geo, mat);
+      la.rotation.set((Math.random() - .5) * .5, Math.random() * 6.2832, (Math.random() - .5) * .4);
+      grp.add(la);
+
+      /* day treo va the go */
+      /* day treo voi len tan la phia tren */
+      var RU = Math.max(1.1, 7.3 - tg.y - 2.05);
+      var dayTren = new THREE.Mesh(new THREE.CylinderGeometry(.014, .014, RU, 5), dayMat);
+      dayTren.position.set(0, 2.05 + RU / 2, 0);
+      grp.add(dayTren);
+      var day = new THREE.Mesh(new THREE.CylinderGeometry(.015, .015, .52, 5), dayMat);
+      day.position.set(0, -.26, 0);
+      grp.add(day);
+      var the = new THREE.Mesh(new THREE.PlaneGeometry(.88, .58),
+        new THREE.MeshStandardMaterial({ map: tagTexture(it), transparent: true,
+          alphaTest: .4, side: THREE.DoubleSide, roughness: .85,
+          emissive: 0x6b5a30, emissiveIntensity: .35 }));
+      the.position.set(0, -.72, 0);
+      grp.add(the);
+
+      /* dom sang nho bao hieu la bam duoc */
+      var dom = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: glowTexture("rgb(255,214,140)", .28), transparent: true,
+        blending: THREE.AdditiveBlending, depthWrite: false, opacity: .55 }));
+      dom.scale.set(2.2, 2.2, 1);
+      dom.position.set(0, .68, 0);
+      grp.add(dom);
+
+      grp.userData = { item: it, la: la, the: the, dom: dom, ph: Math.random() * 6.2832 };
+      scene.add(grp);
+      leaves.push(grp);
+    });
+  })();
+
+  /* ---------- dom dom ---------- */
+  var fireflies = [];
+  for (var q = 0; q < 54; q++) {
+    var s = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: glowTexture("rgb(243,220,164)", .25), transparent: true,
+      blending: THREE.AdditiveBlending, depthWrite: false, opacity: .85 }));
+    s.scale.set(.24, .24, 1);
+    s.userData = { a: Math.random() * 6.28, r: 3 + Math.random() * 15,
+                   y: .4 + Math.random() * 6.5, sp: .09 + Math.random() * .26 };
+    scene.add(s); fireflies.push(s);
+  }
+
+  /* ==========================================================
+     BAN LA MOT HOC TRO: thay tay minh dua, dau nhun khi buoc,
+     va co bong do duoi chan
+     ========================================================== */
+  var body = new THREE.Group();
+  camera.add(body);
+  scene.add(camera);
+  var sleeveMat = new THREE.MeshStandardMaterial({ color: 0xeef0ea, roughness: .95 });
+  var handMat   = new THREE.MeshStandardMaterial({ color: 0xe0b894, roughness: .9 });
+  var arms = [];
+  [-1, 1].forEach(function(sx){
+    var g = new THREE.Group();
+    var sleeve = new THREE.Mesh(new THREE.CylinderGeometry(.055, .048, .40, 9), sleeveMat);
+    sleeve.position.set(0, -.20, 0); g.add(sleeve);
+    var fore = new THREE.Mesh(new THREE.CylinderGeometry(.046, .040, .34, 9), handMat);
+    fore.position.set(0, -.56, 0); g.add(fore);
+    var hand = new THREE.Mesh(new THREE.SphereGeometry(.055, 10, 8), handMat);
+    hand.position.set(0, -.75, 0); g.add(hand);
+    g.position.set(sx * .33, -.29, -.44);
+    g.rotation.set(-.62, sx * .30, sx * -.26);
+    g.scale.setScalar(.92);
+    body.add(g);
+    arms.push(g);
+  });
+
+  var myShadow = (function(){
+    var c = cvs(128, 128), g = c.getContext("2d");
+    var gr = g.createRadialGradient(64, 64, 2, 64, 64, 64);
+    gr.addColorStop(0, "rgba(0,0,0,.5)"); gr.addColorStop(1, "rgba(0,0,0,0)");
+    g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
+    var m = new THREE.Mesh(new THREE.CircleGeometry(.62, 24),
+      new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c),
+        transparent: true, depthWrite: false }));
+    m.rotation.x = -Math.PI / 2; m.position.y = .03;
+    scene.add(m); return m;
+  })();
+
+  /* ==========================================================
+     DIEU KHIEN
+     ========================================================== */
+  var yaw = 0, pitch = .03, walk = 0, slide = 0, keys = {}, bob = 0;
+  var dragging = false, lastX = 0, lastY = 0, moved = 0;
+  var cv2 = renderer.domElement;
+
+  cv2.addEventListener("pointerdown", function(e){
+    dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
+    cv2.setPointerCapture(e.pointerId);
+  });
+  cv2.addEventListener("pointermove", function(e){
+    if (!dragging) return;
+    var dx = e.clientX - lastX, dy = e.clientY - lastY;
+    lastX = e.clientX; lastY = e.clientY;
+    moved += Math.abs(dx) + Math.abs(dy);
+    yaw -= dx * .0035;
+    pitch = Math.max(-.95, Math.min(.95, pitch - dy * .0032));
+  });
+  cv2.addEventListener("pointerup", function(e){
+    dragging = false;
+    if (moved < 6) pick(e.clientX, e.clientY);
+  });
+  cv2.addEventListener("pointercancel", function(){ dragging = false });
+
+  addEventListener("keydown", function(e){
+    if (!dangMo3D) return;
+    keys[e.code] = true;
+    if (e.code === "Escape") hideCard();
+    if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Space"].indexOf(e.code) >= 0) e.preventDefault();
+  });
+  addEventListener("keyup", function(e){ if (dangMo3D) keys[e.code] = false });
+
+  function holdBtn(id, dir, ngang){
+    var b = document.getElementById(id);
+    if (!b) return;
+    var on = function(e){ e.preventDefault(); if (ngang) slide = dir; else walk = dir },
+        off = function(){ if (ngang) slide = 0; else walk = 0 };
+    b.addEventListener("pointerdown", on);
+    b.addEventListener("pointerup", off);
+    b.addEventListener("pointerleave", off);
+    b.addEventListener("pointercancel", off);
+  }
+  holdBtn("fwd", 1); holdBtn("bwd", -1);
+  holdBtn("rgt", 1, true); holdBtn("lft", -1, true);
+
+  var ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  var pickables = [];
+  leaves.forEach(function(g){ pickables.push(g.userData.la, g.userData.the) });
+  function hitAt(px, py){
+    ndc.x = (px / innerWidth) * 2 - 1;
+    ndc.y = -(py / innerHeight) * 2 + 1;
+    ray.setFromCamera(ndc, camera);
+    var hits = ray.intersectObjects(pickables, false);
+    return hits.length ? hits[0].object.parent : null;
+  }
+  function pick(px, py){ var g = hitAt(px, py); if (g) showCard(g.userData.item) }
+
+  /* ---------- the QR ---------- */
+  var card = document.getElementById("card"), seen = {}, seenN = 0;
+  function showCard(it){
+    document.getElementById("cTitle").textContent = it.title;
+    document.getElementById("cChip").textContent =
+      "Lá " + (it.id < 10 ? "0" : "") + it.id + " · " + LABELS[it.category];
+    var q = document.getElementById("cQr");
+    q.src = it.qr; q.alt = "Mã QR của " + it.title;
+    document.getElementById("cGo").href = it.url;
+    var dl = document.getElementById("cDl");
+    dl.href = it.qr; dl.download = "QR-" + (it.id < 10 ? "0" : "") + it.id + ".png";
+    document.getElementById("cUrl").textContent = it.url;
+    document.getElementById("cCopy").textContent = "Chép link";
+    card.hidden = false; card.dataset.url = it.url;
+    document.getElementById("scene3d").classList.add("co-the");
+    if (!seen[it.id]) { seen[it.id] = 1; seenN++;
+      document.getElementById("count").textContent = seenN + " / " + DATA.length; }
+  }
+  function hideCard(){ card.hidden = true;
+    document.getElementById("scene3d").classList.remove("co-the") }
+  document.getElementById("cx").addEventListener("click", hideCard);
+  document.getElementById("cCopy").addEventListener("click", function(){
+    var u = card.dataset.url, b = this;
+    if (navigator.clipboard) navigator.clipboard.writeText(u)
+      .then(function(){ b.textContent = "Đã chép ✓" }, function(){});
+  });
+
+  /* ==========================================================
+     VONG LAP
+     ========================================================== */
+  var reticle = document.getElementById("reticle"), look = document.getElementById("look");
+  /* Chuot: ngam ngay tai dau con tro, nen thay ten la nao la bam trung la do.
+     Man hinh cam ung: ngam giua man hinh nhu cu.                        */
+  var TRO_NHAY = window.matchMedia("(pointer: fine)").matches;
+  var ngamX = innerWidth / 2, ngamY = innerHeight / 2;
+  if (TRO_NHAY) {
+    reticle.style.display = "none";
+    renderer.domElement.addEventListener("pointermove", function(e){
+      ngamX = e.clientX; ngamY = e.clientY;
+    }, { passive: true });
+  } else {
+    addEventListener("resize", function(){ ngamX = innerWidth / 2; ngamY = innerHeight / 2 });
+  }
+  var clock = new THREE.Clock(), hot = null, fps = 0, fpsT = 0, frames = 0;
+
+  function frame(){
+    requestAnimationFrame(frame);
+    if (!dangMo3D) { clock.getDelta(); return; }   /* an di thi ngung ve */
+    var dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
+    frames++; fpsT += dt;
+    if (fpsT > 1) { fps = Math.round(frames / fpsT); frames = 0; fpsT = 0; window.__fps = fps; }
+
+    /* di chuyen */
+    var go = walk;
+    if (keys.KeyW || keys.ArrowUp) go = 1;
+    if (keys.KeyS || keys.ArrowDown) go = -1;
+    var strafe = (keys.KeyD ? 1 : 0) - (keys.KeyA ? 1 : 0);
+    if (!strafe) strafe = slide;
+    if (keys.ArrowRight) strafe = 1;
+    if (keys.ArrowLeft) strafe = -1;
+    var moving = !!(go || strafe);
+    if (moving) {
+      var sp = 3.9 * dt;
+      camera.position.x -= Math.sin(yaw) * go * sp;
+      camera.position.z -= Math.cos(yaw) * go * sp;
+      camera.position.x += Math.cos(yaw) * strafe * sp;
+      camera.position.z -= Math.sin(yaw) * strafe * sp;
+      var d = Math.hypot(camera.position.x, camera.position.z);
+      if (d < 2.1) { camera.position.x *= 2.1 / d; camera.position.z *= 2.1 / d; }
+      if (d > 40) { camera.position.x *= 40 / d; camera.position.z *= 40 / d; }
+      bob += dt * 9.5;
+    }
+    /* dau nhun va tay dua khi buoc */
+    camera.position.y = 1.62 + (moving ? Math.sin(bob) * .045 : Math.sin(t * 1.4) * .012);
+    camera.rotation.set(pitch, yaw, 0, "YXZ");
+    arms[0].rotation.x = -.62 + (moving ? Math.sin(bob) * .42 : Math.sin(t * 1.2) * .04);
+    arms[1].rotation.x = -.62 - (moving ? Math.sin(bob) * .42 : Math.sin(t * 1.2) * .04);
+    myShadow.position.set(camera.position.x, .03, camera.position.z);
+
+    /* la tu lieu: lay theo gio, the go quay ve phia nguoi xem */
+    for (var i = 0; i < leaves.length; i++) {
+      var g = leaves[i], u = g.userData, nong = (g === hot);
+      g.rotation.z = Math.sin(t * .85 + u.ph) * .07;
+      g.rotation.x = Math.cos(t * .62 + u.ph) * .045;
+      u.the.rotation.y = yaw;
+      u.the.rotation.z = Math.sin(t * 1.5 + u.ph) * .11;
+      u.dom.material.opacity = .32 + Math.abs(Math.sin(t * .9 + u.ph)) * .4;
+      u.la.material.emissiveIntensity = nong ? .95 : .46;
+      var sc3 = nong ? 1.13 : 1;
+      g.scale.set(sc3, sc3, sc3);
+    }
+    /* dom dom */
+    for (var f2 = 0; f2 < fireflies.length; f2++) {
+      var s2 = fireflies[f2], u = s2.userData;
+      u.a += u.sp * dt;
+      s2.position.set(Math.cos(u.a) * u.r, u.y + Math.sin(t * .7 + u.a) * .5, Math.sin(u.a) * u.r);
+    }
+
+    /* gio lay nhe cac cay quanh san */
+    for (var s3 = 0; s3 < swayers.length; s3++) {
+      var sw = swayers[s3];
+      sw.obj.rotation.z = Math.sin(t * .55 + sw.ph) * .016;
+      sw.obj.rotation.x = Math.cos(t * .43 + sw.ph) * .012;
+    }
+
+    /* la dang nam giua tam nhin */
+    var g2 = hitAt(ngamX, ngamY);
+    if (g2 !== hot) {
+      hot = g2;
+      reticle.classList.toggle("hot", !!g2);
+      if (g2) {
+        look.innerHTML = "<b>" + g2.userData.item.title + "</b><i>" +
+          LABELS[g2.userData.item.category] + " · bấm để xem QR</i>";
+        look.classList.add("on");
+      } else look.classList.remove("on");
+    }
+    if (hot && TRO_NHAY) {
+      look.style.left = ngamX + "px";
+      look.style.top  = (ngamY + 26) + "px";
+    }
+
+    renderer.render(scene, camera);
+  }
+  frame();
+
+  addEventListener("resize", function(){
+    if (!dangMo3D) return;
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+  });
+
+}
+
+
+/* ---------- 13. Chuyen qua lai giua cay 2D va khu vuon 3D ---------- */
+(function cong3D(){
+  var lop = $("scene3d"), nut = $("btn3D");
+  var NHAN = '<span aria-hidden="true">&#9968;</span><span class="lbl">Vườn 3D</span>';
+
+  function mo(){
+    lop.hidden = false;
+    document.body.classList.add("ba-chieu");
+    dangMo3D = true;
+    if (daDung3D) return;
+    if (window.THREE) { daDung3D = true; dungVuon3D(); return; }
+    if (dangTai3D) return;
+    dangTai3D = true;
+    nut.innerHTML = '<span class="lbl">Đang tải…</span>';
+    var s = document.createElement("script");
+    s.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+    s.onload = function(){
+      dangTai3D = false; daDung3D = true; nut.innerHTML = NHAN;
+      try { dungVuon3D(); }
+      catch (e) { $("boot").hidden = false; }
+    };
+    s.onerror = function(){
+      dangTai3D = false; nut.innerHTML = NHAN;
+      $("boot").hidden = false;
+    };
+    document.head.appendChild(s);
+  }
+  function dong(){
+    dangMo3D = false;
+    lop.hidden = true;
+    document.body.classList.remove("ba-chieu");
+  }
+  nut.addEventListener("click", mo);
+  $("btnThoat3D").addEventListener("click", dong);
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && dangMo3D && $("card").hidden) dong();
+  });
+})();
+
 </script>
 </body>
 </html>
