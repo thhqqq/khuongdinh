@@ -602,6 +602,130 @@ html[data-theme="night"] .tvbtn.main{background:var(--gold-l);color:#102a24;bord
   .tvhead{padding:14px 13px}
 }
 
+/* ---------- 11c. Trinh chieu tu chay ---------- */
+.tc[hidden]{display:none}
+body.dang-chieu{overflow:hidden}
+.tc{--ti:#f4f0e2;--tg:#e8c87d;--tj:#8fd0ab;--td:rgba(244,240,226,.6);
+  position:fixed;inset:0;z-index:60;color:var(--ti);display:flex;flex-direction:column;
+  background:radial-gradient(118% 88% at 50% 12%,#14362d 0%,#0a2020 55%,#060f13 100%);
+  font-family:"Be Vietnam Pro",system-ui,Arial,sans-serif;overflow:hidden}
+.tc:before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 45% at 50% 30%,rgba(232,200,125,.11),transparent 70%)}
+.tc-bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(244,240,226,.12);z-index:3}
+.tc-bar i{display:block;height:100%;width:0;background:var(--tg)}
+.tc-chap{position:absolute;top:18px;left:50%;translate:-50% 0;z-index:3;
+  font-size:clamp(9px,1vw,11px);letter-spacing:.3em;text-transform:uppercase;color:var(--td);
+  text-align:center;padding:0 16px}
+.tc-stage{flex:1;display:grid;place-items:center;padding:52px 20px 64px;position:relative;z-index:2}
+.tc-in{width:min(1080px,100%);text-align:center}
+.tc-foot{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;
+  justify-content:space-between;gap:10px;padding:12px 16px}
+.tc-brand{font-size:clamp(8.5px,1vw,10.5px);letter-spacing:.24em;color:var(--td);text-transform:uppercase}
+.tc-tools{display:flex;gap:6px}
+.tc-tools button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(244,240,226,.22);
+  background:rgba(8,24,24,.55);color:var(--ti);font-size:12px;display:grid;place-items:center;cursor:pointer}
+.tc-tools button:hover{border-color:var(--tg);color:var(--tg)}
+
+.tc-ve{position:absolute;top:12px;left:12px;z-index:5;display:inline-flex;align-items:center;gap:7px;
+  min-height:34px;padding:0 15px;border-radius:99px;cursor:pointer;
+  border:1px solid rgba(244,240,226,.26);background:rgba(8,24,24,.6);
+  color:var(--ti);font:600 12px/1 "Be Vietnam Pro",system-ui,Arial,sans-serif;
+  backdrop-filter:blur(6px);transition:border-color .2s,color .2s}
+.tc-ve:hover{border-color:var(--tg);color:var(--tg)}
+.tc-ve .m{display:none}
+.tc-seal{font-size:clamp(24px,4vw,38px);color:var(--tg)}
+.tc-sub{font-size:clamp(9.5px,1.1vw,12px);letter-spacing:.34em;color:var(--td);text-transform:uppercase;margin-top:14px}
+.tc-big{margin:12px 0 0;font:600 clamp(34px,7.4vw,86px)/1.04 "Playfair Display",Georgia,serif;
+  letter-spacing:.01em;color:var(--ti)}
+.tc-big em{font-style:italic;color:var(--tg)}
+.tc-line{width:72px;height:1px;background:var(--tg);margin:20px auto;opacity:.75}
+.tc-sub2{font-size:clamp(11px,1.5vw,15px);letter-spacing:.2em;color:var(--tj)}
+.tc-num{font:600 clamp(40px,8vw,96px)/1 "Playfair Display",Georgia,serif;color:rgba(232,200,125,.22)}
+.tc-h{margin:6px 0 0;font:600 clamp(22px,4.2vw,52px)/1.14 "Playfair Display",Georgia,serif}
+.tc-note{margin:16px auto 0;max-width:46ch;font-size:clamp(11.5px,1.5vw,16px);line-height:1.65;
+  color:var(--td);font-weight:300}
+
+.tc-qr{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(7px,1.1vw,14px);
+  width:min(620px,100%);margin:0 auto}
+.tc-qr img{width:100%;aspect-ratio:1;border-radius:9px;background:#fff;padding:5px;
+  image-rendering:pixelated;box-shadow:0 8px 22px rgba(0,0,0,.4)}
+.tc-nhom{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1.4vw,16px);
+  width:min(880px,100%);margin:0 auto}
+.tc-nhom>div{padding:clamp(13px,2vw,22px) 10px;border-radius:15px;
+  border:1px solid rgba(244,240,226,.16);background:rgba(8,26,24,.5)}
+.tc-nhom b{display:block;font:600 clamp(26px,4.4vw,48px)/1 "Playfair Display",Georgia,serif;color:var(--tg)}
+.tc-nhom span{display:block;margin-top:7px;font-size:clamp(9.5px,1.15vw,12.5px);
+  letter-spacing:.1em;color:var(--td)}
+.tc-nhom svg{margin-bottom:9px}
+.tc-mau{display:flex;gap:10px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.tc-mau i{width:clamp(34px,5vw,58px);height:clamp(34px,5vw,58px);border-radius:12px;
+  box-shadow:0 7px 18px rgba(0,0,0,.35)}
+.tc-bien{display:inline-block;padding:11px 26px;border-radius:12px;border:2px solid var(--tg);
+  background:rgba(232,200,125,.08)}
+.tc-bien small{display:block;font-size:clamp(8px,.95vw,10px);letter-spacing:.3em;color:var(--td)}
+.tc-bien b{font:600 clamp(24px,4vw,44px)/1.1 "Playfair Display",Georgia,serif;color:var(--tg)}
+.tc-cau{margin:0 auto;max-width:30ch;font:italic 500 clamp(17px,3.1vw,38px)/1.45 "Playfair Display",Georgia,serif;
+  color:var(--ti)}
+.tc-cau+.tc-cau{margin-top:clamp(14px,2.4vw,26px);color:var(--td);font-size:clamp(14px,2.2vw,26px)}
+.tc-ds{display:grid;grid-template-columns:repeat(3,1fr);gap:7px 16px;width:min(860px,100%);
+  margin:0 auto;text-align:left}
+.tc-ds div{display:flex;gap:8px;align-items:baseline;font-size:clamp(10.5px,1.3vw,14.5px);color:var(--ti)}
+.tc-ds em{font-style:normal;color:var(--tg);font-size:.85em;font-weight:700;min-width:1.6em}
+
+@keyframes tcUp{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+@keyframes tcPop{from{opacity:0;scale:.72}to{opacity:1;scale:1}}
+.tc-stage [data-an]{animation:tcUp .62s cubic-bezier(.2,.9,.3,1.05) backwards}
+.tc-qr img,.tc-mau i{animation:tcPop .5s cubic-bezier(.2,.9,.3,1.3) backwards}
+.tc.nghi .tc-bar i{background:var(--tj)}
+@media(max-width:620px){
+  .tc-qr{grid-template-columns:repeat(4,1fr);width:min(330px,100%)}
+  .tc-nhom{grid-template-columns:repeat(2,1fr)}
+  .tc-ds{grid-template-columns:1fr;gap:5px;max-width:330px}
+  .tc-stage{padding:84px 16px 58px}
+  .tc-chap{top:58px}
+  .tc-ve{font-size:11.5px;padding:0 12px;min-height:32px}
+  .tc-ve .d{display:none}
+  .tc-ve .m{display:inline}
+}
+
+/* ---------- 11d. Nhac nen va loi ca troi ---------- */
+.loica{position:absolute;left:0;right:0;top:var(--loi-top,30px);z-index:2;
+  pointer-events:none;height:var(--loi-h,54%);overflow:hidden}
+.loica .kho{position:absolute;left:50%;top:0;width:min(620px,88vw);text-align:center;
+  opacity:0;translate:-50% 0;animation:loiRoi var(--loi-t,15s) cubic-bezier(.35,0,.5,1) forwards}
+.loica .kho i{display:block;color:var(--gold);
+  font:italic 500 clamp(12px,1.6vw,19px)/1.54 "Playfair Display",Georgia,serif;
+  text-shadow:0 2px 16px rgba(4,20,16,.5)}
+.loica .kho i+i{opacity:.92}
+html[data-theme="night"] .loica .kho i{color:var(--gold-l)}
+@keyframes loiRoi{
+  0%{opacity:0;translate:-50% 0}
+  16%{opacity:1}
+  74%{opacity:1}
+  100%{opacity:0;translate:-50% var(--loi-d,230px)}
+}
+.notbay{position:absolute;pointer-events:none;color:var(--gold);opacity:0;
+  font-size:clamp(10px,1.4vw,16px);animation:notRoi 5.6s linear forwards}
+html[data-theme="night"] .notbay{color:var(--gold-l)}
+@keyframes notRoi{
+  0%{opacity:0;translate:0 0;rotate:-10deg}
+  20%{opacity:.8}
+  100%{opacity:0;translate:var(--nx,12px) var(--ny,180px);rotate:16deg}
+}
+.loa{position:fixed;right:14px;bottom:52px;z-index:30;display:none;align-items:center;gap:7px;
+  min-height:36px;padding:0 15px;border-radius:99px;cursor:pointer;
+  border:1px solid var(--line);background:var(--card);color:var(--ink);
+  font:600 12px/1 "Be Vietnam Pro",system-ui,Arial,sans-serif;
+  box-shadow:0 10px 26px var(--shadow);transition:border-color .2s,color .2s}
+.loa.hien{display:inline-flex}
+.loa:hover{border-color:var(--gold);color:var(--gold)}
+.loa b{font-weight:600}
+body.ba-chieu .loa,body.dang-chieu .loa{display:none}
+@media(max-width:620px){
+  .loa{right:10px;bottom:62px;min-height:34px;padding:0 12px;font-size:11.5px}
+  .loica .kho{width:min(420px,90vw)}
+}
+
 /* ---------- 12. Thông báo ---------- */
 .toast{position:fixed;left:50%;bottom:28px;z-index:40;translate:-50% 16px;opacity:0;
   padding:11px 20px;border-radius:99px;background:var(--jade-d);color:#f3efe1;
@@ -807,6 +931,7 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
         </svg>
         <b><span>ĐÃ KHÁM PHÁ</span><em id="countTxt" style="font-style:normal">0 / 15</em></b>
       </div>
+      <button class="btn-ghost" id="btnChieu" title="Bản trình chiếu tự chạy giới thiệu nhanh"><span aria-hidden="true">&#9654;</span><span class="lbl">Tự giới thiệu</span></button>
       <button class="btn-ghost" id="btnList" title="Thư viện số hóa theo niên khóa và lớp"><span aria-hidden="true">&#9638;</span><span class="lbl">Thư viện số</span></button>
       <button class="btn-ghost" id="btnRandom" title="Mở ngẫu nhiên một tư liệu"><span aria-hidden="true">&#10022;</span><span class="lbl">Bất ngờ</span></button>
       <button class="btn-ghost icon" id="btnTheme" title="Đổi sang cảnh đêm" aria-label="Đổi sáng tối">&#9790;</button>
@@ -830,6 +955,7 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
       <p>Những trang viết, giọng nói và kỷ niệm của học trò Khương Đình, gói lại trong một mùa tri ân.</p>
     </aside>
 
+    <div class="loica" id="loica" aria-hidden="true"></div>
     <div class="tree-wrap">
       <svg id="tree" class="tree anim" viewBox="100 45 700 655" preserveAspectRatio="xMidYMid meet"
            role="group" aria-label="Cây tri thức, 15 chiếc lá mở 15 mã QR">
@@ -964,6 +1090,24 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
 </div>
 
 <!-- ================= BẢNG DANH SÁCH ================= -->
+<button class="loa" id="loa" aria-pressed="false"><span id="loaIcon" aria-hidden="true">&#128266;</span><b id="loaChu">Đang phát nhạc</b></button>
+
+<!-- ============ TRINH CHIEU TU CHAY ============ -->
+<div class="tc" id="tc" hidden>
+  <div class="tc-bar"><i id="tcFill"></i></div>
+  <button class="tc-ve" id="tcExit">&#8592;<span class="d">Về cây tri thức</span><span class="m">Về cây</span></button>
+  <div class="tc-chap" id="tcChap"></div>
+  <div class="tc-stage"><div class="tc-in" id="tcStage"></div></div>
+  <div class="tc-foot">
+    <span class="tc-brand">THPT Khương Đình · Chi đoàn 11A</span>
+    <span class="tc-tools">
+      <button id="tcPrev" aria-label="Màn trước">&#8249;</button>
+      <button id="tcPause" aria-label="Tạm dừng">&#10073;&#10073;</button>
+      <button id="tcNext" aria-label="Màn sau">&#8250;</button>
+    </span>
+  </div>
+</div>
+
 <div class="overlay" id="listOverlay" role="dialog" aria-modal="true" aria-labelledby="lTitle">
   <div class="sheet">
     <button class="x" id="lClose" aria-label="Đóng">&times;</button>
@@ -2559,6 +2703,348 @@ function dungVuon3D(){
   });
 
 }
+
+
+
+/* ==========================================================
+   14. TRINH CHIEU TU CHAY — gioi thieu nhanh 3 phan
+   ========================================================== */
+function tcAn(d){return ' data-an style="animation-delay:'+d+'s"'}
+
+var CH1="I · Ứng dụng chuyển đổi số",
+    CH2="II · Nội dung &amp; Thông điệp",
+    CH3="III · Tính thẩm mỹ &amp; Sáng tạo";
+
+var MAN=[
+{c:"",t:4000,h:function(){return(
+  '<div class="tc-seal"'+tcAn(0)+'>&#10048;</div>'+
+  '<div class="tc-sub"'+tcAn(.18)+'>THPT KHƯƠNG ĐÌNH · CHI ĐOÀN 11A</div>'+
+  '<h1 class="tc-big"'+tcAn(.34)+'>Cây <em>Tri Thức</em></h1>'+
+  '<div class="tc-line"'+tcAn(.56)+'></div>'+
+  '<div class="tc-sub2"'+tcAn(.68)+'>Gửi lời tri ân · 20 · 11</div>')}},
+
+{c:"",t:2800,h:function(){return(
+  '<div class="tc-num"'+tcAn(0)+'>I</div>'+
+  '<h2 class="tc-h"'+tcAn(.14)+'>Ứng dụng chuyển đổi số</h2>'+
+  '<div class="tc-line"'+tcAn(.32)+'></div>'+
+  '<p class="tc-note"'+tcAn(.44)+'>Toàn bộ tư liệu của Chi đoàn được số hóa và gắn mã QR lên từng chiếc lá.</p>')}},
+
+{c:CH1,t:7500,h:function(){
+  var g='';
+  DATA.forEach(function(it,i){
+    g+='<img src="'+it.qr+'" alt="" style="animation-delay:'+(.28+i*.075).toFixed(2)+'s">';
+  });
+  return(
+  '<h2 class="tc-h"'+tcAn(0)+'>Hệ thống mã QR</h2>'+
+  '<p class="tc-note"'+tcAn(.12)+'>Mười lăm chiếc lá, mười lăm mã QR. Quét là mở tư liệu ngay — không cài đặt, không đăng nhập.</p>'+
+  '<div class="tc-qr" style="margin-top:clamp(16px,2.6vw,30px)">'+g+'</div>')}},
+
+{c:CH1,t:6800,h:function(){
+  var g='';
+  GROUPS.forEach(function(gr,i){
+    var cat=gr[0],n=DATA.filter(function(d){return d.category===cat}).length;
+    g+='<div'+tcAn(.2+i*.16)+'>'+iconSvg(cat,26,CATCOLOR[cat])+
+       '<b>'+n+'</b><span>'+gr[1]+'</span></div>';
+  });
+  return(
+  '<h2 class="tc-h"'+tcAn(0)+'>Tư liệu số phong phú</h2>'+
+  '<p class="tc-note"'+tcAn(.12)+'>Bốn dạng học liệu khác nhau, mỗi dạng một biểu tượng khắc riêng trên lá.</p>'+
+  '<div class="tc-nhom" style="margin-top:clamp(16px,2.6vw,30px)">'+g+'</div>')}},
+
+{c:CH1,t:6000,h:function(){
+  var m='';
+  GROUPS.forEach(function(gr,i){
+    m+='<i style="background:'+CATCOLOR[gr[0]]+';animation-delay:'+(.5+i*.12).toFixed(2)+'s"></i>';
+  });
+  return(
+  '<h2 class="tc-h"'+tcAn(0)+'>Đồng bộ nhận diện lớp</h2>'+
+  '<div style="margin-top:clamp(14px,2.2vw,24px)"'+tcAn(.18)+'>'+
+    '<span class="tc-bien"><small>CHI ĐOÀN</small><b>11A</b></span></div>'+
+  '<p class="tc-note"'+tcAn(.34)+'>Một bảng màu, một bộ biểu tượng, một biển lớp — dùng thống nhất trên cây tri thức, khu vườn ba chiều và bảng mã QR in giấy.</p>'+
+  '<div class="tc-mau">'+m+'</div>')}},
+
+{c:"",t:2800,h:function(){return(
+  '<div class="tc-num"'+tcAn(0)+'>II</div>'+
+  '<h2 class="tc-h"'+tcAn(.14)+'>Nội dung &amp; Thông điệp</h2>'+
+  '<div class="tc-line"'+tcAn(.32)+'></div>'+
+  '<p class="tc-note"'+tcAn(.44)+'>Lời tri ân gửi thầy cô, viết bằng chính tiếng nói của tập thể Chi đoàn.</p>')}}
+];
+
+MAN.push(
+{c:CH2,t:9000,h:function(){
+  var g='';
+  [0,1,3].forEach(function(k,i){
+    g+='<div class="tc-cau"'+tcAn(.1+i*1.9)+'>“'+CADAO[k]+'”</div>';
+  });
+  return g}},
+
+{c:CH2,t:8000,h:function(){
+  var g='';
+  DATA.forEach(function(it,i){
+    g+='<div'+tcAn(.22+i*.11)+'><em>'+(it.id<10?"0":"")+it.id+'</em>'+it.title+'</div>';
+  });
+  return(
+  '<h2 class="tc-h"'+tcAn(0)+'>Mười lăm tư liệu tri ân</h2>'+
+  '<div class="tc-ds" style="margin-top:clamp(14px,2.4vw,26px)">'+g+'</div>')}},
+
+{c:"",t:2800,h:function(){return(
+  '<div class="tc-num"'+tcAn(0)+'>III</div>'+
+  '<h2 class="tc-h"'+tcAn(.14)+'>Tính thẩm mỹ &amp; Sáng tạo</h2>'+
+  '<div class="tc-line"'+tcAn(.32)+'></div>'+
+  '<p class="tc-note"'+tcAn(.44)+'>Một cái cây dựng từ vật liệu tái chế, và một khu vườn bước vào được.</p>')}},
+
+{c:CH3,t:6500,h:function(){
+  var mau=["#1f4d3d","#2f6b4f","#a87c2b","#e8c87d","#efe7d2"],m='';
+  mau.forEach(function(c,i){
+    m+='<i style="background:'+c+';animation-delay:'+(.42+i*.1).toFixed(2)+'s"></i>';
+  });
+  return(
+  '<h2 class="tc-h"'+tcAn(0)+'>Bố cục và màu sắc</h2>'+
+  '<p class="tc-note"'+tcAn(.12)+'>Thân cây đặt chính giữa, tán lá tỏa đều hai bên. Sân trường lùi xa phía sau, nhường trọn vùng sáng cho tên trường nổi lên trên ngọn.</p>'+
+  '<div class="tc-mau" style="margin-top:clamp(14px,2.2vw,24px)">'+m+'</div>')}},
+
+{c:CH3,t:7000,h:function(){return(
+  '<h2 class="tc-h"'+tcAn(0)+'>Mỗi chiếc lá là một tư liệu</h2>'+
+  '<p class="tc-note"'+tcAn(.14)+'>Chạm vào lá, một bong bóng mở ra ngay bên cạnh — cây vẫn còn nguyên trước mắt.</p>'+
+  '<p class="tc-note"'+tcAn(1.9)+'>Cùng kho tư liệu ấy còn xem được ở khu vườn ba chiều: đứng dưới gốc, ngẩng lên, chọn lấy chiếc lá mình muốn.</p>')}},
+
+{c:"",t:5000,h:function(){return(
+  '<div class="tc-seal"'+tcAn(0)+'>&#10048;</div>'+
+  '<h2 class="tc-h"'+tcAn(.16)+'>Xin tri ân thầy cô</h2>'+
+  '<div class="tc-line"'+tcAn(.4)+'></div>'+
+  '<div class="tc-sub2"'+tcAn(.5)+'>CHI ĐOÀN 11A · THPT KHƯƠNG ĐÌNH</div>')}}
+);
+
+/* ---- bo chay ---- */
+(function tcChay(){
+  var lop=$("tc"),stage=$("tcStage"),fill=$("tcFill"),chap=$("tcChap");
+  var i=0,raf=null,moc=0,troi=0,nghi=false,dangChieu=false;
+
+  function ve(k){
+    i=(k+MAN.length)%MAN.length;
+    var m=MAN[i];
+    chap.innerHTML=m.c||"";
+    stage.innerHTML=m.h();
+    troi=0;moc=0;fill.style.width="0%";
+  }
+  function buoc(ts){
+    if(!moc)moc=ts;
+    var el=troi+(ts-moc),d=MAN[i].t;
+    fill.style.width=Math.min(100,el/d*100)+"%";
+    if(el>=d){ve(i+1);chay();return}
+    raf=requestAnimationFrame(buoc);
+  }
+  function chay(){nghi=false;lop.classList.remove("nghi");$("tcPause").innerHTML="&#10073;&#10073;";
+    cancelAnimationFrame(raf);moc=0;raf=requestAnimationFrame(buoc)}
+  function dung(){nghi=true;lop.classList.add("nghi");$("tcPause").innerHTML="&#9654;";
+    cancelAnimationFrame(raf);troi+= (performance.now()-moc)||0;moc=0}
+  function doi(){nghi?chay():dung()}
+  function nhay(d){ve(i+d);if(!nghi)chay();else{fill.style.width="0%"}}
+
+  function mo(){
+    dangChieu=true;lop.hidden=false;document.body.classList.add("dang-chieu");
+    ve(0);chay();$("tcExit").focus();
+  }
+  function dong(){
+    dangChieu=false;cancelAnimationFrame(raf);raf=null;
+    lop.hidden=true;document.body.classList.remove("dang-chieu");
+    stage.innerHTML="";$("btnChieu").focus();
+  }
+  $("btnChieu").addEventListener("click",mo);
+  $("tcExit").addEventListener("click",dong);
+  $("tcPause").addEventListener("click",doi);
+  $("tcPrev").addEventListener("click",function(){nhay(-1)});
+  $("tcNext").addEventListener("click",function(){nhay(1)});
+  stage.addEventListener("click",doi);
+  document.addEventListener("keydown",function(e){
+    if(!dangChieu)return;
+    if(e.key==="Escape"){dong();return}
+    if(e.key===" "){e.preventDefault();doi();return}
+    if(e.key==="ArrowRight"){e.preventDefault();nhay(1)}
+    if(e.key==="ArrowLeft"){e.preventDefault();nhay(-1)}
+  });
+  /* mo thang che do ki-ot: index.html?tuchay=1 */
+  if(/[?&]tuchay=1/.test(location.search))setTimeout(mo,900);
+})();
+
+
+
+/* ==========================================================
+   15. NHAC NEN VA LOI CA TROI
+   Giai dieu lay tu caytrithucgiaidieu.mid, phat bang Web Audio
+   nen khong can file am thanh roi, chay duoc ca khi khong mang.
+   ========================================================== */
+
+/* ===== LOI BAI HAT — moi vong nhac tha 3 kho, het bai thi quay lai ===== */
+var LOICA=[
+ ["Có một cái cây giữa sân trường nhỏ,","Lớn lên từ bao ước mơ học trò.",
+  "Từng chiếc lá mang một lời muốn nói,","Gửi đến thầy cô những tháng năm qua."],
+ ["Có những buổi chiều bảng đen phấn trắng,","Có những bài học theo mãi cuộc đời.",
+  "Thầy cô lặng thầm như người gieo hạt,","Cho những mầm xanh vươn tới chân trời."],
+ ["Rồi mai này mỗi người đi một hướng,","Có thể xa mái lớp thân quen.",
+  "Nhưng trong tim vẫn còn nguyên ký ức,","Một thời áo trắng chẳng thể nào quên."],
+ ["Cây tri thức, cây của bao yêu thương,","Rễ bám sâu vào những điều thầy dạy.",
+  "Cành vươn cao theo bao mùa nắng mới,","Lá xanh màu của những ước mơ xa."],
+ ["Cây tri thức, xin gửi lời thiết tha,","Cảm ơn người đã cho em khôn lớn.",
+  "Dẫu mai này đi muôn phương, vạn nẻo,","Vẫn nhớ về một mái trường thân yêu."],
+ ["Trên từng chiếc lá có lời tri ân,","Có tiếng nói thân thương được giữ lại.",
+  "Một trang sách, một câu chuyện ngày ấy,","Một lời cảm ơn còn ngại chưa trao."],
+ ["Chạm vào chiếc lá, nghe bao kỷ niệm,","Những giọng nói quen như ở bên mình.",
+  "Dẫu thời gian đưa chúng em khôn lớn,","Tình thầy trò vẫn mãi ở trong tim."],
+ ["Nếu một ngày cây không còn xanh lá,","Nếu sân trường thay đổi những hàng cây,",
+  "Thì những điều thầy cô từng gieo xuống,","Vẫn nở hoa trong chúng em mỗi ngày."],
+ ["Cây tri thức, cây của bao yêu thương,","Xin giữ mãi những tháng ngày tươi đẹp.",
+  "Từng chiếc lá là một lời cảm ơn,","Từng nhành cây là một niềm thương nhớ."],
+ ["Ngày hai mươi tháng mười một lại về,","Chúng em hát bằng tất cả yêu thương.",
+  "Dẫu mai này đi muôn phương, vạn nẻo,","Vẫn nhớ về thầy cô và mái trường."],
+ ["Cây có thể thay lá qua từng mùa,","Nhưng lòng biết ơn... còn mãi trong tim."]
+];
+/* ===== CHINH TO NHO TUNG BE ===== */
+var MIX={mel:[.26,"triangle"],dem:[.075,"sine"],gui:[.05,"triangle"],
+         day:[.095,"triangle"],bass:[.14,"sine"]};
+
+var NHAC={mel:[6000,691,71,6750,691,69,7500,691,67,8250,691,69,9000,691,66,9750,691,69,10500,1380,71,12000,691,71,12750,691,74,13500,691,72,14250,691,71,15000,691,69,15750,691,67,16500,1380,69,18000,691,67,18750,691,69,19500,691,71,20250,691,74,21000,691,72,21750,691,71,22500,1380,69,24000,691,72,24750,691,74,25500,691,76,26250,691,74,27000,691,74,27750,691,71,28500,1380,69,30000,691,71,30750,691,74,31500,691,76,32250,691,79,33000,691,76,33750,691,74,34500,1380,72,36000,691,74,36750,691,76,37500,691,79,38250,691,76,39000,691,74,39750,691,71,40500,1380,69,42000,691,72,42750,691,74,43500,691,76,44250,691,74,45000,691,71,45750,691,69,46500,1380,66,48000,1380,67,49500,691,71,50250,691,67,51000,2759,67],dem:[0,413,55,375,413,62,750,413,59,1125,413,67,1500,413,59,1875,413,62,2250,413,55,2625,413,62,3000,413,50,3375,413,62,3750,413,57,4125,413,66,4500,413,57,4875,413,62,5250,413,50,5625,413,62,6000,413,52,6375,413,59,6750,413,55,7125,413,64,7500,413,55,7875,413,59,8250,413,52,8625,413,59,9000,413,48,9375,413,60,9750,413,55,10125,413,64,10500,413,55,10875,413,60,11250,413,48,11625,413,60,12000,413,55,12375,413,62,12750,413,59,13125,413,67,13500,413,59,13875,413,62,14250,413,55,14625,413,62,15000,413,50,15375,413,62,15750,413,57,16125,413,66,16500,413,57,16875,413,62,17250,413,50,17625,413,62,18000,413,48,18375,413,60,18750,413,55,19125,413,64,19500,413,55,19875,413,60,20250,413,48,20625,413,60,21000,413,50,21375,413,62,21750,413,57,22125,413,66,22500,413,57,22875,413,62,23250,413,50,23625,413,62,24000,413,55,24375,413,62,24750,413,59,25125,413,67,25500,413,59,25875,413,62,26250,413,55,26625,413,62,27000,413,50,27375,413,62,27750,413,57,28125,413,66,28500,413,57,28875,413,62,29250,413,50,29625,413,62,30000,413,52,30375,413,59,30750,413,55,31125,413,64,31500,413,55,31875,413,59,32250,413,52,32625,413,59,33000,413,48,33375,413,60,33750,413,55,34125,413,64,34500,413,55,34875,413,60,35250,413,48,35625,413,60,36000,413,55,36375,413,62,36750,413,59,37125,413,67,37500,413,59,37875,413,62,38250,413,55,38625,413,62,39000,413,50,39375,413,62,39750,413,57,40125,413,66,40500,413,57,40875,413,62,41250,413,50,41625,413,62,42000,413,48,42375,413,60,42750,413,55,43125,413,64,43500,413,55,43875,413,60,44250,413,48,44625,413,60,45000,413,50,45375,413,62,45750,413,57,46125,413,66,46500,413,57,46875,413,62,47250,413,50,47625,413,62,48000,413,55,48375,413,62,48750,413,59,49125,413,67,49500,413,59,49875,413,62,50250,413,55,50625,413,62,51000,413,55,51375,413,62,51750,413,59,52125,413,67,52500,413,59,52875,413,62,53250,413,55,53625,413,62],gui:[6000,375,67,6056,375,71,6113,375,76,7125,375,67,7181,375,71,7238,375,76,7875,375,67,7931,375,71,7988,375,76,8625,375,67,8681,375,71,8738,375,76,9000,375,67,9056,375,72,9112,375,76,10125,375,67,10181,375,72,10238,375,76,10875,375,67,10931,375,72,10988,375,76,11625,375,67,11681,375,72,11738,375,76,12000,375,71,12056,375,74,12112,375,79,13125,375,71,13181,375,74,13238,375,79,13875,375,71,13931,375,74,13988,375,79,14625,375,71,14681,375,74,14738,375,79,15000,375,69,15056,375,74,15112,375,78,16125,375,69,16181,375,74,16238,375,78,16875,375,69,16931,375,74,16988,375,78,17625,375,69,17681,375,74,17738,375,78,18000,375,67,18056,375,72,18112,375,76,19125,375,67,19181,375,72,19238,375,76,19875,375,67,19931,375,72,19988,375,76,20625,375,67,20681,375,72,20738,375,76,21000,375,69,21056,375,74,21112,375,78,22125,375,69,22181,375,74,22238,375,78,22875,375,69,22931,375,74,22988,375,78,23625,375,69,23681,375,74,23738,375,78,24000,375,71,24056,375,74,24112,375,79,25125,375,71,25181,375,74,25238,375,79,25875,375,71,25931,375,74,25988,375,79,26625,375,71,26681,375,74,26738,375,79,27000,375,69,27056,375,74,27112,375,78,28125,375,69,28181,375,74,28238,375,78,28875,375,69,28931,375,74,28988,375,78,29625,375,69,29681,375,74,29738,375,78,30000,375,67,30056,375,71,30112,375,76,31125,375,67,31181,375,71,31238,375,76,31875,375,67,31931,375,71,31988,375,76,32625,375,67,32681,375,71,32738,375,76,33000,375,67,33056,375,72,33113,375,76,34125,375,67,34181,375,72,34238,375,76,34875,375,67,34931,375,72,34988,375,76,35625,375,67,35681,375,72,35738,375,76,36000,375,71,36056,375,74,36113,375,79,37125,375,71,37181,375,74,37238,375,79,37875,375,71,37931,375,74,37988,375,79,38625,375,71,38681,375,74,38738,375,79,39000,375,69,39056,375,74,39113,375,78,40125,375,69,40181,375,74,40238,375,78,40875,375,69,40931,375,74,40988,375,78,41625,375,69,41681,375,74,41738,375,78,42000,375,67,42056,375,72,42113,375,76,43125,375,67,43181,375,72,43238,375,76,43875,375,67,43931,375,72,43988,375,76,44625,375,67,44681,375,72,44738,375,76,45000,375,69,45056,375,74,45113,375,78,46125,375,69,46181,375,74,46238,375,78,46875,375,69,46931,375,74,46988,375,78,47625,375,69,47681,375,74,47738,375,78,48000,375,71,48056,375,74,48113,375,79,49125,375,71,49181,375,74,49238,375,79,49875,375,71,49931,375,74,49988,375,79,50625,375,71,50681,375,74,50738,375,79,51000,375,71,51056,375,74,51113,375,79,52125,375,71,52181,375,74,52238,375,79,52875,375,71,52931,375,74,52988,375,79,53625,375,71,53681,375,74,53738,375,79],day:[24000,2925,71,24000,2925,74,24000,2925,79,27000,2925,69,27000,2925,74,27000,2925,78,30000,2925,67,30000,2925,71,30000,2925,76,33000,2925,67,33000,2925,72,33000,2925,76,36000,2925,71,36000,2925,74,36000,2925,79,39000,2925,69,39000,2925,74,39000,2925,78,42000,2925,67,42000,2925,72,42000,2925,76,45000,2925,69,45000,2925,74,45000,2925,78,48000,2925,71,48000,2925,74,48000,2925,79],bass:[0,1275,43,1500,1275,43,3000,1275,38,4500,1275,38,6000,1275,40,7500,1275,40,9000,1275,36,10500,1275,36,12000,1275,43,13500,1275,43,15000,1275,38,16500,1275,38,18000,1275,36,19500,1275,36,21000,1275,38,22500,1275,38,24000,1275,43,25500,1275,43,27000,1275,38,28500,1275,38,30000,1275,40,31500,1275,40,33000,1275,36,34500,1275,36,36000,1275,43,37500,1275,43,39000,1275,38,40500,1275,38,42000,1275,36,43500,1275,36,45000,1275,38,46500,1275,38,48000,1275,43,49500,1275,43,51000,1275,43,52500,1275,43],dai:55913};
+var MELT=[6000,6750,7500,8250,9000,9750,10500,12000,12750,13500,14250,15000,15750,16500,18000,18750,19500,20250,21000,21750,22500,24000,24750,25500,26250,27000,27750,28500,30000,30750,31500,32250,33000,33750,34500,36000,36750,37500,38250,39000,39750,40500,42000,42750,43500,44250,45000,45750,46500,48000,49500,50250,51000];
+
+(function nenNhac(){
+  var lop=$("loica"),nut=$("loa"),ic=$("loaIcon"),chu=$("loaChu");
+  if(!lop||!nut)return;
+  var DAI=NHAC.dai/1000, ctx=null, master=null, ke=0, tt="cho", hen=[];
+
+  function nho(v){try{localStorage.setItem("ctt-nhac",v)}catch(e){}}
+  function doc(){try{return localStorage.getItem("ctt-nhac")}catch(e){return null}}
+
+  /* ---- bo tong hop am thanh ---- */
+  function tan(p){return 440*Math.pow(2,(p-69)/12)}
+  function datNot(f,t0,d,vol,loai){
+    var o=ctx.createOscillator(),g=ctx.createGain();
+    o.type=loai;o.frequency.value=f;
+    d=Math.max(.14,d);
+    g.gain.setValueAtTime(.0001,t0);
+    g.gain.exponentialRampToValueAtTime(vol,t0+.016);
+    g.gain.exponentialRampToValueAtTime(.0001,t0+d*.97);
+    o.connect(g);g.connect(master);
+    o.start(t0);o.stop(t0+d+.05);
+  }
+  function datVong(t0){
+    for(var k in MIX){
+      var a=NHAC[k];if(!a)continue;
+      var v=MIX[k][0],loai=MIX[k][1];
+      for(var i=0;i<a.length;i+=3){
+        var s=t0+a[i]/1000,d=a[i+1]/1000;
+        datNot(tan(a[i+2]),s,d,v,loai);
+        if(k==="mel")datNot(tan(a[i+2]+12),s,d*.55,v*.2,"sine");
+      }
+    }
+  }
+  function lenLich(){
+    if(!ctx||ctx.state!=="running")return;
+    var gio=ctx.currentTime;
+    if(ke<gio+.5)ke=gio+.25;
+    while(ke<gio+3){datVong(ke);ke+=DAI}
+  }
+  function khoiTao(){
+    var AC=window.AudioContext||window.webkitAudioContext;
+    if(!AC)return false;
+    try{ctx=new AC()}catch(e){return false}
+    master=ctx.createGain();master.gain.value=0;
+    var loc=ctx.createBiquadFilter();loc.type="lowpass";loc.frequency.value=4300;
+    master.connect(loc);loc.connect(ctx.destination);
+    setInterval(lenLich,900);
+    return true;
+  }
+
+  /* ---- loi ca va not nhac troi xuong ---- */
+  function doKhung(){
+    var st=$("stage");if(!st)return;
+    var r=st.getBoundingClientRect(),h=r.height;
+    /* bat dau ngay duoi bang ten truong, du cho de khong de chu */
+    var tren=Math.max(16,h*.05);
+    var bien=document.querySelector("#campus .ctext");
+    if(bien){
+      var b=bien.getBoundingClientRect();
+      if(b.height>0)tren=Math.max(tren,b.bottom-r.top+Math.round(h*.04));
+    }
+    var con=Math.max(120,h-tren);
+    lop.style.setProperty("--loi-top",Math.round(tren)+"px");
+    lop.style.setProperty("--loi-h",Math.round(con*.9)+"px");
+    lop.style.setProperty("--loi-d",Math.round(con*.5)+"px");
+  }
+  function thaKho(k){
+    doKhung();
+    var e=document.createElement("div");e.className="kho";
+    var h="";LOICA[k].forEach(function(d){h+="<i>"+d+"</i>"});
+    e.innerHTML=h;lop.appendChild(e);
+    setTimeout(function(){if(e.parentNode)e.parentNode.removeChild(e)},15800);
+  }
+  var NOTG=["♪","♫","♩"];
+  function thaNot(){
+    var e=document.createElement("span");e.className="notbay";
+    e.textContent=NOTG[(Math.random()*3)|0];
+    e.style.left=(7+Math.random()*86)+"%";
+    e.style.top=(Math.random()*24)+"%";
+    e.style.setProperty("--nx",((Math.random()*34-17)|0)+"px");
+    e.style.setProperty("--ny",((130+Math.random()*90)|0)+"px");
+    lop.appendChild(e);
+    setTimeout(function(){if(e.parentNode)e.parentNode.removeChild(e)},5900);
+  }
+  var khoHienTai=0;
+  function donHen(){hen.forEach(clearTimeout);hen=[]}
+  function vongHinh(){
+    donHen();doKhung();
+    var dau=khoHienTai;
+    [6200,22500,38800].forEach(function(ms,i){
+      var k=dau+i;
+      if(k>=LOICA.length)return;
+      hen.push(setTimeout(function(){thaKho(k)},ms));
+    });
+    khoHienTai=(dau+3)%LOICA.length;
+    MELT.forEach(function(ms){hen.push(setTimeout(thaNot,ms+260))});
+    hen.push(setTimeout(vongHinh,NHAC.dai));
+  }
+  addEventListener("resize",doKhung,{passive:true});
+
+  /* ---- nut loa ---- */
+  function veNut(){
+    if(tt==="chay"){ic.innerHTML="&#128266;";chu.textContent="Đang phát nhạc"}
+    else if(tt==="tat"){ic.innerHTML="&#128263;";chu.textContent="Nhạc đang tắt"}
+    else{ic.innerHTML="&#128266;";chu.textContent="Bật nhạc nền"}
+    nut.setAttribute("aria-pressed",tt==="chay"?"false":"true");
+    nut.classList.add("hien");
+  }
+  function bat(){
+    if(!ctx)return;
+    nho("bat");
+    ctx.resume().then(function(){
+      if(ctx.state!=="running"){tt="cho";veNut();return}
+      tt="chay";ke=0;khoHienTai=0;lenLich();
+      master.gain.setTargetAtTime(.9,ctx.currentTime,.5);
+      vongHinh();veNut();
+    },function(){tt="cho";veNut()});
+  }
+  function tatDi(){
+    tt="tat";nho("tat");
+    if(ctx)master.gain.setTargetAtTime(0,ctx.currentTime,.25);
+    veNut();
+  }
+  nut.addEventListener("click",function(){tt==="chay"?tatDi():bat()});
+
+  /* ---- khoi dong ---- */
+  vongHinh();                       /* hinh anh chay ca khi tat tieng */
+  if(!khoiTao()){nut.classList.remove("hien");return}
+  if(doc()==="tat"){tt="tat";veNut();return}
+  bat();
+  setTimeout(function(){
+    if(tt==="chay")return;
+    tt="cho";veNut();                /* trinh duyet chan tu phat: cho mot cu cham */
+    ["pointerdown","keydown","touchstart"].forEach(function(ev){
+      document.addEventListener(ev,function motLan(){
+        document.removeEventListener(ev,motLan);
+        if(tt!=="chay"&&tt!=="tat")bat();
+      },{passive:true});
+    });
+  },700);
+})();
 
 
 /* ---------- 13. Chuyen qua lai giua cay 2D va khu vuon 3D ---------- */
