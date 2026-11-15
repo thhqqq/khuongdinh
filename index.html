@@ -718,6 +718,9 @@ html[data-theme="night"] .notbay{color:var(--gold-l)}
   font:600 12px/1 "Be Vietnam Pro",system-ui,Arial,sans-serif;
   box-shadow:0 10px 26px var(--shadow);transition:border-color .2s,color .2s}
 .loa.hien{display:inline-flex}
+.loa.chua{border-color:var(--gold);animation:loaNhay 1.9s ease-in-out infinite}
+@keyframes loaNhay{0%,100%{box-shadow:0 10px 26px var(--shadow)}
+  50%{box-shadow:0 10px 26px var(--shadow),0 0 0 7px rgba(201,162,77,.2)}}
 .loa:hover{border-color:var(--gold);color:var(--gold)}
 .loa b{font-weight:600}
 body.ba-chieu .loa,body.dang-chieu .loa{display:none}
@@ -921,7 +924,7 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
   <header class="mast">
     <div class="identity">
       <div class="seal" aria-hidden="true">&#10048;</div>
-      <div class="school"><strong>THPT KHƯƠNG ĐÌNH</strong>CHI ĐOÀN 11A · CÂY TRI THỨC</div>
+      <div class="school"><strong>THPT KHƯƠNG ĐÌNH</strong>CHI ĐOÀN 11A8 · CÂY TRI THỨC</div>
     </div>
     <div class="tools">
       <div class="progress" title="Số tư liệu đã mở">
@@ -949,7 +952,7 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
   <section class="stage" id="stage" aria-label="Cây tri thức với 15 chiếc lá tư liệu">
 
     <aside class="side left">
-      <div class="k">Chi đoàn 11A · 20/11</div>
+      <div class="k">Chi đoàn 11A8 · 20/11</div>
       <h2>Mỗi chiếc lá,<br>một lời gửi gắm.</h2>
       <div class="rule"></div>
       <p>Những trang viết, giọng nói và kỷ niệm của học trò Khương Đình, gói lại trong một mùa tri ân.</p>
@@ -1007,12 +1010,12 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
         <path class="trunk" d="M402 666 C410 600 418 540 428 492 C436 452 439 400 434 336 L466 336 C461 400 464 452 472 492 C482 540 490 600 498 666 C478 658 422 658 402 666 Z"></path>
         <path class="bark" d="M438 620 Q430 566 442 516 M456 596 Q464 546 454 500 M444 470 Q436 420 446 372"></path>
 
-        <g class="signboard" role="img" aria-label="Biển lớp: Chi đoàn 11A">
+        <g class="signboard" role="img" aria-label="Biển lớp: Chi đoàn 11A8">
           <path class="rope" d="M415 524 L408 540 M485 524 L492 540"></path>
           <rect class="plank" x="384" y="538" width="132" height="62" rx="9"></rect>
           <rect class="plank-in" x="391" y="545" width="118" height="48" rx="6"></rect>
           <text class="plank-k" x="450" y="562" text-anchor="middle">CHI ĐOÀN</text>
-          <text class="plank-t" x="450" y="590" text-anchor="middle">11A</text>
+          <text class="plank-t" x="450" y="590" text-anchor="middle">11A8</text>
         </g>
 
         <g id="crown">
@@ -1099,7 +1102,7 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
   <div class="tc-chap" id="tcChap"></div>
   <div class="tc-stage"><div class="tc-in" id="tcStage"></div></div>
   <div class="tc-foot">
-    <span class="tc-brand">THPT Khương Đình · Chi đoàn 11A</span>
+    <span class="tc-brand">THPT Khương Đình · Chi đoàn 11A8</span>
     <span class="tc-tools">
       <button id="tcPrev" aria-label="Màn trước">&#8249;</button>
       <button id="tcPause" aria-label="Tạm dừng">&#10073;&#10073;</button>
@@ -1120,7 +1123,7 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
       <div><b>1</b><span>lớp tiên phong</span></div>
     </div>
     <div class="tvtree" id="tvtree"></div>
-    <p class="tvnote">Mỗi lớp là một cái cây: cây xanh là lớp đã có kho tư liệu số, cây non là lớp đang triển khai, mầm là lớp chờ khởi động. Chi đoàn 11A là lớp đầu tiên hoàn thiện — cấu trúc này sẵn sàng nhân rộng cho các lớp còn lại.</p>
+    <p class="tvnote">Mỗi lớp là một cái cây: cây xanh là lớp đã có kho tư liệu số, cây non là lớp đang triển khai, mầm là lớp chờ khởi động. Chi đoàn 11A8 là lớp đầu tiên hoàn thiện — cấu trúc này sẵn sàng nhân rộng cho các lớp còn lại.</p>
     <div id="groups"></div>
   </div>
 </div>
@@ -1134,7 +1137,7 @@ body.ba-chieu .curtain,body.ba-chieu .skip{display:none}
 <div id="app"></div>
 
 <div class="hud">
-  <div class="brand"><strong>THPT KHƯƠNG ĐÌNH</strong>CHI ĐOÀN 11A · KHU VƯỜN 3D</div>
+  <div class="brand"><strong>THPT KHƯƠNG ĐÌNH</strong>CHI ĐOÀN 11A8 · KHU VƯỜN 3D</div>
   <div class="hud-right">
     <span class="pill" id="count">0 / 15</span>
     <button class="pill" id="btnThoat3D">← Về cây 2D</button>
@@ -1545,7 +1548,7 @@ GROUPS.forEach(function(g){
    mo : true = mo san khi vao thu vien                      */
 var KHOA=[
   {ten:"Niên khóa 2024–2028",phu:"Khối 11 · đang học",mo:true,lop:[
-    {ten:"11A",n:15},{ten:"11A2"},{ten:"11B"},{ten:"11C"}
+    {ten:"11A8",n:15},{ten:"11A2"},{ten:"11B"},{ten:"11C"}
   ]},
   {ten:"Niên khóa 2023–2027",phu:"Khối 12 · chờ khởi động",lop:[
     {ten:"12A"},{ten:"12A2"},{ten:"12B"},{ten:"12C"}
@@ -2346,7 +2349,7 @@ function dungVuon3D(){
   }
 
   /* cay cua lop minh o giua san */
-  var tips = makeTree(0, 0, 1, true, "11A");
+  var tips = makeTree(0, 0, 1, true, "11A8");
 
   /* cay cua cac lop khac quanh san: co la, co la tu lieu mo, khong bam duoc */
   (function grove(){
@@ -2718,7 +2721,7 @@ var CH1="I · Ứng dụng chuyển đổi số",
 var MAN=[
 {c:"",t:4000,h:function(){return(
   '<div class="tc-seal"'+tcAn(0)+'>&#10048;</div>'+
-  '<div class="tc-sub"'+tcAn(.18)+'>THPT KHƯƠNG ĐÌNH · CHI ĐOÀN 11A</div>'+
+  '<div class="tc-sub"'+tcAn(.18)+'>THPT KHƯƠNG ĐÌNH · CHI ĐOÀN 11A8</div>'+
   '<h1 class="tc-big"'+tcAn(.34)+'>Cây <em>Tri Thức</em></h1>'+
   '<div class="tc-line"'+tcAn(.56)+'></div>'+
   '<div class="tc-sub2"'+tcAn(.68)+'>Gửi lời tri ân · 20 · 11</div>')}},
@@ -2759,7 +2762,7 @@ var MAN=[
   return(
   '<h2 class="tc-h"'+tcAn(0)+'>Đồng bộ nhận diện lớp</h2>'+
   '<div style="margin-top:clamp(14px,2.2vw,24px)"'+tcAn(.18)+'>'+
-    '<span class="tc-bien"><small>CHI ĐOÀN</small><b>11A</b></span></div>'+
+    '<span class="tc-bien"><small>CHI ĐOÀN</small><b>11A8</b></span></div>'+
   '<p class="tc-note"'+tcAn(.34)+'>Một bảng màu, một bộ biểu tượng, một biển lớp — dùng thống nhất trên cây tri thức, khu vườn ba chiều và bảng mã QR in giấy.</p>'+
   '<div class="tc-mau">'+m+'</div>')}},
 
@@ -2812,7 +2815,7 @@ MAN.push(
   '<div class="tc-seal"'+tcAn(0)+'>&#10048;</div>'+
   '<h2 class="tc-h"'+tcAn(.16)+'>Xin tri ân thầy cô</h2>'+
   '<div class="tc-line"'+tcAn(.4)+'></div>'+
-  '<div class="tc-sub2"'+tcAn(.5)+'>CHI ĐOÀN 11A · THPT KHƯƠNG ĐÌNH</div>')}}
+  '<div class="tc-sub2"'+tcAn(.5)+'>CHI ĐOÀN 11A8 · THPT KHƯƠNG ĐÌNH</div>')}}
 );
 
 /* ---- bo chay ---- */
@@ -2909,7 +2912,17 @@ var MELT=[6000,6750,7500,8250,9000,9750,10500,12000,12750,13500,14250,15000,1575
 (function nenNhac(){
   var lop=$("loica"),nut=$("loa"),ic=$("loaIcon"),chu=$("loaChu");
   if(!lop||!nut)return;
-  var DAI=NHAC.dai/1000, ctx=null, master=null, ke=0, tt="cho", hen=[];
+  var DAI=NHAC.dai/1000, ctx=null, master=null, ke=0, tt="cho", hen=[], amCam=null;
+  /* nua giay im lang: iPhone chi cho Web Audio keu khi co the <audio> dang chay,
+     nho vay nut gat im lang ben hong may khong lam tat nhac. */
+  var CAM="data:audio/wav;base64,UklGRsQPAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YaAPAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA";
+  function moKhoaIOS(){
+    try{
+      if(!amCam){amCam=new Audio(CAM);amCam.loop=true;amCam.preload="auto";
+        amCam.setAttribute("playsinline","");amCam.setAttribute("webkit-playsinline","");}
+      var p=amCam.play();if(p&&p.catch)p.catch(function(){});
+    }catch(e){}
+  }
 
   function nho(v){try{localStorage.setItem("ctt-nhac",v)}catch(e){}}
   function doc(){try{return localStorage.getItem("ctt-nhac")}catch(e){return null}}
@@ -2949,7 +2962,12 @@ var MELT=[6000,6750,7500,8250,9000,9750,10500,12000,12750,13500,14250,15000,1575
     try{ctx=new AC()}catch(e){return false}
     master=ctx.createGain();master.gain.value=0;
     var loc=ctx.createBiquadFilter();loc.type="lowpass";loc.frequency.value=4300;
-    master.connect(loc);loc.connect(ctx.destination);
+    /* loa dien thoai rat nho: nen dong rong roi day am luong len */
+    var nen=ctx.createDynamicsCompressor();
+    nen.threshold.value=-20;nen.knee.value=18;nen.ratio.value=4;
+    nen.attack.value=.006;nen.release.value=.26;
+    var ra=ctx.createGain();ra.gain.value=1.45;
+    master.connect(loc);loc.connect(nen);nen.connect(ra);ra.connect(ctx.destination);
     setInterval(lenLich,900);
     return true;
   }
@@ -3010,21 +3028,27 @@ var MELT=[6000,6750,7500,8250,9000,9750,10500,12000,12750,13500,14250,15000,1575
     else if(tt==="tat"){ic.innerHTML="&#128263;";chu.textContent="Nhạc đang tắt"}
     else{ic.innerHTML="&#128266;";chu.textContent="Bật nhạc nền"}
     nut.setAttribute("aria-pressed",tt==="chay"?"false":"true");
+    nut.classList.toggle("chua",tt==="cho");
     nut.classList.add("hien");
   }
   function bat(){
     if(!ctx)return;
-    nho("bat");
-    ctx.resume().then(function(){
+    nho("bat");moKhoaIOS();
+    var xong=function(){
+      if(tt==="chay")return;                 /* da chay roi thi thoi, tranh keu chong */
       if(ctx.state!=="running"){tt="cho";veNut();return}
       tt="chay";ke=0;khoHienTai=0;lenLich();
       master.gain.setTargetAtTime(.9,ctx.currentTime,.5);
       vongHinh();veNut();
-    },function(){tt="cho";veNut()});
+    };
+    var p=ctx.resume();
+    if(p&&p.then)p.then(xong,function(){tt="cho";veNut()});
+    else xong();
   }
   function tatDi(){
     tt="tat";nho("tat");
     if(ctx)master.gain.setTargetAtTime(0,ctx.currentTime,.25);
+    if(amCam){try{amCam.pause()}catch(e){}}
     veNut();
   }
   nut.addEventListener("click",function(){tt==="chay"?tatDi():bat()});
@@ -3032,18 +3056,30 @@ var MELT=[6000,6750,7500,8250,9000,9750,10500,12000,12750,13500,14250,15000,1575
   /* ---- khoi dong ---- */
   vongHinh();                       /* hinh anh chay ca khi tat tieng */
   if(!khoiTao()){nut.classList.remove("hien");return}
+
+  /* Trinh duyet dien thoai chan tu phat tieng. Bat MOI cu cham, bam hay go phim
+     cho den khi nhac that su keu, chu khong chi thu dung mot lan.            */
+  var dangThu=false;
+  function thuMo(){
+    if(tt==="chay"||tt==="tat"||dangThu)return;
+    dangThu=true;bat();
+    setTimeout(function(){dangThu=false},500);
+  }
+  var SUKIEN=["pointerdown","touchend","click","keydown"];
+  SUKIEN.forEach(function(e){document.addEventListener(e,thuMo,{passive:true})});
+  var canhGac=setInterval(function(){
+    if(tt==="chay"||tt==="tat"){
+      SUKIEN.forEach(function(e){document.removeEventListener(e,thuMo)});
+      clearInterval(canhGac);
+    }
+  },1200);
+  document.addEventListener("visibilitychange",function(){
+    if(!document.hidden&&tt==="chay"&&ctx&&ctx.state!=="running")ctx.resume();
+  });
+
   if(doc()==="tat"){tt="tat";veNut();return}
   bat();
-  setTimeout(function(){
-    if(tt==="chay")return;
-    tt="cho";veNut();                /* trinh duyet chan tu phat: cho mot cu cham */
-    ["pointerdown","keydown","touchstart"].forEach(function(ev){
-      document.addEventListener(ev,function motLan(){
-        document.removeEventListener(ev,motLan);
-        if(tt!=="chay"&&tt!=="tat")bat();
-      },{passive:true});
-    });
-  },700);
+  setTimeout(function(){if(tt!=="chay"&&tt!=="tat"){tt="cho";veNut()}},700);
 })();
 
 
